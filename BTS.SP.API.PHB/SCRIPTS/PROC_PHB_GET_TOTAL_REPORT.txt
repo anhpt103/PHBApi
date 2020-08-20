@@ -1,0 +1,31 @@
+﻿create or replace PROCEDURE "PHB_GET_TOTAL_REPORT" 
+(
+  maBaoCao IN NVARCHAR2,
+  maQHNS IN NVARCHAR2,
+  namBC IN NUMBER,
+  kyBC IN NUMBER,
+  outRef OUT SYS_REFCURSOR
+)AS
+QUERY_STR  VARCHAR2(32767); 
+BEGIN
+    IF(maBaoCao <>'-1') THEN
+    QUERY_STR:='SELECT '''||maBaoCao||''' AS MA_BAO_CAO, bc.ID,bc.MA_QHNS,sys.TEN_DVQHNS,bc.MA_CHUONG,bc.NAM_BC,bc.KY_BC,bc.TRANG_THAI,bc.REFID,bc.NGAY_TAO,bc.NGUOI_TAO FROM PHB_'||maBaoCao||' bc,SYS_DVQHNS sys 
+                    WHERE (bc.NAM_BC='||namBC||' OR '''||namBC||'''=''-1'') AND (bc.KY_BC='||kyBC||' OR '''||kyBC||'''=''-1'') AND (bc.MA_QHNS='''||maQHNS||''' OR '''||maQHNS||'''=''-1'') AND bc.MA_QHNS=sys.MA_DVQHNS';
+        OPEN outRef FOR QUERY_STR;
+
+    ELSE
+        BEGIN
+            QUERY_STR:='';
+            FOR rec IN (SELECT * FROM PHB_DM_BAOCAO dmbaocao)
+            LOOP
+                QUERY_STR:=QUERY_STR||' SELECT '''||rec.MA_BAO_CAO||''' as MA_BAO_CAO,bi.ID,bi.REFID,bi.MA_CHUONG,bi.MA_QHNS,
+                bi.NAM_BC,bi.KY_BC,bi.TRANG_THAI,bi.NGAY_TAO,bi.NGUOI_TAO,sys.TEN_DVQHNS FROM PHB_'||rec.MA_BAO_CAO||' bi 
+                INNER JOIN SYS_DVQHNS sys ON bi.MA_QHNS=sys.MA_DVQHNS WHERE (bi.NAM_BC='||namBC||' OR '||namBC||'=-1) 
+                AND (bi.KY_BC='||kyBC||' OR '||kyBC||'=-1) AND ('''||maQHNS||'''=''-1'' OR bi.MA_QHNS='''||maQHNS||''') UNION';
+            END LOOP;
+            QUERY_STR:=SUBSTR(QUERY_STR, 0, LENGTH(QUERY_STR) - 5);
+            DBMS_OUTPUT.PUT_LINE(QUERY_STR);
+            OPEN outRef FOR QUERY_STR;
+        END;
+    END IF;
+END PHB_GET_TOTAL_REPORT;

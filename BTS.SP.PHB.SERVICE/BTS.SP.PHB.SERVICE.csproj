@@ -1,0 +1,629 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{900A6B19-92EF-48BA-A027-D13E0FAF7F18}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BTS.SP.PHB.SERVICE</RootNamespace>
+    <AssemblyName>BTS.SP.PHB.SERVICE</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.1.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.1.0\lib\net40\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.12.1.022\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess.EntityFramework, Version=6.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.EntityFramework.12.1.022\lib\net45\Oracle.ManagedDataAccess.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.7\lib\net40\System.Linq.Dynamic.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AUTH\AuNguoiDungQuyen\AuNguoiDungQuyenConfigModel.cs" />
+    <Compile Include="AUTH\AuNguoiDungQuyen\AuNguoiDungQuyenService.cs" />
+    <Compile Include="AUTH\AuNguoiDungQuyen\AuNguoiDungQuyenViewModel.cs" />
+    <Compile Include="AUTH\AuNguoiDungNhomQuyen\AuNguoiDungNhomQuyenConfigModel.cs" />
+    <Compile Include="AUTH\AuNguoiDungNhomQuyen\AuNguoiDungNhomQuyenService.cs" />
+    <Compile Include="AUTH\AuNguoiDungNhomQuyen\AuNguoiDungNhomQuyenViewModel.cs" />
+    <Compile Include="AUTH\AuNguoiDung\AuNguoiDungService.cs" />
+    <Compile Include="AUTH\AuNguoiDung\AuNguoiDungVm.cs" />
+    <Compile Include="AUTH\AuNhomQuyenChucNang\AuNhomQuyenChucNangConfigModel.cs" />
+    <Compile Include="AUTH\AuNhomQuyenChucNang\AuNhomQuyenChucNangService.cs" />
+    <Compile Include="AUTH\AuNhomQuyenChucNang\AuNhomQuyenChucNangViewModel.cs" />
+    <Compile Include="AUTH\AuNhomQuyen\AuNhomQuyenVm.cs" />
+    <Compile Include="AUTH\AuNhomQuyen\AuNhomQuyenService.cs" />
+    <Compile Include="BuildQuery\IConverter.cs" />
+    <Compile Include="BuildQuery\Implimentations\QueryBuilder.cs" />
+    <Compile Include="BuildQuery\Implimentations\QueryFilterBase.cs" />
+    <Compile Include="BuildQuery\Implimentations\QueryFilterLinQ.cs" />
+    <Compile Include="BuildQuery\Implimentations\QueryFilterParam.cs" />
+    <Compile Include="BuildQuery\Implimentations\QueryOrder.cs" />
+    <Compile Include="BuildQuery\IQueryBuilder.cs" />
+    <Compile Include="BuildQuery\IQueryFilter.cs" />
+    <Compile Include="BuildQuery\IQueryFilterParam.cs" />
+    <Compile Include="BuildQuery\IQueryOrder.cs" />
+    <Compile Include="BuildQuery\Log\LogObj.cs" />
+    <Compile Include="BuildQuery\Log\LogState.cs" />
+    <Compile Include="BuildQuery\Message\MessageObj.cs" />
+    <Compile Include="BuildQuery\Result\FilterObj.cs" />
+    <Compile Include="BuildQuery\Result\PagedObj.cs" />
+    <Compile Include="BuildQuery\Result\ResultObj.cs" />
+    <Compile Include="BuildQuery\Result\Types\ResultState.cs" />
+    <Compile Include="BuildQuery\Types\FilterMethod.cs" />
+    <Compile Include="BuildQuery\Types\OrderMethod.cs" />
+    <Compile Include="Helper\ChoiceObj.cs" />
+    <Compile Include="Helper\ClassHelper.cs" />
+    <Compile Include="Helper\JObjectClient.cs" />
+    <Compile Include="Helper\MD5Encrypt.cs" />
+    <Compile Include="Helper\ReadNumberToText.cs" />
+    <Compile Include="Helper\RequestStringObj.cs" />
+    <Compile Include="Helper\StateInfoObj.cs" />
+    <Compile Include="Helper\TransferObj.cs" />
+    <Compile Include="HTDM\CommonService.cs" />
+    <Compile Include="HTDM\DmBaoCao\DmBaoCaoVm.cs" />
+    <Compile Include="HTDM\dmnganhkt\DM_NGANHKTService.cs" />
+    <Compile Include="HTDM\DmTienLuong\DmTienLuongService.cs" />
+    <Compile Include="HTDM\DmTienLuong\DmTienLuongVm.cs" />
+    <Compile Include="HTDM\DmCanBo\DmCanBoService.cs" />
+    <Compile Include="HTDM\DmCanBo\DmCanBoVm.cs" />
+    <Compile Include="HTDM\DmChiTieuBaoCao\DM_CHITIEU_BAOCAOVm.cs" />
+    <Compile Include="HTDM\DmChuong\DmChuongVm.cs" />
+    <Compile Include="HTDM\DmCtMucTieu\DmCtMucTieuService.cs" />
+    <Compile Include="HTDM\DmCtMucTieu\DmCtMucTieuVm.cs" />
+    <Compile Include="HTDM\DmDBHC\DmDBHCService.cs" />
+    <Compile Include="HTDM\DmDBHC\DmDBHCVm.cs" />
+    <Compile Include="HTDM\DmDoiTuongNopThue\DmDoiTuongNopThueService.cs" />
+    <Compile Include="HTDM\DmDoiTuongNopThue\DmDoiTuongNopThueVm.cs" />
+    <Compile Include="HTDM\DmDuAn\DmDuAnVm.cs" />
+    <Compile Include="HTDM\DmDVQHNS\DmDVQHNSVm.cs" />
+    <Compile Include="HTDM\DmHoatDong\DmHoatDongVm.cs" />
+    <Compile Include="HTDM\DmLoaiKhoan\DmLoaiKhoanVm.cs" />
+    <Compile Include="HTDM\DmLoaiNganSach\DmLoaiNganSachVm.cs" />
+    <Compile Include="HTDM\DmCoQuanThu\DmCoQuanThuService.cs" />
+    <Compile Include="HTDM\DmCoQuanThu\DmCoQuanThuVm.cs" />
+    <Compile Include="HTDM\DmNguonNganSach\DmNguonNganSachVm.cs" />
+    <Compile Include="HTDM\DmNhomMucChi\DmNhomMucChiService.cs" />
+    <Compile Include="HTDM\DmNhomMucChi\DmNhomMucChiVm.cs" />
+    <Compile Include="HTDM\DmNoiDungKt\DmNoiDungKtService.cs" />
+    <Compile Include="HTDM\DmNoiDungKt\DmNoiDungKtVm.cs" />
+    <Compile Include="HTDM\DmTaiKhoan\DmTaiKhoanVm.cs" />
+    <Compile Include="HTDM\DmTKKhoBac\DmTKKhoBacService.cs" />
+    <Compile Include="HTDM\DmTKKhoBac\DmTKKhoBacVm.cs" />
+    <Compile Include="HTDM\DmTSCD\DmTSCDVm.cs" />
+    <Compile Include="HTDM\DmTyLeDieuTiet\DmTyLeDieuTietService.cs" />
+    <Compile Include="HTDM\DmTyLeDieuTiet\DmTyLeDieuTietVm.cs" />
+    <Compile Include="Models\B02H_II\B02H_IIVm.cs" />
+    <Compile Include="Models\L_PC_D\PHB_L_PC_DVm.cs" />
+    <Compile Include="Models\L_PC_UB\PHB_L_PC_UBVm.cs" />
+    <Compile Include="Models\PL32_P1_TT01\PL32_P1_TT01Vm.cs" />
+    <Compile Include="Models\PL32_P2_TT01\PL32_P2_TT01Vm.cs" />
+    <Compile Include="Models\C_B02A_X\C_B02A_XVm.cs" />
+    <Compile Include="Models\C_B03C_X\C_B03c_XVm.cs" />
+    <Compile Include="Models\C_B06X\PHB_C_B06XVm.cs" />
+    <Compile Include="Models\C_B04X\C_B04XVm.cs" />
+    <Compile Include="Models\C_B02B_X\C_B02B_XVm.cs" />
+    <Compile Include="Models\C_B03A_X\C_B03a_XVm.cs" />
+    <Compile Include="Models\C_B03D_X\C_B03d_XVm.cs" />
+    <Compile Include="Models\C_B03X\C_B03XVm.cs" />
+    <Compile Include="Models\C_B03B_X\C_B03b_XVm.cs" />
+    <Compile Include="Models\C_B01X\PHB_C_B01XVm.cs" />
+    <Compile Include="Models\B03BCQT_BII1\B03BCQT_BII1Vm.cs" />
+    <Compile Include="Models\BIEU10TT344\BIEU10TT344Vm.cs" />
+    <Compile Include="Models\BIEU67NS\BIEU67NSVm.cs" />
+    <Compile Include="Models\BIEU68NS\BIEU68NSVm.cs" />
+    <Compile Include="Models\BIEU69NS\BIEU69NSVm.cs" />
+    <Compile Include="Models\BIEU70NS\BIEU70NSVm.cs" />
+    <Compile Include="Models\B02BCQT\B02BCQTVm.cs" />
+    <Compile Include="Models\BIEU03\BIEU03Vm.cs" />
+    <Compile Include="Models\BIEU09TT344\BIEU09TT344Vm.cs" />
+    <Compile Include="Models\BIEU12TT344\BIEU12TT344Vm.cs" />
+    <Compile Include="Models\BIEU11TT344\BIEU11TT344Vm.cs" />
+    <Compile Include="Models\BIEU2B\BIEU2BVm.cs" />
+    <Compile Include="Models\BIEU01B\BIEU01BVm.cs" />
+    <Compile Include="Models\BIEU2A\BIEU2AVm.cs" />
+    <Compile Include="Models\BIEU01A\BIEU01AVm.cs" />
+    <Compile Include="Models\BIEU4BP1\BIEU4BP1Vm.cs" />
+    <Compile Include="Models\BIEU4BP2\BIEU4BP2Vm.cs" />
+    <Compile Include="Models\BIEU3BP2\BIEU3BP2Vm.cs" />
+    <Compile Include="Models\BIEU3BP1\BIEU3BP1Vm.cs" />
+    <Compile Include="Models\BIEU4A\BIEU4AVm.cs" />
+    <Compile Include="Models\BIEU3A\BIEU3AVm.cs" />
+    <Compile Include="Models\BIEU_07TT344\BIEU07TT344Vm.cs" />
+    <Compile Include="Models\BIEU_08TT344\BIEU08TT344Vm.cs" />
+    <Compile Include="Models\Bieu01CP2\Bieu01CP2Vm.cs" />
+    <Compile Include="Models\DOICHIEUSOLIEU\DOICHIEUSOLIEUVm.cs" />
+    <Compile Include="Models\DoiChieuTABMIS\DoiChieuTABMISVm.cs" />
+    <Compile Include="Models\F01_02BCQT_PII\F01_02BCQT_PIIVm.cs" />
+    <Compile Include="Models\F01_01BCQT\F01_01BCQTVm.cs" />
+    <Compile Include="Models\PL31\PL31Vm.cs" />
+    <Compile Include="Models\PL41\PL41Vm.cs" />
+    <Compile Include="Models\PL42_P1_TT01\PL42_P1_TT01Vm.cs" />
+    <Compile Include="PBDT\QLDT\B03\PHB_PBDT_QLDT_B03_DETAIL_Service.cs" />
+    <Compile Include="PBDT\QLDT\B03\PHB_PBDT_QLDT_B03_Service.cs" />
+    <Compile Include="PBDT\QLDT\B03\PHB_PBDT_QLDT_B03_TEMPLATE_Service.cs" />
+    <Compile Include="PBDT\QLDT\B02\PHB_PBDT_QLDT_B02_DETAIL_Service.cs" />
+    <Compile Include="PBDT\QLDT\B02\PHB_PBDT_QLDT_B02_Service.cs" />
+    <Compile Include="PBDT\QLDT\B02\PHB_PBDT_QLDT_B02_TEMPLATE_Service.cs" />
+    <Compile Include="PBDT\QLDT\B01\PHB_PBDT_QLDT_B01_DETAIL_Service.cs" />
+    <Compile Include="PBDT\QLDT\B01\PHB_PBDT_QLDT_B01_Service.cs" />
+    <Compile Include="PBDT\QLDT\B01\PHB_PBDT_QLDT_B01_TEMPLATE_Service.cs" />
+    <Compile Include="PBDT\TT342\B06\PHB_PBDT_B06_DONVI_Service.cs" />
+    <Compile Include="PBDT\TT342\B124\PHB_PBDT_B124_DETAIL_Service.cs" />
+    <Compile Include="PBDT\TT342\B124\PHB_PBDT_B124_Service.cs" />
+    <Compile Include="PBDT\TT342\B124\PHB_PBDT_B124_TEMPLATE_Service.cs" />
+    <Compile Include="PBDT\TT342\B125\PHB_PBDT_B125_DETAIL_Service.cs" />
+    <Compile Include="PBDT\TT342\B125\PHB_PBDT_B125_Service.cs" />
+    <Compile Include="PBDT\TT342\B125\PHB_PBDT_B125_TEMPLATE_Service.cs" />
+    <Compile Include="PBDT\TT342\B1502\PHB_PBDT_B1502_COLUMN_Service.cs" />
+    <Compile Include="PBDT\TT342\B1502\PHB_PBDT_B1502_DATA_Service.cs" />
+    <Compile Include="PBDT\TT342\B1502\PHB_PBDT_B1502_ROW_Serivce.cs" />
+    <Compile Include="PBDT\TT342\B1502\PHB_PBDT_B1502_Service - Copy.cs" />
+    <Compile Include="PBDT\TT342\B1502\PHB_PBDT_B1502_TEMPLATE_Service.cs" />
+    <Compile Include="PBDT\TT342\B1501\PHB_PBDT_B1501_TEMPLATE_Service.cs" />
+    <Compile Include="PBDT\TT342\B1501\PHB_PBDT_B1501_Service.cs" />
+    <Compile Include="PBDT\TT342\B32\PHB_PBDT_B32_DETAIL_Service.cs" />
+    <Compile Include="PBDT\TT342\B32\PHB_PBDT_B32_Service.cs" />
+    <Compile Include="PBDT\TT342\B32\PHB_PBDT_B32_TEMPLATE_Service.cs" />
+    <Compile Include="PBDT\TT342\B1501\PHB_PBDT_B1501_DATA_Service.cs" />
+    <Compile Include="PBDT\TT342\B1501\PHB_PBDT_B1501_COLUMN_Service.cs" />
+    <Compile Include="PBDT\TT342\B1501\PHB_PBDT_B1501_ROW_Serivce.cs" />
+    <Compile Include="PBDT\TT342\B122\PHB_PBDT_B122_Service.cs" />
+    <Compile Include="PBDT\TT342\B122\PHB_PBDT_B122_DETAIL_Service.cs" />
+    <Compile Include="PBDT\TT342\B122\PHB_PBDT_B122_TEMPLATE_Service.cs" />
+    <Compile Include="PBDT\TT342\B123\PHB_PBDT_B123_Service.cs" />
+    <Compile Include="PBDT\TT342\B123\PHB_PBDT_B123_DETAIL_Service.cs" />
+    <Compile Include="PBDT\TT342\B123\PHB_PBDT_B123_TEMPLATE_Service.cs" />
+    <Compile Include="PBDT\TT342\B06\PHB_PBDT_B06_DATA_Service.cs" />
+    <Compile Include="PBDT\TT342\B06\PHB_PBDT_B06_DETAIL_Service.cs" />
+    <Compile Include="PBDT\TT342\B06\PHB_PBDT_B06_Service.cs" />
+    <Compile Include="PBDT\TT342\B06\PHB_PBDT_B06_TEMPLATE_Service.cs" />
+    <Compile Include="PBDT\TT342\B1309\PHB_PBDT_B1309_DETAIL_Service.cs" />
+    <Compile Include="PBDT\TT342\B1309\PHB_PBDT_B1309_Service.cs" />
+    <Compile Include="PBDT\TT342\B1309\PHB_PBDT_B1309_TEMPLATE_Service.cs" />
+    <Compile Include="PBDT\TT342\B1310\PHB_PBDT_B1310_DETAIL_Service.cs" />
+    <Compile Include="PBDT\TT342\B1310\PHB_PBDT_B1310_Service.cs" />
+    <Compile Include="PBDT\TT342\B1310\PHB_PBDT_B1310_TEMPLATE_Service.cs" />
+    <Compile Include="PBDT\TT342\B1311\PHB_PBDT_B1311_DETAIL_Service.cs" />
+    <Compile Include="PBDT\TT342\B1311\PHB_PBDT_B1311_Service.cs" />
+    <Compile Include="PBDT\TT342\B1311\PHB_PBDT_B1311_TEMPLATE_Service.cs" />
+    <Compile Include="PBDT\TT342\B1312\PHB_PBDT_B1312_DETAIL_Service.cs" />
+    <Compile Include="PBDT\TT342\B1312\PHB_PBDT_B1312_Service.cs" />
+    <Compile Include="PBDT\TT342\B1312\PHB_PBDT_B1312_TEMPLATE_Service.cs" />
+    <Compile Include="PBDT\TT342\B1307\PHB_PBDT_B1307_DETAIL_Service.cs" />
+    <Compile Include="PBDT\TT342\B1307\PHB_PBDT_B1307_Service.cs" />
+    <Compile Include="PBDT\TT342\B1307\PHB_PBDT_B1307_TEMPLATE_Service.cs" />
+    <Compile Include="PBDT\TT342\B1303\PHB_PBDT_B1303_DETAIL_Service.cs" />
+    <Compile Include="PBDT\TT342\B1303\PHB_PBDT_B1303_Service.cs" />
+    <Compile Include="PBDT\TT342\B1303\PHB_PBDT_B1303_TEMPLATE_Service.cs" />
+    <Compile Include="PBDT\TT342\B1305\PHB_PBDT_B1305_DETAIL_Service.cs" />
+    <Compile Include="PBDT\TT342\B1305\PHB_PBDT_B1305_Service.cs" />
+    <Compile Include="PBDT\TT342\B1305\PHB_PBDT_B1305_TEMPLATE_Service.cs" />
+    <Compile Include="PBDT\TT342\B1306\PHB_PBDT_B1306_DETAIL_Service.cs" />
+    <Compile Include="PBDT\TT342\B1306\PHB_PBDT_B1306_Service.cs" />
+    <Compile Include="PBDT\TT342\B1306\PHB_PBDT_B1306_TEMPLATE_Service.cs" />
+    <Compile Include="PBDT\TT342\B1308\PHB_PBDT_B1308_DETAIL_Service.cs" />
+    <Compile Include="PBDT\TT342\B1308\PHB_PBDT_B1308_Service.cs" />
+    <Compile Include="PBDT\TT342\B1308\PHB_PBDT_B1308_TEMPLATE_Service.cs" />
+    <Compile Include="PBDT\TT342\B14\PHB_PBDT_B14_DETAIL_Service.cs" />
+    <Compile Include="PBDT\TT342\B14\PHB_PBDT_B14_Service.cs" />
+    <Compile Include="PBDT\TT342\B14\PHB_PBDT_B14_TEMPLATE_Service.cs" />
+    <Compile Include="PBDT\TT342\B1304\PHB_PBDT_B1304_DETAIL_Service.cs" />
+    <Compile Include="PBDT\TT342\B1304\PHB_PBDT_B1304_Service.cs" />
+    <Compile Include="PBDT\TT342\B1304\PHB_PBDT_B1304_TEMPLATE_Service.cs" />
+    <Compile Include="PBDT\TT342\B1302\PHB_PBDT_B1302_DETAIL_Service.cs" />
+    <Compile Include="PBDT\TT342\B1302\PHB_PBDT_B1302_Service.cs" />
+    <Compile Include="PBDT\TT342\B1302\PHB_PBDT_B1302_TEMPLATE_Service.cs" />
+    <Compile Include="PBDT\TT342\B1301\PHB_PBDT_B1301_DETAIL_Service.cs" />
+    <Compile Include="PBDT\TT342\B1301\PHB_PBDT_B1301_Service.cs" />
+    <Compile Include="PBDT\TT342\B1301\PHB_PBDT_B1301_TEMPLATE_Service.cs" />
+    <Compile Include="PBDT\TT342\B05\PHB_PBDT_B05_DETAIL_Service.cs" />
+    <Compile Include="PBDT\TT342\B05\PHB_PBDT_B05_Service.cs" />
+    <Compile Include="PBDT\TT342\B05\PHB_PBDT_B05_TEMPLATE_Service.cs" />
+    <Compile Include="PBDT\TT342\B07\PHB_PBDT_B07_DETAIL_Service.cs" />
+    <Compile Include="PBDT\TT342\B07\PHB_PBDT_B07_Service.cs" />
+    <Compile Include="PBDT\TT342\B07\PHB_PBDT_B07_TEMPLATE_Service.cs" />
+    <Compile Include="PBDT\TT342\B111\PHB_PBDT_B111_DETAIL_Service.cs" />
+    <Compile Include="PBDT\TT342\B111\PHB_PBDT_B111_Service.cs" />
+    <Compile Include="PBDT\TT342\B111\PHB_PBDT_B111_TEMPLATE_Service.cs" />
+    <Compile Include="PBDT\TT342\B121\PHB_PBDT_B121_DETAIL_Service.cs" />
+    <Compile Include="PBDT\TT342\B121\PHB_PBDT_B121_Service.cs" />
+    <Compile Include="PBDT\TT342\B121\PHB_PBDT_B121_TEMPLATE_Service.cs" />
+    <Compile Include="PBDT\TT344\B03\PHB_PBDT_TT344_B03_DETAIL_Service.cs" />
+    <Compile Include="PBDT\TT344\B03\PHB_PBDT_TT344_B03_Service.cs" />
+    <Compile Include="PBDT\TT344\B03\PHB_PBDT_TT344_B03_TEMPLATE_Service.cs" />
+    <Compile Include="PBDT\TT344\B04\PHB_PBDT_TT344_B04_DETAIL_Service.cs" />
+    <Compile Include="PBDT\TT344\B04\PHB_PBDT_TT344_B04_Service.cs" />
+    <Compile Include="PBDT\TT344\B04\PHB_PBDT_TT344_B04_TEMPLATE_Service.cs" />
+    <Compile Include="PBDT\TT344\B05\PHB_PBDT_TT344_B05_DETAIL_Service.cs" />
+    <Compile Include="PBDT\TT344\B05\PHB_PBDT_TT344_B05_Service.cs" />
+    <Compile Include="PBDT\TT344\B05\PHB_PBDT_TT344_B05_TEMPLATE_Service.cs" />
+    <Compile Include="PBDT\TT344\B06\PHB_PBDT_TT344_B06_DETAIL_Service.cs" />
+    <Compile Include="PBDT\TT344\B06\PHB_PBDT_TT344_B06_Service.cs" />
+    <Compile Include="PBDT\TT344\B06\PHB_PBDT_TT344_B06_TEMPLATE_Service.cs" />
+    <Compile Include="PBDT\TT344\B01\PHB_PBDT_TT344_B01_DETAIL_Service.cs" />
+    <Compile Include="PBDT\TT344\B01\PHB_PBDT_TT344_B01_Service.cs" />
+    <Compile Include="PBDT\TT344\B01\PHB_PBDT_TT344_B01_TEMPLATE_Service.cs" />
+    <Compile Include="PBDT\TT344\B02\PHB_PBDT_TT344_B02_DETAIL_Service.cs" />
+    <Compile Include="PBDT\TT344\B02\PHB_PBDT_TT344_B02_Service.cs" />
+    <Compile Include="PBDT\TT344\B02\PHB_PBDT_TT344_B02_TEMPLATE_Service.cs" />
+    <Compile Include="REPORT\B01BDG_TT137\PhbB01bdgTT137DetailService.cs" />
+    <Compile Include="REPORT\B01BDG_TT137\PhbB01bdgTT137Service.cs" />
+    <Compile Include="REPORT\B01BDG_TT137\PhbB01bdgTT137TemplateService.cs" />
+    <Compile Include="REPORT\B01B_TT137\PhbB01bTT137DetailService.cs" />
+    <Compile Include="REPORT\B01B_TT137\PhbB01bTT137Service.cs" />
+    <Compile Include="REPORT\B01B_TT137\PhbB01bTT137TemplateService.cs" />
+    <Compile Include="REPORT\B02_TT137\PhbB02TT137DetailService.cs" />
+    <Compile Include="REPORT\B02_TT137\PhbB02TT137Service.cs" />
+    <Compile Include="REPORT\B02_TT137\PhbB02TT137TemplateService.cs" />
+    <Compile Include="REPORT\B03BCTC\PhbB03BctcDetailService.cs" />
+    <Compile Include="REPORT\B03BCTC\PhbB03BctcService.cs" />
+    <Compile Include="REPORT\B03BCTC\PhbB03BctcTemplateService.cs" />
+    <Compile Include="REPORT\B03BCTC\PhbB03BctcVm.cs" />
+    <Compile Include="REPORT\B03_TT90\B03_TT90Vm.cs" />
+    <Compile Include="REPORT\B04_TT90\B04_TT90Service.cs" />
+    <Compile Include="REPORT\B04_TT90\B04_TT90Vm.cs" />
+    <Compile Include="REPORT\B04_TT90\B04_TT90_DETAILService.cs" />
+    <Compile Include="REPORT\B04_TT90\B04_TT90_TEMPLATEService.cs" />
+    <Compile Include="REPORT\BIEU03_TT137\BIEU03_TT137Service.cs" />
+    <Compile Include="REPORT\BIEU03_TT137\BIEU03_TT137Vm.cs" />
+    <Compile Include="REPORT\BIEU03_TT137\BIEU03_TT137_DETAILService.cs" />
+    <Compile Include="REPORT\BIEU03_TT137\BIEU03_TT137_TEMPLATEService.cs" />
+    <Compile Include="REPORT\B03_TT90\B03_TT90Service.cs" />
+    <Compile Include="REPORT\B03_TT90\B03_TT90_DETAILService.cs" />
+    <Compile Include="REPORT\B03_TT90\PHB_B03_TT90_TEMPLATEService.cs" />
+    <Compile Include="REPORT\BM14_TT134\PhbBm14TT134DetailService.cs" />
+    <Compile Include="REPORT\BM14_TT134\PhbBm14TT134Service.cs" />
+    <Compile Include="REPORT\BM14_TT134\PhbBm14TT134Vm.cs" />
+    <Compile Include="REPORT\BM16_TT344\PhbBm16TT344DetailService.cs" />
+    <Compile Include="REPORT\BM16_TT344\PhbBm16TT344Service.cs" />
+    <Compile Include="REPORT\BM16_TT344\PhbBm16TT344Vm.cs" />
+    <Compile Include="REPORT\DUTOANLUONG\PhbDuToanLuongDetailService.cs" />
+    <Compile Include="REPORT\DUTOANLUONG\PhbDuToanLuongService.cs" />
+    <Compile Include="REPORT\DUTOANLUONG\PhbDuToanLuongTemplateService.cs" />
+    <Compile Include="REPORT\B02H_II\B02H_IIService.cs" />
+    <Compile Include="REPORT\B02H_II\B02H_II_DetailService.cs" />
+    <Compile Include="REPORT\B01A_TT137\PhbB01aTT137DetailService.cs" />
+    <Compile Include="REPORT\B01A_TT137\PhbB01aTT137Service.cs" />
+    <Compile Include="REPORT\B01A_TT137\PhbB01aTT137TemplateService.cs" />
+    <Compile Include="REPORT\BM48_TT342\PhbBm48TT342DetailService.cs" />
+    <Compile Include="REPORT\BM48_TT342\PhbBm48TT342Service.cs" />
+    <Compile Include="REPORT\BM48_TT342\PhbBm48TT342TemplateService.cs" />
+    <Compile Include="REPORT\C_B04X\PhbBieuC_B04XDetail_TSCDService.cs" />
+    <Compile Include="REPORT\L_PC_DT\PhbL_PC_DTService.cs" />
+    <Compile Include="REPORT\L_PC_DT\PhbL_PC_UBDetailService.cs" />
+    <Compile Include="REPORT\L_PC_DT\PHB_L_PC_DTVm.cs" />
+    <Compile Include="REPORT\L_PC_D\PhbL_PC_DDetailService.cs" />
+    <Compile Include="REPORT\L_PC_D\PhbL_PC_DService.cs" />
+    <Compile Include="REPORT\L_PC_UB\PhbL_PC_UBDetailService.cs" />
+    <Compile Include="REPORT\L_PC_UB\PhbL_PC_UBService.cs" />
+    <Compile Include="REPORT\NHAP_DT_XA\BC_NHAPDTXA_DETAILService.cs" />
+    <Compile Include="REPORT\PHB_BM14_TT134\kekhaichungtuDetailService.cs" />
+    <Compile Include="REPORT\PHB_BM14_TT134\kekhaichungtuService.cs" />
+    <Compile Include="REPORT\PHB_BM14_TT134\kekhaichungtuVm.cs" />
+    <Compile Include="REPORT\PL01_TT137\PHB_PL01_TT137DetailService.cs" />
+    <Compile Include="REPORT\PL02_TT137\PHB_PL02_TT137DetailService.cs" />
+    <Compile Include="REPORT\PL02_TT137\PL02_TT137ReportViewModel.cs" />
+    <Compile Include="REPORT\PL02_TT137\PL02_TT137Service.cs" />
+    <Compile Include="REPORT\PL02_TT137\PL02_TT137Vm.cs" />
+    <Compile Include="REPORT\PL01_TT137\PHB_PL01_TT137Service.cs" />
+    <Compile Include="REPORT\PL01_TT137\PHB_PL01_TT137Vm.cs" />
+    <Compile Include="REPORT\PL01_TT137\PL01_TT137ReportViewModel.cs" />
+    <Compile Include="REPORT\PL32_P1_TT01\PhbPL32_P2_TT01DetailService.cs" />
+    <Compile Include="REPORT\PL32_P1_TT01\PhbPL32_P2_TT01Service.cs" />
+    <Compile Include="REPORT\PL32_P2_TT01\PhbPL32_P2_TT01DetailService.cs" />
+    <Compile Include="REPORT\PL32_P2_TT01\PhbPL32_P2_TT01Service.cs" />
+    <Compile Include="REPORT\C_B03C_X\Phb_C_B03C_XDetailService.cs" />
+    <Compile Include="REPORT\C_B03C_X\Phb_C_B03C_XService.cs" />
+    <Compile Include="REPORT\C_B06X\PhbC_B06XDetailService.cs" />
+    <Compile Include="REPORT\C_B06X\PhbC_B06XService.cs" />
+    <Compile Include="REPORT\C_B06X\PhbC_B06XTemplateService.cs" />
+    <Compile Include="REPORT\C_B04X\PhbBieuC_B04XDetailService.cs" />
+    <Compile Include="REPORT\C_B04X\PhbBieuC_B04XService.cs" />
+    <Compile Include="REPORT\C_B02aX\B02aXDetailService.cs" />
+    <Compile Include="REPORT\C_B02aX\B02aXService.cs" />
+    <Compile Include="REPORT\C_B03A_X\Phb_C_B03A_XDetailService.cs" />
+    <Compile Include="REPORT\C_B03A_X\Phb_C_B03A_XService.cs" />
+    <Compile Include="REPORT\C_B03B_X\Phb_C_B03B_XDetailService.cs" />
+    <Compile Include="REPORT\C_B03B_X\Phb_C_B03B_XService.cs" />
+    <Compile Include="REPORT\C_B03D_X\Phb_C_B03D_XDetailService.cs" />
+    <Compile Include="REPORT\C_B03D_X\Phb_C_B03D_XService.cs" />
+    <Compile Include="REPORT\C_B03X\PhbcB03xDetailService.cs" />
+    <Compile Include="REPORT\C_B03X\PhbcB03xService.cs" />
+    <Compile Include="REPORT\C_B02B_X\C_B02B_XDetailService.cs" />
+    <Compile Include="REPORT\C_B02B_X\C_B02B_XService.cs" />
+    <Compile Include="REPORT\C_B01X\PhbC_B01XDetailService.cs" />
+    <Compile Include="REPORT\C_B01X\PhbC_B01XService.cs" />
+    <Compile Include="REPORT\C_B01X\PhbC_B01XTemplateService.cs" />
+    <Compile Include="REPORT\B03BCQT_BII1\PhbB03BCQT_BII1DetailService.cs" />
+    <Compile Include="REPORT\B03BCQT_BII1\PhbB03BCQT_BII1Service.cs" />
+    <Compile Include="REPORT\B03BCQT_BII1\PhbB03BCQT_BII1TemplateService.cs" />
+    <Compile Include="REPORT\BIEU10TT344\PhbBieu10tt344DetailService.cs" />
+    <Compile Include="REPORT\BIEU10TT344\PhbBieu10tt344Service.cs" />
+    <Compile Include="REPORT\Bieu2CP1\PhbBieu2CP1DetailService.cs" />
+    <Compile Include="REPORT\Bieu2CP1\PhbBieu2CP1Service.cs" />
+    <Compile Include="REPORT\Bieu2CP1\PhbBieu2CP1TemplateService.cs" />
+    <Compile Include="REPORT\Bieu2CP2\PhbBieu2CP2DetailService.cs" />
+    <Compile Include="REPORT\Bieu2CP2\PhbBieu2CP2Service.cs" />
+    <Compile Include="REPORT\Bieu67NS\PhbBieu67NsDetailService.cs" />
+    <Compile Include="REPORT\Bieu67NS\PhbBieu67NsService.cs" />
+    <Compile Include="REPORT\Bieu67NS\PhbBieu67NsTemplateService.cs" />
+    <Compile Include="REPORT\Bieu68NS\PhbBieu68NsDetailService.cs" />
+    <Compile Include="REPORT\Bieu68NS\PhbBieu68NsService.cs" />
+    <Compile Include="REPORT\Bieu68NS\PhbBieu68NsTemplateService.cs" />
+    <Compile Include="REPORT\Bieu69NS\PhbBieu69NsDetailService.cs" />
+    <Compile Include="REPORT\Bieu69NS\PhbBieu69NsService.cs" />
+    <Compile Include="REPORT\Bieu69NS\PhbBieu69NsTemplateService.cs" />
+    <Compile Include="REPORT\Bieu70NS\PhbBieu70NsDetailService.cs" />
+    <Compile Include="REPORT\Bieu70NS\PhbBieu70NsService.cs" />
+    <Compile Include="REPORT\Bieu70NS\PhbBieu70NsTemplateService.cs" />
+    <Compile Include="REPORT\B01BCQT\PhbB01BCQTDetailService.cs" />
+    <Compile Include="REPORT\B01BCQT\PhbB01BCQTService.cs" />
+    <Compile Include="REPORT\B01BCQT\PhbB01BCQTTemplateService.cs" />
+    <Compile Include="REPORT\B02BCQT\PhbB02BcqtDetailService.cs" />
+    <Compile Include="REPORT\B02BCQT\PhbB02BcqtService.cs" />
+    <Compile Include="REPORT\B02BCQT\PhbB02BcqtTemplateService.cs" />
+    <Compile Include="REPORT\Bieu01C\PhbBieu01CDetailService.cs" />
+    <Compile Include="REPORT\Bieu01C\PhbBieu01CService.cs" />
+    <Compile Include="REPORT\Bieu01C\PhbBieu01CTemplateService.cs" />
+    <Compile Include="REPORT\Bieu07TT344\PhbBieu07TT344DetailService.cs" />
+    <Compile Include="REPORT\Bieu07TT344\PhbBieu07TT344Service.cs" />
+    <Compile Include="REPORT\Bieu07TT344\PhbBieu07TT344TemplateService.cs" />
+    <Compile Include="REPORT\Bieu08TT344\PhbBieu07TT344DetailService.cs" />
+    <Compile Include="REPORT\Bieu08TT344\PhbBieu07TT344Service.cs" />
+    <Compile Include="REPORT\Bieu08TT344\PhbBieu07TT344TemplateService.cs" />
+    <Compile Include="REPORT\BIEU09TT344\PhbBieu09tt344DetailService.cs" />
+    <Compile Include="REPORT\BIEU09TT344\PhbBieu09tt344Service.cs" />
+    <Compile Include="REPORT\BIEU09TT344\PhbBieu09tt344TemplateService.cs" />
+    <Compile Include="REPORT\Bieu12TT344\PhbBieu12TT344DetailService.cs" />
+    <Compile Include="REPORT\Bieu12TT344\PhbBieu12TT344Service.cs" />
+    <Compile Include="REPORT\Bieu11TT344\PhbBieu11TT344DetailService.cs" />
+    <Compile Include="REPORT\Bieu11TT344\PhbBieu11TT344Service.cs" />
+    <Compile Include="REPORT\Bieu2B\PhbBieu2BDetailService.cs" />
+    <Compile Include="REPORT\Bieu2B\PhbBieu2BService.cs" />
+    <Compile Include="REPORT\Bieu2B\PhbBieu2BTemplateService.cs" />
+    <Compile Include="REPORT\Bieu01B\PhbBieu01BDetailService.cs" />
+    <Compile Include="REPORT\Bieu01B\PhbBieu01BService.cs" />
+    <Compile Include="REPORT\Bieu01B\PhbBieu01BTemplateService.cs" />
+    <Compile Include="REPORT\Bieu2A\PhbBieu2ADetailService.cs" />
+    <Compile Include="REPORT\Bieu2A\PhbBieu2AService.cs" />
+    <Compile Include="REPORT\Bieu2A\PhbBieu2ATemplateService.cs" />
+    <Compile Include="REPORT\Bieu01A\PhbBieu01AService.cs" />
+    <Compile Include="REPORT\Bieu01A\PhbBieu01ADetailService.cs" />
+    <Compile Include="REPORT\Bieu01A\PhbBieu01ATemplateService.cs" />
+    <Compile Include="REPORT\Bieu03\PhbBieu03DetailService.cs" />
+    <Compile Include="REPORT\Bieu03\PhbBieu03Service.cs" />
+    <Compile Include="REPORT\Bieu03\PhbBieu03TemplateService.cs" />
+    <Compile Include="REPORT\Bieu4BP1\PhbBieu4BP1DetailService.cs" />
+    <Compile Include="REPORT\Bieu4BP1\PhbBieu4BP1Service.cs" />
+    <Compile Include="REPORT\Bieu4BP1\PhbBieu4BP1TemplateService.cs" />
+    <Compile Include="REPORT\Bieu3BP1\PhbBieu3BP1Service.cs" />
+    <Compile Include="REPORT\Bieu4BP2\PhbBieu4BP2DetailService.cs" />
+    <Compile Include="REPORT\Bieu4BP2\PhbBieu4BP2Service.cs" />
+    <Compile Include="REPORT\Bieu3BP2\PhbBieu3BP2DetailService.cs" />
+    <Compile Include="REPORT\Bieu3BP1\PhbBieu3BP1DetailService.cs" />
+    <Compile Include="REPORT\Bieu3BP2\PhbBieu3BP2Service.cs" />
+    <Compile Include="REPORT\Bieu3BP1\PhbBieu3BP1TemplateService.cs" />
+    <Compile Include="REPORT\Bieu4A\PhbBieu4ADetailService.cs" />
+    <Compile Include="REPORT\Bieu4A\PhbBieu4AService.cs" />
+    <Compile Include="REPORT\Bieu4A\PhbBieu4ATemplateService.cs" />
+    <Compile Include="REPORT\Bieu3A\PhbBieu3ADetailService.cs" />
+    <Compile Include="REPORT\Bieu3A\PhbBieu3AService.cs" />
+    <Compile Include="REPORT\Bieu3A\PhbBieu3ATemplateService.cs" />
+    <Compile Include="REPORT\Bieu01CP2\Bieu01CP2DetailService.cs" />
+    <Compile Include="REPORT\Bieu01CP2\Bieu01CP2Service.cs" />
+    <Compile Include="REPORT\DOICHIEUSOLIEU\PhbDoiChieuSoLieuService.cs" />
+    <Compile Include="REPORT\DoiChieuTABMIS\DoiChieuTABMISService.cs" />
+    <Compile Include="REPORT\F01_01BCQT\F01_01BCQTDetailService.cs" />
+    <Compile Include="REPORT\F01_01BCQT\F01_01BCQTService.cs" />
+    <Compile Include="REPORT\F01_02BCQT\PhbF01_02BCQTDetailService.cs" />
+    <Compile Include="REPORT\F01_02BCQT\PhbF01_02BCQTService.cs" />
+    <Compile Include="REPORT\F01_02BCQT\PhbF01_02BCQTTemplateService.cs" />
+    <Compile Include="REPORT\F01_02BCQT_PII\F01_02BCQT_PIIDetailService.cs" />
+    <Compile Include="REPORT\F01_02BCQT_PII\F01_02BCQT_PIIService.cs" />
+    <Compile Include="REPORT\PhbReportFieldService.cs" />
+    <Compile Include="REPORT\PL03\PL03DetailService.cs" />
+    <Compile Include="REPORT\PL03\PL03Service.cs" />
+    <Compile Include="Models\PL03\PL03Vm.cs" />
+    <Compile Include="REPORT\PL31\PhbPL31DetailService.cs" />
+    <Compile Include="REPORT\PL31\PhbPL31Service.cs" />
+    <Compile Include="REPORT\PL31\PhbPL31TemplateService.cs" />
+    <Compile Include="REPORT\PL41\PhbPL41DetailService.cs" />
+    <Compile Include="REPORT\PL41\PhbPL41Service.cs" />
+    <Compile Include="REPORT\PL41\PhbPL41TemplateService.cs" />
+    <Compile Include="REPORT\PL42_P1_TT01\PhbPL42_P1_TT01DetailService.cs" />
+    <Compile Include="REPORT\PL42_P1_TT01\PhbPL42_P1_TT01Service.cs" />
+    <Compile Include="REPORT_PHA_BCTC\B01_BCTC\PhaB01BCTCDetailService.cs" />
+    <Compile Include="REPORT_PHA_BCTC\B01_BCTC\PhaB01BCTCTemplateService.cs" />
+    <Compile Include="REPORT_PHA_BCTC\B01_BCTC\PhaB01BCTCService.cs" />
+    <Compile Include="REPORT_PHA_BCTC\B01_BSTT_1\PhaB01BSTT1DetailService.cs" />
+    <Compile Include="REPORT_PHA_BCTC\B01_BSTT_1\PhaB01BSTT1Service.cs" />
+    <Compile Include="REPORT_PHA_BCTC\B01_BSTT_1\PhaB01BSTT1TemplateService.cs" />
+    <Compile Include="REPORT_PHA_BCTC\B01_BSTT_2\PhbB01BSTT2DetailService.cs" />
+    <Compile Include="REPORT_PHA_BCTC\B01_BSTT_2\PhbB01BSTT2Service.cs" />
+    <Compile Include="REPORT_PHA_BCTC\B01_BSTT_2\PhbB01BSTT2TemplateService.cs" />
+    <Compile Include="REPORT_PHA_BCTC\B02_BCTC\PhaB02BCTCDetailService.cs" />
+    <Compile Include="REPORT_PHA_BCTC\B02_BCTC\PhaB02BCTCService.cs" />
+    <Compile Include="REPORT_PHA_BCTC\B02_BCTC\PhaB02BCTCTemplateService.cs" />
+    <Compile Include="REPORT_PHA_BCTC\B03A_BCTC\PhbB03ABCTCDetailService.cs" />
+    <Compile Include="REPORT_PHA_BCTC\B03A_BCTC\PhbB03ABCTCService.cs" />
+    <Compile Include="REPORT_PHA_BCTC\B03A_BCTC\PhbB03ABCTCTemplateService.cs" />
+    <Compile Include="REPORT_PHA_BCTC\B03B_BCTC\PhaB03BBCTCService.cs" />
+    <Compile Include="REPORT_PHA_BCTC\B03B_BCTC\PhaB03BBCTCDetailService.cs" />
+    <Compile Include="REPORT_PHA_BCTC\B03B_BCTC\PhaB03BBCTCTemplateService.cs" />
+    <Compile Include="REPORT_PHA_BCTC\B04_BCTC\PhaB04BCTCDetailService.cs" />
+    <Compile Include="REPORT_PHA_BCTC\B04_BCTC\PhaB04BCTCService.cs" />
+    <Compile Include="REPORT_PHA_BCTC\B04_BCTC\PhaB04BCTCTemplateService.cs" />
+    <Compile Include="REPORT_PHA_BCTC\B05_BCTC\PhbB05BCTCDetailService.cs" />
+    <Compile Include="REPORT_PHA_BCTC\B05_BCTC\PhbB05BCTCService.cs" />
+    <Compile Include="REPORT_PHA_BCTC\B05_BCTC\PhbB05BCTCTemplateService.cs" />
+    <Compile Include="REPORT_PHA_BCTC\B05_BCTC\PhbB05BCTCVm.cs" />
+    <Compile Include="REPORT_PHA_BCTC\B05_BCTC\PhbB05BCTCWorkService.cs" />
+    <Compile Include="REPORT_PHA_BCTC\BC04_BCTC_TT107\BC04_BCTC_TT107Service.cs" />
+    <Compile Include="REPORT_PHA_BCTC\BC04_BCTC_TT107\BC04_BCTC_TT107Vm.cs" />
+    <Compile Include="REPORT_PHA_BCTC\BC04_BCTC_TT107\BC04_BCTC_TT107_DETAILService.cs" />
+    <Compile Include="REPORT_PHA_BCTC\BC04_BCTC_TT107\BC04_BCTC_TT107_TEMPLATEService.cs" />
+    <Compile Include="REPORT_PHA_BCTC\BCTC_TH_TEMPLATE\Pha_bctc_b01_bctc_th_template_Service.cs" />
+    <Compile Include="REPORT_PHA_BCTC\BCTC_TH_TEMPLATE\Pha_bctc_b02_bctc_th_template_Service.cs" />
+    <Compile Include="REPORT_PHA_BCTC\BCTC_TH_TEMPLATE\Pha_bctc_b03_bctc_th_template_Service.cs" />
+    <Compile Include="REPORT_PHA_BCTC\PHB_F01_02_P1\PHB_F01_02_P1Service.cs" />
+    <Compile Include="REPORT_PHA_BCTC\PHB_F01_02_P1\PHB_F01_02_P1Vm.cs" />
+    <Compile Include="REPORT_PHA_BCTC\PHB_F01_02_P1\PHB_F01_02_P1_DETAILService.cs" />
+    <Compile Include="REPORT_PHA_BCTC\PHB_F01_02_P1\PHB_F01_02_P1_TEMPLATEService.cs" />
+    <Compile Include="SERVICES\BaseService.cs" />
+    <Compile Include="SYS\SysDvqhns\SysDvqhnsService.cs" />
+    <Compile Include="SYS\SysDvqhns\SysDvqhnsVm.cs" />
+    <Compile Include="SYS\SysDvqhns_QuanLy\SysDvqhns_QuanLyService.cs" />
+    <Compile Include="SYS\SysDvqhns_QuanLy\SysDvqhns_QuanLyVm.cs" />
+    <Compile Include="SYS\sysLogChucNang\SysLogChucNangService.cs" />
+    <Compile Include="SYS\SysLogSyncMisa\SysLogSyncMisaService.cs" />
+    <Compile Include="SYS\SysScheduler\SysSchedulerService.cs" />
+    <Compile Include="TienIch\DieuChinhChiVm.cs" />
+    <Compile Include="TienIch\DieuChinhThuVm.cs" />
+    <Compile Include="TienIch\DoiChieuSoLieuService.cs" />
+    <Compile Include="TienIch\DoiChieuSoLieuVm.cs" />
+    <Compile Include="TienIch\KetXuatQTChiVm.cs" />
+    <Compile Include="TienIch\KetXuatQTVm.cs" />
+    <Compile Include="UTILS\ClassHelper.cs" />
+    <Compile Include="UTILS\CustomAuthorizeAttribute.cs" />
+    <Compile Include="UTILS\MemoryCacheHelper.cs" />
+    <Compile Include="AUTH\Shared\SharedService.cs" />
+    <Compile Include="HTDM\DmBaoCao\DmBaocaoService.cs" />
+    <Compile Include="HTDM\DmDuAn\DmDuAnService.cs" />
+    <Compile Include="HTDM\DmDVQHNS\DmDVQHNSService.cs" />
+    <Compile Include="HTDM\DmHoatDong\DmHoatDongService.cs" />
+    <Compile Include="HTDM\DmLoaiKhoan\DmLoaiKhoanService.cs" />
+    <Compile Include="HTDM\DmChuong\DmChuongService.cs" />
+    <Compile Include="HTDM\DmLoaiNganSach\DmLoaiNganSachService.cs" />
+    <Compile Include="HTDM\DmNguonNganSach\DmNguonNganSachService.cs" />
+    <Compile Include="HTDM\DmTaiKhoan\DmTaiKhoanService.cs" />
+    <Compile Include="HTDM\DmTSCD\DmTSCDService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SYS\SysChucNang\SysChucNangService.cs" />
+    <Compile Include="UTILS\RoleState.cs" />
+    <Compile Include="UTILS\Tree\DTree.cs" />
+    <Compile Include="UTILS\Tree\TreeHelpers.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BTS.SP.API.ENTITY\BTS.SP.API.ENTITY.csproj">
+      <Project>{3D9AAFE7-4555-415A-AB25-7B94C9D4FB0A}</Project>
+      <Name>BTS.SP.API.ENTITY</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BTS.SP.PHB.ENTITY\BTS.SP.PHB.ENTITY.csproj">
+      <Project>{067fee0a-ef25-4e4e-8c5c-b58c2d4aa2a1}</Project>
+      <Name>BTS.SP.PHB.ENTITY</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Frameworks\BTS.SP.TOOLS\BTS.SP.TOOLS.csproj">
+      <Project>{c188887b-cb9e-4ea3-83ae-a99e935e9e65}</Project>
+      <Name>BTS.SP.TOOLS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Frameworks\Repository.Pattern.Ef6\Repository.Pattern.Ef6.csproj">
+      <Project>{f68a1d19-93fb-47c1-a22b-42bea3e4fd8c}</Project>
+      <Name>Repository.Pattern.Ef6</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Frameworks\Repository.Pattern\Repository.Pattern.csproj">
+      <Project>{6e682a14-c872-4813-b620-76e108dea683}</Project>
+      <Name>Repository.Pattern</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Frameworks\Service.Pattern\Service.Pattern.csproj">
+      <Project>{9244974a-95ab-49cd-a247-493396d243a4}</Project>
+      <Name>Service.Pattern</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <Compile Include="HTDM\DmChiTieuBaoCao\DM_CHITIEU_BAOCAOService.cs" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DLL\EntityFramework.SqlServerCompact.dll" />
+    <Content Include="DLL\EPPlus.dll" />
+    <Content Include="DLL\Repository.Pattern.dll" />
+    <Content Include="DLL\Repository.Pattern.Ef6.dll" />
+    <Content Include="DLL\Service.Pattern.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\BIEU04TT61\" />
+    <Folder Include="REPORT\BIEU04TT61\" />
+    <Folder Include="REPORT\phbC_B01X\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

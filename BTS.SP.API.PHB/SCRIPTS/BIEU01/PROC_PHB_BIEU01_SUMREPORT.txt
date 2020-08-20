@@ -1,0 +1,127 @@
+﻿create or replace PROCEDURE "PHB_BIEU01_SUMREPORT" 
+(
+  MAHUYEN IN NVARCHAR2,
+  MACHUONG IN NVARCHAR2,
+  NAMBC IN NUMBER,
+  KYBC IN NUMBER,
+  LOAIBC IN NUMBER,
+  DSDVQHNS IN NVARCHAR2,
+  CUR OUT SYS_REFCURSOR
+)IS
+P_QUERY VARCHAR2(32767);
+BEGIN
+    IF LOAIBC = 1 THEN
+        BEGIN
+            P_QUERY:='SELECT  NVL(tpl.INDAM,0) as INDAM,NVL(tpl.INNGHIENG,1) as INNGHIENG,
+            bid.SAPXEP,bid.LOAI,bid.STT_CHI_TIEU,bid.MA_CHI_TIEU,bid.TEN_CHI_TIEU,
+            SUM(bid.DU_TOAN_DUOC_GIAO) as DU_TOAN_DUOC_GIAO,
+            SUM(bid.QUYET_TOAN_NAM) as QUYET_TOAN_NAM, N''0'' as MA_QHNS, N''Tổng hợp'' as TEN_QHNS  
+            FROM PHB_BIEU01 bi';
+            P_QUERY:=P_QUERY||' INNER JOIN PHB_BIEU01_DETAIL bid ON bid.PHB_BIEU01_REFID = bi.REFID 
+            INNER JOIN PHB_DM_DVQHNS dmDvqhns ON dmDvqhns.MA_QHNS = bi.MA_QHNS
+            LEFT JOIN PHB_BIEU01_TEMPLATE tpl ON tpl.MA_CHI_TIEU = bid.MA_CHI_TIEU ';
+            P_QUERY:=P_QUERY||' WHERE (bi.NAM_BC=CASE '||NAMBC||' WHEN -1 THEN bi.NAM_BC ELSE '||NAMBC||' END) 
+            AND (bi.KY_BC=CASE '||KYBC||' WHEN -1 THEN bi.KY_BC ELSE '||KYBC||' END) 
+            AND ('''||MAHUYEN||'''=''-1'' OR bi.MA_HUYEN='''||MAHUYEN||''')';
+            IF MACHUONG IS NOT NULL THEN
+                P_QUERY:=P_QUERY||' AND bi.MA_CHUONG='''||MACHUONG||'''';
+            END IF;
+            P_QUERY:=P_QUERY||' GROUP BY tpl.INDAM,tpl.INNGHIENG,bid.SAPXEP,bid.LOAI,bid.STT_CHI_TIEU,bid.MA_CHI_TIEU,bid.TEN_CHI_TIEU';
+            P_QUERY:=P_QUERY||' UNION (
+            SELECT  NVL(tpl2.INDAM,0) as INDAM,NVL(tpl2.INNGHIENG,1) as INNGHIENG,
+            bid2.SAPXEP,bid2.LOAI,bid2.STT_CHI_TIEU,bid2.MA_CHI_TIEU,bid2.TEN_CHI_TIEU,
+            SUM(bid2.DU_TOAN_DUOC_GIAO) as DU_TOAN_DUOC_GIAO,
+            SUM(bid2.QUYET_TOAN_NAM) as QUYET_TOAN_NAM, bi2.MA_QHNS,dmDvqhns.TEN_QHNS  
+            FROM PHB_BIEU01 bi2 
+            INNER JOIN PHB_BIEU01_DETAIL bid2 ON bid2.PHB_BIEU01_REFID = bi2.REFID
+            INNER JOIN PHB_DM_DVQHNS dmDvqhns ON dmDvqhns.MA_QHNS = bi2.MA_QHNS
+            LEFT JOIN PHB_BIEU01_TEMPLATE tpl2 ON tpl2.MA_CHI_TIEU = bid2.MA_CHI_TIEU WHERE (bi2.NAM_BC=CASE '||NAMBC||' WHEN -1 THEN bi2.NAM_BC ELSE '||NAMBC||' END) 
+            AND (bi2.KY_BC=CASE '||KYBC||' WHEN -1 THEN bi2.KY_BC ELSE '||KYBC||' END) 
+            AND ('''||MAHUYEN||'''=''-1'' OR bi2.MA_HUYEN='''||MAHUYEN||''') ';
+            IF MACHUONG IS NOT NULL THEN
+                P_QUERY:=P_QUERY||' AND bi2.MA_CHUONG='''||MACHUONG||'''';
+            END IF;
+            P_QUERY:=P_QUERY||' GROUP BY tpl2.INDAM,tpl2.INNGHIENG,bid2.SAPXEP,bid2.LOAI,bid2.STT_CHI_TIEU,bid2.MA_CHI_TIEU,bid2.TEN_CHI_TIEU,bi2.MA_QHNS,dmDvqhns.TEN_QHNS';
+            P_QUERY:=P_QUERY||') ORDER BY MA_QHNS,SAPXEP,MA_CHI_TIEU';
+        END;
+    ELSIF LOAIBC = 2 THEN
+        BEGIN
+            P_QUERY:='SELECT  NVL(tpl.INDAM,0) as INDAM,NVL(tpl.INNGHIENG,1) as INNGHIENG,
+            bid.SAPXEP,bid.LOAI,bid.STT_CHI_TIEU,bid.MA_CHI_TIEU,bid.TEN_CHI_TIEU,
+            SUM(bid.DU_TOAN_DUOC_GIAO) as DU_TOAN_DUOC_GIAO,
+            SUM(bid.QUYET_TOAN_NAM) as QUYET_TOAN_NAM, N''0'' as MA_QHNS, N''Tổng hợp'' as TEN_QHNS  
+            FROM PHB_BIEU01 bi';
+            P_QUERY:=P_QUERY||' INNER JOIN PHB_BIEU01_DETAIL bid ON bid.PHB_BIEU01_REFID = bi.REFID 
+            LEFT JOIN PHB_BIEU01_TEMPLATE tpl ON tpl.MA_CHI_TIEU = bid.MA_CHI_TIEU ';
+            P_QUERY:=P_QUERY||' WHERE (bi.NAM_BC=CASE '||NAMBC||' WHEN -1 THEN bi.NAM_BC ELSE '||NAMBC||' END) 
+            AND (bi.KY_BC=CASE '||KYBC||' WHEN -1 THEN bi.KY_BC ELSE '||KYBC||' END) 
+            AND ('''||MAHUYEN||'''=''-1'' OR bi.MA_HUYEN='''||MAHUYEN||''')';
+            IF MACHUONG IS NOT NULL THEN
+                P_QUERY:=P_QUERY||' AND bi.MA_CHUONG='''||MACHUONG||'''';
+            END IF;
+            IF DSDVQHNS IS NOT NULL THEN
+                P_QUERY:=P_QUERY||' AND bi.MA_QHNS IN('||DSDVQHNS||')';
+            END IF;
+            P_QUERY:=P_QUERY||' GROUP BY tpl.INDAM,tpl.INNGHIENG,bid.SAPXEP,bid.LOAI,bid.STT_CHI_TIEU,bid.MA_CHI_TIEU,bid.TEN_CHI_TIEU';
+            P_QUERY:=P_QUERY||' UNION (
+            SELECT  NVL(tpl2.INDAM,0) as INDAM,NVL(tpl2.INNGHIENG,1) as INNGHIENG,
+            bid2.SAPXEP,bid2.LOAI,bid2.STT_CHI_TIEU,bid2.MA_CHI_TIEU,bid2.TEN_CHI_TIEU,
+            SUM(bid2.DU_TOAN_DUOC_GIAO) as DU_TOAN_DUOC_GIAO,
+            SUM(bid2.QUYET_TOAN_NAM) as QUYET_TOAN_NAM, bi2.MA_QHNS,sysdv.TEN_DVQHNS as TEN_QHNS   
+            FROM PHB_BIEU01 bi2 
+            INNER JOIN PHB_BIEU01_DETAIL bid2 ON bid2.PHB_BIEU01_REFID = bi2.REFID
+            INNER JOIN SYS_DVQHNS sysdv ON sysdv.MA_DVQHNS = bi2.MA_QHNS
+            LEFT JOIN PHB_BIEU01_TEMPLATE tpl2 ON tpl2.MA_CHI_TIEU = bid2.MA_CHI_TIEU WHERE (bi2.NAM_BC=CASE '||NAMBC||' WHEN -1 THEN bi2.NAM_BC ELSE '||NAMBC||' END) 
+            AND (bi2.KY_BC=CASE '||KYBC||' WHEN -1 THEN bi2.KY_BC ELSE '||KYBC||' END) 
+            AND ('''||MAHUYEN||'''=''-1'' OR bi2.MA_HUYEN='''||MAHUYEN||''') ';
+            IF MACHUONG IS NOT NULL THEN
+                P_QUERY:=P_QUERY||' AND bi2.MA_CHUONG='''||MACHUONG||'''';
+            END IF;
+            IF DSDVQHNS IS NOT NULL THEN
+                P_QUERY:=P_QUERY||' AND bi2.MA_QHNS IN('||DSDVQHNS||') ';
+            END IF;
+            P_QUERY:=P_QUERY||' GROUP BY tpl2.INDAM,tpl2.INNGHIENG,bid2.SAPXEP,bid2.LOAI,bid2.STT_CHI_TIEU,bid2.MA_CHI_TIEU,bid2.TEN_CHI_TIEU,bi2.MA_QHNS,sysdv.TEN_DVQHNS';
+            P_QUERY:=P_QUERY||') ORDER BY MA_QHNS,SAPXEP,MA_CHI_TIEU';
+        END;
+    ELSIF LOAIBC=3 THEN
+        BEGIN
+            P_QUERY:='SELECT  NVL(tpl.INDAM,0) as INDAM,NVL(tpl.INNGHIENG,1) as INNGHIENG,
+            bid.SAPXEP,bid.LOAI,bid.STT_CHI_TIEU,bid.MA_CHI_TIEU,bid.TEN_CHI_TIEU,
+            SUM(bid.DU_TOAN_DUOC_GIAO) as DU_TOAN_DUOC_GIAO,
+            SUM(bid.QUYET_TOAN_NAM) as QUYET_TOAN_NAM,N''0'' as MA_QHNS, N''Tổng hợp'' as TEN_QHNS 
+            FROM PHB_BIEU01 bi';
+            P_QUERY:=P_QUERY||' INNER JOIN PHB_BIEU01_DETAIL bid ON bid.PHB_BIEU01_REFID = bi.REFID 
+            LEFT JOIN PHB_BIEU01_TEMPLATE tpl ON tpl.MA_CHI_TIEU = bid.MA_CHI_TIEU ';
+            P_QUERY:=P_QUERY||' WHERE (bi.NAM_BC=CASE '||NAMBC||' WHEN -1 THEN bi.NAM_BC ELSE '||NAMBC||' END) 
+            AND (bi.KY_BC=CASE '||KYBC||' WHEN -1 THEN bi.KY_BC ELSE '||KYBC||' END) 
+            AND ('''||MAHUYEN||'''=''-1'' OR bi.MA_HUYEN='''||MAHUYEN||''')';
+            IF MACHUONG IS NOT NULL THEN
+                P_QUERY:=P_QUERY||' AND bi.MA_CHUONG='''||MACHUONG||'''';
+            END IF;
+            IF DSDVQHNS IS NOT NULL THEN
+                P_QUERY:=P_QUERY||' AND bi.MA_QHNS IN(SELECT MA_DVQHNS FROM SYS_DVQHNS WHERE MA_DVQHNS_CHA IN('||DSDVQHNS||'))';
+            END IF;
+            P_QUERY:=P_QUERY||' GROUP BY tpl.INDAM,tpl.INNGHIENG,bid.SAPXEP,bid.LOAI,bid.STT_CHI_TIEU,bid.MA_CHI_TIEU,bid.TEN_CHI_TIEU';
+            P_QUERY:=P_QUERY||' UNION (
+            SELECT  NVL(tpl2.INDAM,0) as INDAM,NVL(tpl2.INNGHIENG,1) as INNGHIENG,
+            bid2.SAPXEP,bid2.LOAI,bid2.STT_CHI_TIEU,bid2.MA_CHI_TIEU,bid2.TEN_CHI_TIEU,
+            SUM(bid2.DU_TOAN_DUOC_GIAO) as DU_TOAN_DUOC_GIAO,
+            SUM(bid2.QUYET_TOAN_NAM) as QUYET_TOAN_NAM, bi2.MA_QHNS,sysdv.TEN_DVQHNS as TEN_QHNS  
+            FROM PHB_BIEU01 bi2 
+            INNER JOIN PHB_BIEU01_DETAIL bid2 ON bid2.PHB_BIEU01_REFID = bi2.REFID
+            INNER JOIN SYS_DVQHNS sysdv ON sysdv.MA_DVQHNS = bi2.MA_QHNS
+            LEFT JOIN PHB_BIEU01_TEMPLATE tpl2 ON tpl2.MA_CHI_TIEU = bid2.MA_CHI_TIEU WHERE (bi2.NAM_BC=CASE '||NAMBC||' WHEN -1 THEN bi2.NAM_BC ELSE '||NAMBC||' END) 
+            AND (bi2.KY_BC=CASE '||KYBC||' WHEN -1 THEN bi2.KY_BC ELSE '||KYBC||' END) 
+            AND ('''||MAHUYEN||'''=''-1'' OR bi2.MA_HUYEN='''||MAHUYEN||''') ';
+            IF MACHUONG IS NOT NULL THEN
+                P_QUERY:=P_QUERY||' AND bi2.MA_CHUONG='''||MACHUONG||'''';
+            END IF;
+            IF DSDVQHNS IS NOT NULL THEN
+                P_QUERY:=P_QUERY||' AND bi2.MA_QHNS IN(SELECT MA_DVQHNS FROM SYS_DVQHNS WHERE MA_DVQHNS_CHA IN('||DSDVQHNS||'))';
+            END IF;
+            P_QUERY:=P_QUERY||' GROUP BY tpl2.INDAM,tpl2.INNGHIENG,bid2.SAPXEP,bid2.LOAI,bid2.STT_CHI_TIEU,bid2.MA_CHI_TIEU,bid2.TEN_CHI_TIEU,bi2.MA_QHNS,sysdv.TEN_DVQHNS';
+            P_QUERY:=P_QUERY||') ORDER BY MA_QHNS,SAPXEP,MA_CHI_TIEU';
+        END;
+    END IF;
+    OPEN cur FOR P_QUERY;
+END PHB_BIEU01_SUMREPORT;

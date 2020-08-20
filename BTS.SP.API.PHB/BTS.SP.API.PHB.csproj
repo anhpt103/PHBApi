@@ -1,0 +1,2019 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.3.4.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.3.4.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C12CAFDA-6FCA-4779-8B8E-5C0C396F2E9B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BTS.SP.API.PHB</RootNamespace>
+    <AssemblyName>BTS.SP.API.PHB</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServerCompact, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.SqlServerCompact.6.0.0\lib\net40\EntityFramework.SqlServerCompact.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.1.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.1.0\lib\net40\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.Office.Interop.Word.15.0.4797.1003\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Cors, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Cors.3.1.0\lib\net45\Microsoft.Owin.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.12.1.022\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess.EntityFramework, Version=6.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.EntityFramework.12.1.022\lib\net45\Oracle.ManagedDataAccess.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Repository.Pattern, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Frameworks\Repository.Pattern\bin\Debug\Repository.Pattern.dll</HintPath>
+    </Reference>
+    <Reference Include="Repository.Pattern.Ef6, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Frameworks\Repository.Pattern.Ef6\bin\Debug\Repository.Pattern.Ef6.dll</HintPath>
+    </Reference>
+    <Reference Include="Service.Pattern">
+      <HintPath>..\Frameworks\Service.Pattern\bin\Debug\Service.Pattern.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.7\lib\net40\System.Linq.Dynamic.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Unity.WebApi, Version=5.2.3.0, Culture=neutral, PublicKeyToken=43da31bc42a85347, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.WebAPI.5.2.3\lib\net45\Unity.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Reporting, Version=14.0.20.115, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Reporting.Services.WebApi, Version=14.0.20.115, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="SCRIPTS\BIEU01A\PROC_PHB_BIEU01A_SUMREPORT.txt" />
+    <Content Include="SCRIPTS\BIEU01B\PROC_PHB_BIEU01B_SUMREPORT.txt" />
+    <Content Include="SCRIPTS\BIEU01\PROC_PHB_BIEU01_SUMREPORT.txt" />
+    <Content Include="SCRIPTS\BIEU2B\PROC_PHB_BIEU2B_SUMREPORT.txt" />
+    <Content Include="SCRIPTS\BIEU3A\PROC_PHB_BIEU3A_SUMREPORT.txt" />
+    <Content Include="SCRIPTS\BIEU4A\PROC_PHB_BIEU4A_SUMREPORT.txt" />
+    <Content Include="SCRIPTS\bootstrap.js" />
+    <Content Include="SCRIPTS\bootstrap.min.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <None Include="Properties\PublishProfiles\API_PHB_STC_TUYENQUANG.pubxml" />
+    <None Include="Properties\PublishProfiles\API_PHB_YB.pubxml" />
+    <None Include="SCRIPTS\jquery-1.10.2.intellisense.js" />
+    <Content Include="SCRIPTS\jquery-1.10.2.js" />
+    <Content Include="SCRIPTS\jquery-1.10.2.min.js" />
+    <None Include="SCRIPTS\jquery.validate-vsdoc.js" />
+    <Content Include="SCRIPTS\jquery.validate.js" />
+    <Content Include="SCRIPTS\jquery.validate.min.js" />
+    <Content Include="SCRIPTS\jquery.validate.unobtrusive.js" />
+    <Content Include="SCRIPTS\jquery.validate.unobtrusive.min.js" />
+    <Content Include="SCRIPTS\modernizr-2.6.2.js" />
+    <Content Include="SCRIPTS\PHB_B01H\PROC_PHB_B01H_SUMMARYDATA.txt" />
+    <Content Include="SCRIPTS\PHB_B01H\PROC_PHB_B01H_SUMMARYUNITDATA.txt" />
+    <Content Include="SCRIPTS\PHB_B01H\PROC_PHB_GET_D_PHB_B01H_BYREFID.txt" />
+    <Content Include="SCRIPTS\PHB_B02CTHP1\PROC_PHB_GET_D_PHB_B02CTHP1_BYREFID.txt" />
+    <Content Include="SCRIPTS\PROC_PHB_APPROVE_REJECT_REPORT.txt" />
+    <Content Include="SCRIPTS\PROC_PHB_DELETE_REPORT.txt" />
+    <Content Include="SCRIPTS\PROC_PHB_GET_TOTAL_REPORT.txt" />
+    <Content Include="SCRIPTS\PROC_PHB_GET_TEMPLATE_REPORT.txt" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\UnityConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AUTH\AuNguoiDungController.cs" />
+    <Compile Include="Controllers\AUTH\AuNguoiDungQuyenController.cs" />
+    <Compile Include="Controllers\AUTH\AuNguoiDungNhomQuyenController.cs" />
+    <Compile Include="Controllers\AUTH\AuNhomQuyenChucNangController.cs" />
+    <Compile Include="Controllers\AUTH\AuNhomQuyenController.cs" />
+    <Compile Include="Controllers\HTDM\DmBaoCaoController.cs" />
+    <Compile Include="Controllers\HTDM\DmTienLuongController.cs" />
+    <Compile Include="Controllers\HTDM\DmCanBoController.cs" />
+    <Compile Include="Controllers\HTDM\DmChuongController.cs" />
+    <Compile Include="Controllers\HTDM\DmCtMucTieuController.cs" />
+    <Compile Include="Controllers\HTDM\DmDBHCController.cs" />
+    <Compile Include="Controllers\HTDM\DmDoiTuongNopThueController.cs" />
+    <Compile Include="Controllers\HTDM\DmDuAnController.cs" />
+    <Compile Include="Controllers\HTDM\DmDVQHNSController.cs" />
+    <Compile Include="Controllers\HTDM\DmHoatDongController.cs" />
+    <Compile Include="Controllers\HTDM\DmLoaiKhoanController.cs" />
+    <Compile Include="Controllers\HTDM\DmCoQuanThuController.cs" />
+    <Compile Include="Controllers\HTDM\DmNoiDungKtController.cs" />
+    <Compile Include="Controllers\HTDM\DmNhomMucChiController.cs" />
+    <Compile Include="Controllers\HTDM\DmLoaiNganSachController.cs" />
+    <Compile Include="Controllers\HTDM\DmNguonNganSachController.cs" />
+    <Compile Include="Controllers\HTDM\DmTaiKhoanController.cs" />
+    <Compile Include="Controllers\HTDM\DMTKKhoBacController.cs" />
+    <Compile Include="Controllers\HTDM\DmTSCDController.cs" />
+    <Compile Include="Controllers\HTDM\DmTyLeDieuTietController.cs" />
+    <Compile Include="Controllers\PBDT\QLDT\PHB_PBDT_QLDT_B03_Controller.cs" />
+    <Compile Include="Controllers\PBDT\QLDT\PHB_PBDT_QLDT_B02_Controller.cs" />
+    <Compile Include="Controllers\PBDT\QLDT\PHB_PBDT_QLDT_B01_Controller.cs" />
+    <Compile Include="Controllers\PBDT\TT342\PHB_PBDT_B124_Controller.cs" />
+    <Compile Include="Controllers\PBDT\TT342\PHB_PBDT_B125_Controller.cs" />
+    <Compile Include="Controllers\PBDT\TT342\PHB_PBDT_B1502_Controller.cs" />
+    <Compile Include="Controllers\PBDT\TT342\PHB_PBDT_B32_Controller.cs" />
+    <Compile Include="Controllers\PBDT\TT342\PHB_PBDT_B1501_Controller.cs" />
+    <Compile Include="Controllers\PBDT\TT342\PHB_PBDT_B06_Controller.cs" />
+    <Compile Include="Controllers\PBDT\TT342\PHB_PBDT_B122_Controller.cs" />
+    <Compile Include="Controllers\PBDT\TT342\PHB_PBDT_B123_Controller.cs" />
+    <Compile Include="Controllers\PBDT\TT342\PHB_PBDT_B1309_Controller.cs" />
+    <Compile Include="Controllers\PBDT\TT342\PHB_PBDT_B1310_Controller.cs" />
+    <Compile Include="Controllers\PBDT\TT342\PHB_PBDT_B1311_Controller.cs" />
+    <Compile Include="Controllers\PBDT\TT342\PHB_PBDT_B1312_Controller.cs" />
+    <Compile Include="Controllers\PBDT\TT342\PHB_PBDT_B1307_Controller.cs" />
+    <Compile Include="Controllers\PBDT\TT342\PHB_PBDT_B1303_Controller.cs" />
+    <Compile Include="Controllers\PBDT\TT342\PHB_PBDT_B1305_Controller.cs" />
+    <Compile Include="Controllers\PBDT\TT342\PHB_PBDT_B1306_Controller.cs" />
+    <Compile Include="Controllers\PBDT\TT342\PHB_PBDT_B1308_Controller.cs" />
+    <Compile Include="Controllers\PBDT\TT342\PHB_PBDT_B14_Controller.cs" />
+    <Compile Include="Controllers\PBDT\TT342\PHB_PBDT_B1304_Controller.cs" />
+    <Compile Include="Controllers\PBDT\TT342\PHB_PBDT_B1302_Controller.cs" />
+    <Compile Include="Controllers\PBDT\TT342\PHB_PBDT_B1301_Controller.cs" />
+    <Compile Include="Controllers\PBDT\TT342\PHB_PBDT_B05_Controller.cs" />
+    <Compile Include="Controllers\PBDT\TT342\PHB_PBDT_B111_Controller.cs" />
+    <Compile Include="Controllers\PBDT\TT342\PHB_PBDT_B07_Controller.cs" />
+    <Compile Include="Controllers\PBDT\TT342\PHB_PBDT_B121_Controller.cs" />
+    <Compile Include="Controllers\PBDT\TT344\PHB_PBDT_TT344_B01_Controller.cs" />
+    <Compile Include="Controllers\PBDT\TT344\PHB_PBDT_TT344_B03_Controller.cs" />
+    <Compile Include="Controllers\PBDT\TT344\PHB_PBDT_TT344_B04_Controller.cs" />
+    <Compile Include="Controllers\PBDT\TT344\PHB_PBDT_TT344_B05_Controller.cs" />
+    <Compile Include="Controllers\PBDT\TT344\PHB_PBDT_TT344_B06_Controller.cs" />
+    <Compile Include="Controllers\PBDT\TT344\PHB_PBDT_TT344_B02_Controller.cs" />
+    <Compile Include="Controllers\ReportsController.cs" />
+    <Compile Include="Controllers\REPORT\bangkechungtuchiController.cs" />
+    <Compile Include="Controllers\REPORT\BAOCAO_CHITIET_KINHPHI_QTController.cs" />
+    <Compile Include="Controllers\REPORT\C_B02B_XController.cs" />
+    <Compile Include="Controllers\REPORT\DeNghiThanhToanController.cs" />
+    <Compile Include="Controllers\REPORT\PhbB01bdgTT137Controller.cs" />
+    <Compile Include="Controllers\REPORT\PhbB01bTT137Controller.cs" />
+    <Compile Include="Controllers\REPORT\PhbB02TT137Controller.cs" />
+    <Compile Include="Controllers\REPORT\phbB03B_BCTCController.cs" />
+    <Compile Include="Controllers\REPORT\PhbB03TT90Controller.cs" />
+    <Compile Include="Controllers\REPORT\PhbB04TT90Controller.cs" />
+    <Compile Include="Controllers\REPORT\PhbB05TT344Controller.cs" />
+    <Compile Include="Controllers\REPORT\PhbBcNhapDTXaController.cs" />
+    <Compile Include="Controllers\REPORT\PhbB04TT344Controller.cs" />
+    <Compile Include="Controllers\REPORT\PhbBieu03TT137Controller.cs" />
+    <Compile Include="Controllers\REPORT\PhbDuToanLuonController.cs" />
+    <Compile Include="Controllers\REPORT\PhbB02H_IIController.cs" />
+    <Compile Include="Controllers\REPORT\PhbB01aTT137Controller.cs" />
+    <Compile Include="Controllers\REPORT\PhbBm48TT342Controller.cs" />
+    <Compile Include="Controllers\REPORT\PhbL_PC_DTController.cs" />
+    <Compile Include="Controllers\REPORT\phbL_PC_DController.cs" />
+    <Compile Include="Controllers\REPORT\phbL_PC_UBController.cs" />
+    <Compile Include="Controllers\REPORT\PhbPL01TT137Controller.cs" />
+    <Compile Include="Controllers\REPORT\PhbPL02TT137Controller.cs" />
+    <Compile Include="Controllers\REPORT\PhbPL32_P1_TT01Controller.cs" />
+    <Compile Include="Controllers\REPORT\PhbPL32_P2_TT01Controller.cs" />
+    <Compile Include="Controllers\REPORT\PhbBieuB04XController.cs" />
+    <Compile Include="Controllers\REPORT\PhbCB03aXController.cs" />
+    <Compile Include="Controllers\REPORT\PhbCB03cXController.cs" />
+    <Compile Include="Controllers\REPORT\PhbCB03dXController.cs" />
+    <Compile Include="Controllers\REPORT\PhbC_B06XController.cs" />
+    <Compile Include="Controllers\REPORT\PhbC_B01XController.cs" />
+    <Compile Include="Controllers\REPORT\PhbB03BCQT_BII1Controller.cs" />
+    <Compile Include="Controllers\REPORT\PhbCB03bXController.cs" />
+    <Compile Include="Controllers\REPORT\PhbBieu2CP2Controller.cs" />
+    <Compile Include="Controllers\REPORT\PhbcB03xController.cs" />
+    <Compile Include="Controllers\REPORT\PhbDoiChieuSoLieuController.cs" />
+    <Compile Include="Controllers\REPORT\PhbDoiChieuTABMISController.cs" />
+    <Compile Include="Controllers\REPORT\PhbDsBaoCaoController.cs" />
+    <Compile Include="Controllers\REPORT\PhbBieu10TT344Controller.cs" />
+    <Compile Include="Controllers\REPORT\PhbBieu67NsController.cs" />
+    <Compile Include="Controllers\REPORT\PhbBieu2CP1Controller.cs" />
+    <Compile Include="Controllers\REPORT\PhbBieu68NsController.cs" />
+    <Compile Include="Controllers\REPORT\PhbBieu69NsController.cs" />
+    <Compile Include="Controllers\REPORT\PhbBieu70NsController.cs" />
+    <Compile Include="Controllers\REPORT\PhbB02BCQTController.cs" />
+    <Compile Include="Controllers\REPORT\PhbBieu01CController.cs" />
+    <Compile Include="Controllers\REPORT\PhbBieu07TT344Controller.cs" />
+    <Compile Include="Controllers\REPORT\PhbBieu08TT344Controller.cs" />
+    <Compile Include="Controllers\REPORT\PhbBieu09TT344Controller.cs" />
+    <Compile Include="Controllers\REPORT\PhbBieu12TT344Controller.cs" />
+    <Compile Include="Controllers\REPORT\PhbBieu2BController.cs" />
+    <Compile Include="Controllers\REPORT\PhbBieu01BController.cs" />
+    <Compile Include="Controllers\REPORT\PhbB01BCQTController.cs" />
+    <Compile Include="Controllers\REPORT\PhbBieu2AController.cs" />
+    <Compile Include="Controllers\REPORT\PhbBieu01AController.cs" />
+    <Compile Include="Controllers\REPORT\PhbBieu03Controller.cs" />
+    <Compile Include="Controllers\REPORT\PhbBieu4BP2Controller.cs" />
+    <Compile Include="Controllers\REPORT\PhbBieu4BP1Controller.cs" />
+    <Compile Include="Controllers\REPORT\PhbBieu3BP1Controller.cs" />
+    <Compile Include="Controllers\REPORT\PhbBieu3BP2Controller.cs" />
+    <Compile Include="Controllers\REPORT\PhbBieu4AController.cs" />
+    <Compile Include="Controllers\REPORT\PhbBieu3AController.cs" />
+    <Compile Include="Controllers\REPORT\PhbBieu11TT344Controller.cs" />
+    <Compile Include="Controllers\REPORT\PhbBieu01CP2Controller.cs" />
+    <Compile Include="Controllers\REPORT\PhbF01_02BCQTController.cs" />
+    <Compile Include="Controllers\REPORT\PhbF01_02BCQT_PIIController.cs" />
+    <Compile Include="Controllers\REPORT\PhbF01_01BCQTController.cs" />
+    <Compile Include="Controllers\REPORT\PhbPL03Controller.cs" />
+    <Compile Include="Controllers\REPORT\PhbPL02Controller.cs" />
+    <Compile Include="Controllers\REPORT\PhbPL01Controller.cs" />
+    <Compile Include="Controllers\REPORT\PhbC_B02aXController.cs" />
+    <Compile Include="Controllers\REPORT\PhbPL31Controller.cs" />
+    <Compile Include="Controllers\REPORT\PhbPL41Controller.cs" />
+    <Compile Include="Controllers\REPORT\PhbPL42_P1_TT01Controller.cs" />
+    <Compile Include="Controllers\REPORT\XmlViewModel.cs" />
+    <Compile Include="Controllers\REPORT_BCTC\BC04BctcTT107Controller.cs" />
+    <Compile Include="Controllers\REPORT_BCTC\PhaB01BCTCController.cs" />
+    <Compile Include="Controllers\REPORT_BCTC\PhaB02BCTCController.cs" />
+    <Compile Include="Controllers\REPORT_BCTC\PhaB03BBCTCController.cs" />
+    <Compile Include="Controllers\REPORT_BCTC\PhaB01BSTT1Controller.cs" />
+    <Compile Include="Controllers\REPORT_BCTC\PhaB04BCTCController.cs" />
+    <Compile Include="Controllers\REPORT_BCTC\PhbB01BSTT2Controller.cs" />
+    <Compile Include="Controllers\REPORT_BCTC\PhbB03ABCTCController.cs" />
+    <Compile Include="Controllers\REPORT_BCTC\PhbB05BCTCController.cs" />
+    <Compile Include="Controllers\REPORT_BCTC\PhbF0102P1Controller.cs" />
+    <Compile Include="Controllers\REPORT_BCTC\XmlViewModel.cs" />
+    <Compile Include="Controllers\SHARED\SharedController.cs" />
+    <Compile Include="Controllers\SYS\DashboardController.cs" />
+    <Compile Include="Controllers\SYS\LogChucNangController.cs" />
+    <Compile Include="Controllers\SYS\SysChucNangController.cs" />
+    <Compile Include="Controllers\SYS\SysDvqhnsQuanLyController.cs" />
+    <Compile Include="Controllers\SYS\SysDvqhnsController.cs" />
+    <Compile Include="Controllers\SYS\SysLogSyncMisaController.cs" />
+    <Compile Include="Controllers\SYS\SysSchedulerController.cs" />
+    <Compile Include="Controllers\test.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\AuthorizationServerProvider.cs" />
+    <Compile Include="Providers\FbaMembers.cs" />
+    <Compile Include="ReportBCTC\B01_BCTC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportBCTC\B01_BCTC.Designer.cs">
+      <DependentUpon>B01_BCTC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportBCTC\B01_BCTC_TH.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportBCTC\B01_BCTC_TH.Designer.cs">
+      <DependentUpon>B01_BCTC_TH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportBCTC\B02BCTC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportBCTC\B02BCTC.Designer.cs">
+      <DependentUpon>B02BCTC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportBCTC\B02_BCTC_TH.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportBCTC\B02_BCTC_TH.Designer.cs">
+      <DependentUpon>B02_BCTC_TH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportBCTC\B03A_BCTC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportBCTC\B03A_BCTC.Designer.cs">
+      <DependentUpon>B03A_BCTC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportBCTC\B03B_BCTC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportBCTC\B03B_BCTC.Designer.cs">
+      <DependentUpon>B03B_BCTC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportBCTC\B03_BCTC_TH.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportBCTC\B03_BCTC_TH.Designer.cs">
+      <DependentUpon>B03_BCTC_TH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportBCTC\B04_BCTC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportBCTC\B04_BCTC.Designer.cs">
+      <DependentUpon>B04_BCTC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportBCTC\B04_BCTC_TH.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportBCTC\B04_BCTC_TH.Designer.cs">
+      <DependentUpon>B04_BCTC_TH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportBCTC\B04_BCTC_TT107.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportBCTC\B04_BCTC_TT107.Designer.cs">
+      <DependentUpon>B04_BCTC_TT107.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportBCTC\B05_BCTC_TM.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportBCTC\B05_BCTC_TM.Designer.cs">
+      <DependentUpon>B05_BCTC_TM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportBCTC\S01_BTH_I.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportBCTC\S01_BTH_I.Designer.cs">
+      <DependentUpon>S01_BTH_I.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportBCTC\S01_BTH_II.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportBCTC\S01_BTH_II.Designer.cs">
+      <DependentUpon>S01_BTH_II.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportBCTC\S02_BTH.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportBCTC\S02_BTH.Designer.cs">
+      <DependentUpon>S02_BTH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\B01BCQT\B01BCQT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\B01BCQT\B01BCQT.Designer.cs">
+      <DependentUpon>B01BCQT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\B01B_TT137\B01B_TT137.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\B01B_TT137\B01B_TT137.Designer.cs">
+      <DependentUpon>B01B_TT137.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\B02A_TT137\B02A_TT137.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\B02A_TT137\B02A_TT137.Designer.cs">
+      <DependentUpon>B02A_TT137.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\B01A_TT137\B01A_TT137.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\B01A_TT137\B01A_TT137.Designer.cs">
+      <DependentUpon>B01A_TT137.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\B02BCQT\B02BCQT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\B02BCQT\B02BCQT.Designer.cs">
+      <DependentUpon>B02BCQT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\B02BCTC\B02BCTC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\B02BCTC\B02BCTC.Designer.cs">
+      <DependentUpon>B02BCTC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\B02B_TT137\B02B_TT137.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\B02B_TT137\B02B_TT137.Designer.cs">
+      <DependentUpon>B02B_TT137.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\B02H_II\B02H_II.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\B02H_II\B02H_II.Designer.cs">
+      <DependentUpon>B02H_II.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\B03BCQT\B03BCQT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\B03BCQT\B03BCQT.Designer.cs">
+      <DependentUpon>B03BCQT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\B03_TT90\B03_TT90.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\B03_TT90\B03_TT90.Designer.cs">
+      <DependentUpon>B03_TT90.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\B04A\B04A.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\B04A\B04A.Designer.cs">
+      <DependentUpon>B04A.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\B04_TT90\B04_TT90.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\B04_TT90\B04_TT90.Designer.cs">
+      <DependentUpon>B04_TT90.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BaoCaoHcsn\B01A_TT137\B01A_TT137.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BaoCaoHcsn\B01A_TT137\B01A_TT137.Designer.cs">
+      <DependentUpon>B01A_TT137.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BaoCaoHcsn\B01B_TT137\B01B_TT137.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BaoCaoHcsn\B01B_TT137\B01B_TT137.Designer.cs">
+      <DependentUpon>B01B_TT137.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BaoCaoHcsn\B01_BCTC\B01_BCTC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BaoCaoHcsn\B01_BCTC\B01_BCTC.Designer.cs">
+      <DependentUpon>B01_BCTC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BaoCaoHcsn\B02A_TT137\B02A_TT137.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BaoCaoHcsn\B02A_TT137\B02A_TT137.Designer.cs">
+      <DependentUpon>B02A_TT137.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BaoCaoHcsn\B02B_TT137\B02B_TT137.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BaoCaoHcsn\B02B_TT137\B02B_TT137.Designer.cs">
+      <DependentUpon>B02B_TT137.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BaoCaoHcsn\B02_TT137\B02_TT137.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BaoCaoHcsn\B02_TT137\B02_TT137.Designer.cs">
+      <DependentUpon>B02_TT137.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BaoCaoHcsn\B03BCTC\B03BCTC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BaoCaoHcsn\B03BCTC\B03BCTC.Designer.cs">
+      <DependentUpon>B03BCTC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BaoCaoHcsn\BIEU01CP2\BIEU01CP2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BaoCaoHcsn\BIEU01CP2\BIEU01CP2.Designer.cs">
+      <DependentUpon>BIEU01CP2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BaoCaoHcsn\F01_01\F01_01.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BaoCaoHcsn\F01_01\F01_01.Designer.cs">
+      <DependentUpon>F01_01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BaoCaoHcsn\F01_02_BCQT_PII\F01_02_BCQT_PII.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BaoCaoHcsn\F01_02_BCQT_PII\F01_02_BCQT_PII.Designer.cs">
+      <DependentUpon>F01_02_BCQT_PII.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU01CP1\BIEU01CP1_SUMALLREPORT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU01CP1\BIEU01CP1_SUMALLREPORT.Designer.cs">
+      <DependentUpon>BIEU01CP1_SUMALLREPORT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU01CP2\BIEU01CP2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU01CP2\BIEU01CP2.Designer.cs">
+      <DependentUpon>BIEU01CP2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU01CP1\BIEU01CP1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU01CP1\BIEU01CP1.Designer.cs">
+      <DependentUpon>BIEU01CP1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU01CP2\BIEU01CP2_SUMALL_REPORT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU01CP2\BIEU01CP2_SUMALL_REPORT.Designer.cs">
+      <DependentUpon>BIEU01CP2_SUMALL_REPORT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU01C\BIEU01C.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU01C\BIEU01C.Designer.cs">
+      <DependentUpon>BIEU01C.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU01TT344\BM01_TT344.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU01TT344\BM01_TT344.Designer.cs">
+      <DependentUpon>BM01_TT344.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU02TT344\BM02_TT344.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU02TT344\BM02_TT344.Designer.cs">
+      <DependentUpon>BM02_TT344.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU03TT344\BM03_TT344.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU03TT344\BM03_TT344.Designer.cs">
+      <DependentUpon>BM03_TT344.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU03\BIEU03.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU03\BIEU03.Designer.cs">
+      <DependentUpon>BIEU03.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU03_TT137\BIEU03_TT137.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU03_TT137\BIEU03_TT137.Designer.cs">
+      <DependentUpon>BIEU03_TT137.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU04TT344\BM04_TT344.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU04TT344\BM04_TT344.Designer.cs">
+      <DependentUpon>BM04_TT344.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU05TT344\BM05_TT344.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU05TT344\BM05_TT344.Designer.cs">
+      <DependentUpon>BM05_TT344.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU06TT344\BM06_TT344.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU06TT344\BM06_TT344.Designer.cs">
+      <DependentUpon>BM06_TT344.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU07TT344\BM07_TT344.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU07TT344\BM07_TT344.Designer.cs">
+      <DependentUpon>BM07_TT344.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU07TT344_XA\BIEU07TT344_XA.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU07TT344_XA\BIEU07TT344_XA.Designer.cs">
+      <DependentUpon>BIEU07TT344_XA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU08TT344\BIEU08TT344.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU08TT344\BIEU08TT344.Designer.cs">
+      <DependentUpon>BIEU08TT344.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU08TT344\BM08_TT344.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU08TT344\BM08_TT344.Designer.cs">
+      <DependentUpon>BM08_TT344.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU08TT344_XA\BIEU08TT344_XA.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU08TT344_XA\BIEU08TT344_XA.Designer.cs">
+      <DependentUpon>BIEU08TT344_XA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU09TT344\BM09_TT344.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU09TT344\BM09_TT344.Designer.cs">
+      <DependentUpon>BM09_TT344.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU09TT344_XA\BIEU09TT344_XA.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU09TT344_XA\BIEU09TT344_XA.Designer.cs">
+      <DependentUpon>BIEU09TT344_XA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU10TT344_XA\BIEU10TT344_XA.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU10TT344_XA\BIEU10TT344_XA.Designer.cs">
+      <DependentUpon>BIEU10TT344_XA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU10TT344_XA\BIEU10TT344_XA_TABMIT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU10TT344_XA\BIEU10TT344_XA_TABMIT.Designer.cs">
+      <DependentUpon>BIEU10TT344_XA_TABMIT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU11TT344_XA\BIEU11TT344_XA_TABMIT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU11TT344_XA\BIEU11TT344_XA_TABMIT.Designer.cs">
+      <DependentUpon>BIEU11TT344_XA_TABMIT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU11TT344_XA\BIEU11TT344_XA.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU11TT344_XA\BIEU11TT344_XA.Designer.cs">
+      <DependentUpon>BIEU11TT344_XA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU12TT344_XA\BIEU12TT344_XA.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU12TT344_XA\BIEU12TT344_XA.Designer.cs">
+      <DependentUpon>BIEU12TT344_XA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU2B\BIEU2B.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU2B\BIEU2B.Designer.cs">
+      <DependentUpon>BIEU2B.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU2CP1\BIEU2CP1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU2CP1\BIEU2CP1.Designer.cs">
+      <DependentUpon>BIEU2CP1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU2CP2\BIEU2CP2TABMIT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU2CP2\BIEU2CP2TABMIT.Designer.cs">
+      <DependentUpon>BIEU2CP2TABMIT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU2CP2\BIEU2CP2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU2CP2\BIEU2CP2.Designer.cs">
+      <DependentUpon>BIEU2CP2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU3B\BIEU3BP1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU3B\BIEU3BP1.Designer.cs">
+      <DependentUpon>BIEU3BP1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU3B\BIEU3BP2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU3B\BIEU3BP2.Designer.cs">
+      <DependentUpon>BIEU3BP2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU4A\BIEU4A.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU4A\BIEU4A.Designer.cs">
+      <DependentUpon>BIEU4A.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU4B\BIEU4BP1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU4B\BIEU4BP1.Designer.cs">
+      <DependentUpon>BIEU4BP1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU4B\BIEU4BP2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU4B\BIEU4BP2.Designer.cs">
+      <DependentUpon>BIEU4BP2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU70NS\BIEU70NS.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU70NS\BIEU70NS.Designer.cs">
+      <DependentUpon>BIEU70NS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU07TT344\BIEU07TT344.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU07TT344\BIEU07TT344.Designer.cs">
+      <DependentUpon>BIEU07TT344.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BM15\BM15_2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BM15\BM15_2.Designer.cs">
+      <DependentUpon>BM15_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\B_03A_X\B03A_X.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\B_03A_X\B03A_X.Designer.cs">
+      <DependentUpon>B03A_X.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\B_03B_X\B03B_X.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\B_03B_X\B03B_X.Designer.cs">
+      <DependentUpon>B03B_X.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\B_03C_X\B03C_X.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\B_03C_X\B03C_X.Designer.cs">
+      <DependentUpon>B03C_X.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\B_03D_X\B03D_X.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\B_03D_X\B03D_X.Designer.cs">
+      <DependentUpon>B03D_X.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\C_B01_X\C_B01_X.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\C_B01_X\C_B01_X.Designer.cs">
+      <DependentUpon>C_B01_X.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\C_B02A_X\C_B02A_X.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\C_B02A_X\C_B02A_X.Designer.cs">
+      <DependentUpon>C_B02A_X.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\C_B02B_X\C_B02B_X.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\C_B02B_X\C_B02B_X.Designer.cs">
+      <DependentUpon>C_B02B_X.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\C_B03A_X\B03A_X.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\C_B03A_X\B03A_X.Designer.cs">
+      <DependentUpon>B03A_X.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\C_B03A_X\C_B03A_X.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\C_B03A_X\C_B03A_X.Designer.cs">
+      <DependentUpon>C_B03A_X.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\C_B03B_X\B03B_X.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\C_B03B_X\B03B_X.Designer.cs">
+      <DependentUpon>B03B_X.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\C_B03B_X\C_B03B_X.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\C_B03_X\C_B03_X.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\C_B03_X\C_B03_X.Designer.cs">
+      <DependentUpon>C_B03_X.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\C_B03_X\C_B03_X_tapmis.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\C_B03_X\C_B03_X_tapmis.Designer.cs">
+      <DependentUpon>C_B03_X_tapmis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\C_B05_X\C_B05_X.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\C_B05_X\C_B05_X.Designer.cs">
+      <DependentUpon>C_B05_X.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\C_B06X\C_B06X.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\C_B06X\C_B06X.Designer.cs">
+      <DependentUpon>C_B06X.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\C_B06_X\C_B06_X.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\C_B06_X\C_B06_X.Designer.cs">
+      <DependentUpon>C_B06_X.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DGCCVC68\DGCCVC68.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\DGCCVC68\DGCCVC68.Designer.cs">
+      <DependentUpon>DGCCVC68.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DGCCVC\DGCCVC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\DGCCVC\DGCCVC.Designer.cs">
+      <DependentUpon>DGCCVC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DOICHIEUSOLIEU\SOSANHBAOCAO.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\DOICHIEUSOLIEU\SOSANHBAOCAO.designer.cs">
+      <DependentUpon>SOSANHBAOCAO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DOICHIEU_TABMIS\DOICHIEUSOLIEU.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\DOICHIEU_TABMIS\DOICHIEUSOLIEU.Designer.cs">
+      <DependentUpon>DOICHIEUSOLIEU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DTLCCVC68\DTLCCVC68.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\DTLCCVC68\DTLCCVC68.Designer.cs">
+      <DependentUpon>DTLCCVC68.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DTLCCVC\DTLCCVC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\DTLCCVC\DTLCCVC.Designer.cs">
+      <DependentUpon>DTLCCVC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DTTX_01\DTTX_01.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\DTTX_01\DTTX_01.Designer.cs">
+      <DependentUpon>DTTX_01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\F01_01BCQT\F01_01BCQTTABMIT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\F01_01BCQT\F01_01BCQTTABMIT.Designer.cs">
+      <DependentUpon>F01_01BCQTTABMIT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PBDT_B151\PBDT_B151.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PBDT_B151\PBDT_B151.Designer.cs">
+      <DependentUpon>PBDT_B151.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PBDT_B152\PBDT_B152.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PBDT_B152\PBDT_B152.Designer.cs">
+      <DependentUpon>PBDT_B152.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PHB_BM35\PHB_BM35.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PHB_BM35\PHB_BM35.Designer.cs">
+      <DependentUpon>PHB_BM35.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PHB_C_B02A_X\PHB_C_B02A_X.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\C_B03B_X\C_B03B_X.Designer.cs">
+      <DependentUpon>C_B03B_X.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PHB_C_B02A_X\PHB_C_B02A_X.Designer.cs">
+      <DependentUpon>PHB_C_B02A_X.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU09TT344\BIEU09TT344.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU09TT344\BIEU09TT344.Designer.cs">
+      <DependentUpon>BIEU09TT344.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU10TT344\BIEU10TT344.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU10TT344\BIEU10TT344.Designer.cs">
+      <DependentUpon>BIEU10TT344.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU11TT344\BIEU11TT344.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU11TT344\BIEU11TT344.Designer.cs">
+      <DependentUpon>BIEU11TT344.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU12TT344\BIEU12TT344.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU12TT344\BIEU12TT344.Designer.cs">
+      <DependentUpon>BIEU12TT344.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU67NS\BIEU67NS.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU67NS\BIEU67NS.Designer.cs">
+      <DependentUpon>BIEU67NS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU68NS\BIEU68NS.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU68NS\BIEU68NS.Designer.cs">
+      <DependentUpon>BIEU68NS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BIEU69NS\BIEU69NS.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BIEU69NS\BIEU69NS.Designer.cs">
+      <DependentUpon>BIEU69NS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\C_B03D_X\C_B03D_X.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\C_B03D_X\C_B03D_X.designer.cs">
+      <DependentUpon>C_B03D_X.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DOICHIEUSOLIEU\DOICHIEUSOLIEU.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\DOICHIEUSOLIEU\DOICHIEUSOLIEU.Designer.cs">
+      <DependentUpon>DOICHIEUSOLIEU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\F01_02BCQT_PII\F01_02_BCQT_PIISumReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\F01_02BCQT_PII\F01_02_BCQT_PIISumReport.Designer.cs">
+      <DependentUpon>F01_02_BCQT_PIISumReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PHB_HCSN09\PHB_HCSN09.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PHB_HCSN09\PHB_HCSN09.Designer.cs">
+      <DependentUpon>PHB_HCSN09.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PHB_HCSN08\PHB_HCSN08.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PHB_HCSN08\PHB_HCSN08.Designer.cs">
+      <DependentUpon>PHB_HCSN08.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PL01\PL01.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PL01\PL01.Designer.cs">
+      <DependentUpon>PL01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PL02\PL02.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PL02\PL02.Designer.cs">
+      <DependentUpon>PL02.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PL03\PL03_H.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PL03\PL03_H.Designer.cs">
+      <DependentUpon>PL03_H.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\B_C_B04X\B_C_B04X.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\B_C_B04X\B_C_B04X.Designer.cs">
+      <DependentUpon>B_C_B04X.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PL1_TT137\PL1_TT137R.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PL1_TT137\PL1_TT137R.Designer.cs">
+      <DependentUpon>PL1_TT137R.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PL32_P2_TT01\PL32_P2_TT01.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PL32_P2_TT01\PL32_P2_TT01.Designer.cs">
+      <DependentUpon>PL32_P2_TT01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TCS\TCS_CHITIET.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\TCS\TCS_CHITIET.Designer.cs">
+      <DependentUpon>TCS_CHITIET.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TCS\TCS_TONGHOP.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\TCS\TCS_TONGHOP.Designer.cs">
+      <DependentUpon>TCS_TONGHOP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Test\test.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Test\test.Designer.cs">
+      <DependentUpon>test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\THDT_02\THDT_02.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\THDT_02\THDT_02.Designer.cs">
+      <DependentUpon>THDT_02.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\XmlService_Ver001.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="Utils\DataReaderMap.cs" />
+    <Compile Include="Utils\ImportModel.cs" />
+    <Compile Include="Utils\UnityResolver.cs" />
+    <Compile Include="Utils\Utils.cs" />
+    <Compile Include="ViewModels\PBDT\QLDT\B01\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\QLDT\B01\Detail_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\QLDT\B01\Edit_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\QLDT\B01\Template_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\QLDT\B02\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\QLDT\B02\Detail_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\QLDT\B02\Edit_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\QLDT\B02\Template_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\QLDT\B03\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\QLDT\B03\Detail_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\QLDT\B03\Edit_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\QLDT\B03\Template_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\QLDT\Main\TotalForm_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B06\Row_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B121\GetForm.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B122\GetForm.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B123\GetForm.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B124\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B124\Edit_viewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B124\GetForm.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B125\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B125\Edit_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B125\GetForm.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B1502\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B1502\Detail_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B1502\Edit_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B32\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B32\Edit_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B1501\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B1501\Detail_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B1501\Edit_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B06\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B06\Detail_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B06\Edit_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B121\Edit_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B122\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B122\Edit_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B122\UploadExcel_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B123\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B123\Edit_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B1303\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B1303\Edit_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B1305\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B1305\Edit_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B1306\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B1306\Edit_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B1307\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B1307\Edit_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B1308\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B1308\Edit_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B1309\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B1309\Edit_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B1310\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B1310\Edit_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B1311\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B1311\Edit_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B1312\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B1312\Edit_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B14\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B14\Edit_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B1304\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B1304\Edit_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B1302\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B1302\Edit_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B1301\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B1301\Edit_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B05\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B05\Edit_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B07\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B07\Edit_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B111\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B111\Edit_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B121\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\B121\UploadExcel_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT342\Main\TotalForm_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT344\B03\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT344\B03\Detail_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT344\B03\Edit_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT344\B03\Template_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT344\B04\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT344\B04\Detail_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT344\B04\Edit_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT344\B04\Template_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT344\B05\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT344\B05\Detail_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT344\B05\Edit_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT344\B05\Template_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT344\B06\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT344\B06\Detail_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT344\B06\Edit_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT344\B06\Template_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT344\B01\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT344\B01\Detail_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT344\B01\Edit_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT344\B01\Template_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT344\B02\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT344\B02\Detail_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT344\B02\Edit_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT344\B02\Template_ViewModel.cs" />
+    <Compile Include="ViewModels\PBDT\TT344\Main\TotalForm_ViewModel.cs" />
+    <Compile Include="ViewModels\REPORT\B01A_TT137\B01A_TT137ViewModel.cs" />
+    <Compile Include="ViewModels\REPORT\B01BDG_TT137\B01BDG_TT137ViewModel.cs" />
+    <Compile Include="ViewModels\REPORT\B01B_TT137\B01B_TT137ViewModel.cs" />
+    <Compile Include="ViewModels\REPORT\B02_TT137\B02TT137_ViewModel.cs" />
+    <Compile Include="ViewModels\REPORT\BANG_KE_CHUNG_TU_CHI\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\REPORT\BANG_KE_CHUNG_TU_CHI\EditContent_ViewModel.cs" />
+    <Compile Include="ViewModels\REPORT\BM16_TT344\AddContent_ViewModel.cs" />
+    <Compile Include="ViewModels\REPORT\BM16_TT344\EditContent_ViewModel.cs" />
+    <Compile Include="ViewModels\REPORT_BCTC\PHB_ExportXml_ViewModel.cs" />
+    <Compile Include="ViewModels\SYS\sysLogChucNang\SearchViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="Import\BIEU01A\BIEU01A_1019097.xlsx" />
+    <Content Include="Import\BIEU01B\BIEU01B_1019097.xlsx" />
+    <Content Include="Import\BIEU01B\BIEU01B_1019099.xlsx" />
+    <Content Include="Import\BIEU01B\BIEU01B_1019237.xlsx" />
+    <Content Include="Import\BIEU2B\BIEU2B_1019097.xlsx" />
+    <Content Include="Import\BIEU3A\BIEU3A_101997.xlsx" />
+    <Content Include="Import\BIEU4A\BIEU4A_101997.xlsx" />
+    <Content Include="Import\BIEU01A\Template_IMPORT.xlsx" />
+    <Content Include="Import\BIEU3B\BIEU3B_1019097.xlsx" />
+    <Content Include="Import\BIEU4B\BIEU4B_1019097.xlsx" />
+    <Content Include="Import\BIEU2A\Template_IMPORT.xlsx" />
+    <Content Include="Import\BIEU2A\BIEU2A_1019097.xlsx" />
+    <Content Include="Import\BIEU70NS\70NS.xlsx" />
+    <Content Include="Import\BIEU68NS\68NS.xlsx" />
+    <Content Include="Import\BIEU01\BIEU01.xlsx" />
+    <None Include="Properties\PublishProfiles\STC_PHB.pubxml" />
+    <Content Include="UploadFile\TemplateBaoCao\Bieu01C.xlsx" />
+    <Content Include="Template\B01BCQT\B01BCQT_Template.xlsx" />
+    <Content Include="Template\B02BCQT\B02BCQT_Template.xlsx" />
+    <Content Include="Template\B02BCTC\B02BCTC_Template.xlsx" />
+    <Content Include="Template\B03BCQT_BII1\B03BCQT_BII1_Template.xlsx" />
+    <Content Include="Template\BIEU01A\BIEU01A_Template.xlsx" />
+    <Content Include="Template\BIEU03\BIEU03_Template.xlsx" />
+    <Content Include="Template\BIEU07TT344\BIEU07TT344_Template.xlsx" />
+    <Content Include="Template\BIEU08TT344\BIEU08TT344_Template.xlsx" />
+    <Content Include="Template\BIEU09TT344\BIEU09TT344_Template.xlsx" />
+    <Content Include="Template\BIEU10TT344\BIEU10TT344_Template.xlsx" />
+    <Content Include="Template\BIEU11TT344\BIEU11TT344_Template.xlsx" />
+    <Content Include="Template\BIEU12TT344\BIEU12TT344_Template.xlsx" />
+    <Content Include="Template\BIEU2B\BIEU2B_Template.xlsx" />
+    <Content Include="Template\BIEU2CP1\BIEU2CP1_Template.xlsx" />
+    <Content Include="Template\BIEU2CP2\BIEU2CP2_Template.xlsx" />
+    <Content Include="Template\BIEU3A\BIEU3A_Template.xlsx" />
+    <Content Include="Template\BIEU3BP2\BIEU3BP2_Template.xlsx" />
+    <Content Include="Template\BIEU4A\BIEU4A_Template.xlsx" />
+    <Content Include="Template\BIEU4BP2\BIEU4BP2_Template.xlsx" />
+    <Content Include="Template\BIEU67NS\BIEU67NS_Template.xlsx" />
+    <Content Include="Template\BIEU68NS\BIEU68NS_Template.xlsx" />
+    <Content Include="Template\BIEU69NS\BIEU69NS_Template.xlsx" />
+    <Content Include="Template\BIEU70NS\BIEU70NS_Template.xlsx" />
+    <Content Include="Template\F01_01BCQT\F01_01BCQT_Template.xlsx" />
+    <Content Include="Template\F01_02BCQT\F01_02BCQT_Template.xlsx" />
+    <Content Include="Template\F01_02BCQT_PII\F01_02BCQT_PII_Template.xlsx" />
+    <Content Include="Template\C_B01X\C_B01X_Template.xlsx" />
+    <Content Include="Template\C_B02AX\C_B02AX_Template.xlsx" />
+    <Content Include="Template\C_B02B_X\C_B02B_X_Template.xlsx" />
+    <Content Include="Template\C_B03A_X\C_B03A_X_Template.xlsx" />
+    <Content Include="Template\C_B03B_X\C_B03B_X_Template.xlsx" />
+    <Content Include="Template\C_B03D_X\C_B03D_X_Template.xlsx" />
+    <Content Include="Template\C_B03X\C_B03X_Template.xlsx" />
+    <Content Include="Template\C_B06X\C_B06X_Template.xlsx" />
+    <Content Include="Template\BIEU01CP2\BIEU01CP2_Template.xlsx" />
+    <Content Include="Template\BIEU01B\BIEU01B_Template.xlsx" />
+    <Content Include="Template\BIEU01C\BIEU01C_Template.xlsx" />
+    <Content Include="Template\PL32_P1_TT01\PL32_P1_TT01_Template.xlsx" />
+    <Content Include="Template\PL41\Template.xlsx" />
+    <Content Include="Template\PL31\PL31_Template.xlsx" />
+    <Content Include="TemplateBCTC\PHA_B01_BCTC\PHA_B01_BCTC_Template.xlsx" />
+    <Content Include="TemplateBCTC\PHB_B03A_BCTC\PHB_B03A_BCTC_Template.xlsx" />
+    <Content Include="TemplateBCTC\PHA_B03B_BCTC\PHA_B30B_BCTC_Template.xlsx" />
+    <Content Include="TemplateBCTC\PHA_B02_BCTC\PHA_B02_BCTC_Template.xlsx" />
+    <Content Include="TemplateBCTC\PHA_B01_BSTT_1\PHA_B01_BSTT_1_Template.xlsx" />
+    <Content Include="TemplateBCTC\PHA_B01_BSTT_2\PHA_B01_BSTT_2_Template.xlsx" />
+    <Content Include="TemplatePBDT\TT342\PHB_PBDT_TT342_B05\PHB_PBDT_TT342_B05_Template.xlsx" />
+    <Content Include="TemplatePBDT\TT342\PHB_PBDT_TT342_B07\PHB_PBDT_TT342_B07_Template.xlsx" />
+    <Content Include="TemplatePBDT\TT342\PHB_PBDT_TT342_B111\PHB_PBDT_TT342_B111_Template.xlsx" />
+    <Content Include="TemplatePBDT\TT342\PHB_PBDT_TT342_B1301\PHB_PBDT_TT342_B1301_Template.xlsx" />
+    <Content Include="TemplatePBDT\TT342\PHB_PBDT_TT342_B1302\PHB_PBDT_TT342_B1302_Template.xlsx" />
+    <Content Include="TemplatePBDT\TT342\PHB_PBDT_TT342_B1303\PHB_PBDT_TT342_B1303_Template.xlsx" />
+    <Content Include="TemplatePBDT\TT342\PHB_PBDT_TT342_B1304\PHB_PBDT_TT342_B1304_Template.xlsx" />
+    <Content Include="TemplatePBDT\TT342\PHB_PBDT_TT342_B1305\PHB_PBDT_TT342_B1305_Template.xlsx" />
+    <Content Include="TemplatePBDT\TT342\PHB_PBDT_TT342_B1306\PHB_PBDT_TT342_B1306_Template.xlsx" />
+    <Content Include="TemplatePBDT\TT342\PHB_PBDT_TT342_B1308\PHB_PBDT_TT342_B1308_Template.xlsx" />
+    <Content Include="TemplatePBDT\TT342\PHB_PBDT_TT342_B14\PHB_PBDT_TT342_B14_Template.xlsx" />
+    <Content Include="TemplatePBDT\TT342\PHB_PBDT_TT342_B121\PHB_PBDT_TT342_B121_Template.xlsx" />
+    <Content Include="TemplatePBDT\TT342\PHB_PBDT_TT342_B1307\PHB_PBDT_TT342_B1307_Template.xlsx" />
+    <Content Include="TemplatePBDT\TT342\PHB_PBDT_TT342_B1309\PHB_PBDT_TT342_B1309_Template.xlsx" />
+    <Content Include="TemplatePBDT\TT342\PHB_PBDT_TT342_B1310\PHB_PBDT_TT342_B1310_Template.xlsx" />
+    <Content Include="TemplatePBDT\TT342\PHB_PBDT_TT342_B1311\PHB_PBDT_TT342_B1311_Template.xlsx" />
+    <Content Include="TemplatePBDT\TT342\PHB_PBDT_TT342_B1312\PHB_PBDT_TT342_B1312_Template.xlsx" />
+    <Content Include="TemplatePBDT\TT342\PHB_PBDT_TT342_B1501\PHB_PBDT_TT342_B1501_Template.xlsx" />
+    <Content Include="TemplatePBDT\TT342\PHB_PBDT_TT342_B1502\PHB_PBDT_TT342_B1502_Template.xlsx" />
+    <Content Include="TemplatePBDT\TT342\PHB_PBDT_TT342_B32\PHB_PBDT_TT342_B32_Template.xlsx" />
+    <Content Include="TemplatePBDT\TT342\PHB_PBDT_TT342_B06\PHB_PBDT_TT342_B06_Template.xlsx" />
+    <Content Include="TemplatePBDT\TT342\PHB_PBDT_TT342_B123\PHB_PBDT_TT342_B123_Template.xlsx" />
+    <Content Include="TemplatePBDT\TT344\PHB_PBDT_TT344_B01\PHB_PBDT_TT344_B01_Template.xlsx" />
+    <Content Include="TemplatePBDT\TT344\PHB_PBDT_TT344_B02\PHB_PBDT_TT344_B02_Template.xlsx" />
+    <Content Include="TemplatePBDT\TT344\PHB_PBDT_TT344_B03\PHB_PBDT_TT344_B03_Template.xlsx" />
+    <Content Include="TemplatePBDT\TT344\PHB_PBDT_TT344_B04\PHB_PBDT_TT344_B04_Template.xlsx" />
+    <Content Include="TemplatePBDT\TT344\PHB_PBDT_TT344_B05\PHB_PBDT_TT344_B05_Template.xlsx" />
+    <Content Include="TemplatePBDT\TT344\PHB_PBDT_TT344_B06\PHB_PBDT_TT344_B06_Template.xlsx" />
+    <Content Include="Template\C_B04X\C_B04X_Template.xlsx" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\web.config" />
+    <Content Include="SCRIPTS\jquery-1.10.2.min.map" />
+    <Content Include="Template\BM48_TT342\BM48_TT342_Template.xlsx" />
+    <Content Include="Template\B01BCQT\B01_BCQT.xlsx" />
+    <Content Include="Template\B01A_TT137\B01A_TT137_Template.xlsx" />
+    <Content Include="Template\DUTOANLUONG\DUTOANLUONG_Template.xlsx" />
+    <Content Include="TemplatePBDT\TT342\PHB_PBDT_TT342_B124\PHB_PBDT_TT342_B124_Template.xlsx" />
+    <Content Include="TemplatePBDT\TT342\PHB_PBDT_TT342_B125\PHB_PBDT_TT342_B125_Template.xlsx" />
+    <Content Include="TemplatePBDT\TT342\PHB_PBDT_TT342_B122\PHB_PBDT_TT342_B122_Template.xlsx" />
+    <Content Include="Template\B02_TT137\B02_TT137_TEMPLATE.xlsx" />
+    <Content Include="Template\F01_02BCQT\F01-02_PI.xlsx" />
+    <Content Include="Template\F01_01BCQT\f01-01.xlsx" />
+    <Content Include="Template\BIEU4BP1\BIEU4B1TT137.xlsx" />
+    <Content Include="Template\BIEU4BP1\BIEU4B1TT137New.xlsx" />
+    <Content Include="Template\BIEU3BP1\template3b_PI.xlsx" />
+    <Content Include="Template\BIEU4BP1\BIEU4BPINew1.xlsx" />
+    <Content Include="Template\L_PC_UB\L_PC_UB_Template.xlsx" />
+    <Content Include="TLHDSD\TLHD_PHB.docx" />
+    <Content Include="Template\B01B_TT137\B01B_TT137_Template.xlsx" />
+    <Content Include="Template\B04_TT344\B04_TT344_Template.xlsx" />
+    <Content Include="Template\B05_TT344\B05_TT344_Template.xlsx" />
+    <Content Include="Template\B03BCTC\B03BCTC_Template.xlsx" />
+    <Content Include="Template\B03BBCTC\B03BBCTC_Template.xlsx" />
+    <Content Include="Template\B01_BCTC\B01_BCTC_Template.xlsx" />
+    <Content Include="Template\PHA_B01_BCTC\PHA_B01_BCTC_Template.xlsx" />
+    <Content Include="Template\PHA_B03B_BCTC\PHA_B03B_BCTC_Template.xlsx" />
+    <Content Include="Template\F01_02BCQT\F01_02_TRANG.xlsx" />
+    <Content Include="Template\BIEU01CP2\BIEU01CP2_DAURA.xlsx" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Export\BIEU01A\" />
+    <Folder Include="Export\BIEU01B\" />
+    <Folder Include="Export\BIEU01\" />
+    <Folder Include="Export\BIEU2A\" />
+    <Folder Include="Export\BIEU2B\" />
+    <Folder Include="Export\BIEU3A\" />
+    <Folder Include="Export\BIEU4A\" />
+    <Folder Include="Export\BIEU68NS\" />
+    <Folder Include="Export\BIEU70NS\" />
+    <Folder Include="Export\PL31\" />
+    <Folder Include="Import\BIEU01C\" />
+    <Folder Include="Import\BIEU2C\" />
+    <Folder Include="Models\" />
+    <Folder Include="TemplatePBDT\QLDA\" />
+    <Folder Include="TemplatePBDT\TT342\BM48_TT342\" />
+    <Folder Include="Template\BIEU01\" />
+    <Folder Include="Template\BIEU2A\" />
+    <Folder Include="Template\BM11.1_TT342\" />
+    <Folder Include="UploadFile\ExcelTemp\" />
+    <Folder Include="Upload\08\L_PC_UB\2019\0\" />
+    <Folder Include="Views\BAOCAO_CHITIET_QUYETTOAN\" />
+    <Folder Include="Views\PhbBcNhapDTXa\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="ReportBCTC\B01_BCTC.resx">
+      <DependentUpon>B01_BCTC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportBCTC\B01_BCTC_TH.resx">
+      <DependentUpon>B01_BCTC_TH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportBCTC\B02BCTC.resx">
+      <DependentUpon>B02BCTC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportBCTC\B02_BCTC_TH.resx">
+      <DependentUpon>B02_BCTC_TH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportBCTC\B03A_BCTC.resx">
+      <DependentUpon>B03A_BCTC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportBCTC\B03B_BCTC.resx">
+      <DependentUpon>B03B_BCTC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportBCTC\B03_BCTC_TH.resx">
+      <DependentUpon>B03_BCTC_TH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportBCTC\B04_BCTC.resx">
+      <DependentUpon>B04_BCTC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportBCTC\B04_BCTC_TH.resx">
+      <DependentUpon>B04_BCTC_TH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportBCTC\B04_BCTC_TT107.resx">
+      <DependentUpon>B04_BCTC_TT107.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportBCTC\B05_BCTC_TM.resx">
+      <DependentUpon>B05_BCTC_TM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportBCTC\S01_BTH_I.resx">
+      <DependentUpon>S01_BTH_I.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportBCTC\S01_BTH_II.resx">
+      <DependentUpon>S01_BTH_II.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportBCTC\S02_BTH.resx">
+      <DependentUpon>S02_BTH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\B01BCQT\B01BCQT.resx">
+      <DependentUpon>B01BCQT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\B01B_TT137\B01B_TT137.resx">
+      <DependentUpon>B01B_TT137.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\B02A_TT137\B02A_TT137.resx">
+      <DependentUpon>B02A_TT137.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\B01A_TT137\B01A_TT137.resx">
+      <DependentUpon>B01A_TT137.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\B02BCQT\B02BCQT.resx">
+      <DependentUpon>B02BCQT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\B02BCTC\B02BCTC.resx">
+      <DependentUpon>B02BCTC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\B02B_TT137\B02B_TT137.resx">
+      <DependentUpon>B02B_TT137.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\B02H_II\B02H_II.resx">
+      <DependentUpon>B02H_II.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\B03BCQT\B03BCQT.resx">
+      <DependentUpon>B03BCQT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\B03_TT90\B03_TT90.resx">
+      <DependentUpon>B03_TT90.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\B04A\B04A.resx">
+      <DependentUpon>B04A.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\B04_TT90\B04_TT90.resx">
+      <DependentUpon>B04_TT90.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BaoCaoHcsn\B01A_TT137\B01A_TT137.resx">
+      <DependentUpon>B01A_TT137.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BaoCaoHcsn\B01B_TT137\B01B_TT137.resx">
+      <DependentUpon>B01B_TT137.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BaoCaoHcsn\B01_BCTC\B01_BCTC.resx">
+      <DependentUpon>B01_BCTC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BaoCaoHcsn\B02A_TT137\B02A_TT137.resx">
+      <DependentUpon>B02A_TT137.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BaoCaoHcsn\B02B_TT137\B02B_TT137.resx">
+      <DependentUpon>B02B_TT137.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BaoCaoHcsn\B02_TT137\B02_TT137.resx">
+      <DependentUpon>B02_TT137.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BaoCaoHcsn\B03BCTC\B03BCTC.resx">
+      <DependentUpon>B03BCTC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BaoCaoHcsn\BIEU01CP2\BIEU01CP2.resx">
+      <DependentUpon>BIEU01CP2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BaoCaoHcsn\F01_01\F01_01.resx">
+      <DependentUpon>F01_01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BaoCaoHcsn\F01_02_BCQT_PII\F01_02_BCQT_PII.resx">
+      <DependentUpon>F01_02_BCQT_PII.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU01CP1\BIEU01CP1_SUMALLREPORT.resx">
+      <DependentUpon>BIEU01CP1_SUMALLREPORT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU01CP2\BIEU01CP2.resx">
+      <DependentUpon>BIEU01CP2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU01CP1\BIEU01CP1.resx">
+      <DependentUpon>BIEU01CP1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU01CP2\BIEU01CP2_SUMALL_REPORT.resx">
+      <DependentUpon>BIEU01CP2_SUMALL_REPORT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU01C\BIEU01C.resx">
+      <DependentUpon>BIEU01C.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU01TT344\BM01_TT344.resx">
+      <DependentUpon>BM01_TT344.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU02TT344\BM02_TT344.resx">
+      <DependentUpon>BM02_TT344.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU03TT344\BM03_TT344.resx">
+      <DependentUpon>BM03_TT344.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU03\BIEU03.resx">
+      <DependentUpon>BIEU03.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU03_TT137\BIEU03_TT137.resx">
+      <DependentUpon>BIEU03_TT137.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU04TT344\BM04_TT344.resx">
+      <DependentUpon>BM04_TT344.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU05TT344\BM05_TT344.resx">
+      <DependentUpon>BM05_TT344.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU06TT344\BM06_TT344.resx">
+      <DependentUpon>BM06_TT344.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU07TT344\BM07_TT344.resx">
+      <DependentUpon>BM07_TT344.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU07TT344_XA\BIEU07TT344_XA.resx">
+      <DependentUpon>BIEU07TT344_XA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU08TT344\BIEU08TT344.resx">
+      <DependentUpon>BIEU08TT344.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU08TT344\BM08_TT344.resx">
+      <DependentUpon>BM08_TT344.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU08TT344_XA\BIEU08TT344_XA.resx">
+      <DependentUpon>BIEU08TT344_XA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU09TT344\BM09_TT344.resx">
+      <DependentUpon>BM09_TT344.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU09TT344_XA\BIEU09TT344_XA.resx">
+      <DependentUpon>BIEU09TT344_XA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU10TT344_XA\BIEU10TT344_XA.resx">
+      <DependentUpon>BIEU10TT344_XA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU10TT344_XA\BIEU10TT344_XA_TABMIT.resx">
+      <DependentUpon>BIEU10TT344_XA_TABMIT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU11TT344_XA\BIEU11TT344_XA_TABMIT.resx">
+      <DependentUpon>BIEU11TT344_XA_TABMIT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU11TT344_XA\BIEU11TT344_XA.resx">
+      <DependentUpon>BIEU11TT344_XA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU12TT344_XA\BIEU12TT344_XA.resx">
+      <DependentUpon>BIEU12TT344_XA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU2B\BIEU2B.resx">
+      <DependentUpon>BIEU2B.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU2CP1\BIEU2CP1.resx">
+      <DependentUpon>BIEU2CP1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU2CP2\BIEU2CP2TABMIT.resx">
+      <DependentUpon>BIEU2CP2TABMIT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU2CP2\BIEU2CP2.resx">
+      <DependentUpon>BIEU2CP2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU3B\BIEU3BP1.resx">
+      <DependentUpon>BIEU3BP1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU3B\BIEU3BP2.resx">
+      <DependentUpon>BIEU3BP2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU4A\BIEU4A.resx">
+      <DependentUpon>BIEU4A.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU4B\BIEU4BP1.resx">
+      <DependentUpon>BIEU4BP1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU4B\BIEU4BP2.resx">
+      <DependentUpon>BIEU4BP2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU70NS\BIEU70NS.resx">
+      <DependentUpon>BIEU70NS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU07TT344\BIEU07TT344.resx">
+      <DependentUpon>BIEU07TT344.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BM15\BM15_2.resx">
+      <DependentUpon>BM15_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\B_03A_X\B03A_X.resx">
+      <DependentUpon>B03A_X.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\B_03B_X\B03B_X.resx">
+      <DependentUpon>B03B_X.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\B_03C_X\B03C_X.resx">
+      <DependentUpon>B03C_X.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\B_03D_X\B03D_X.resx">
+      <DependentUpon>B03D_X.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\C_B01_X\C_B01_X.resx">
+      <DependentUpon>C_B01_X.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\C_B02A_X\C_B02A_X.resx">
+      <DependentUpon>C_B02A_X.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\C_B02B_X\C_B02B_X.resx">
+      <DependentUpon>C_B02B_X.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\C_B03A_X\B03A_X.resx">
+      <DependentUpon>B03A_X.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\C_B03A_X\C_B03A_X.resx">
+      <DependentUpon>C_B03A_X.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\C_B03B_X\B03B_X.resx">
+      <DependentUpon>B03B_X.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\C_B03B_X\C_B03B_X.resx">
+      <DependentUpon>C_B03B_X.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\C_B03_X\C_B03_X.resx">
+      <DependentUpon>C_B03_X.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\C_B03_X\C_B03_X_tapmis.resx">
+      <DependentUpon>C_B03_X_tapmis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\C_B05_X\C_B05_X.resx">
+      <DependentUpon>C_B05_X.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\C_B06X\C_B06X.resx">
+      <DependentUpon>C_B06X.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\C_B06_X\C_B06_X.resx">
+      <DependentUpon>C_B06_X.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\DGCCVC68\DGCCVC68.resx">
+      <DependentUpon>DGCCVC68.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\DGCCVC\DGCCVC.resx">
+      <DependentUpon>DGCCVC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\DOICHIEUSOLIEU\SOSANHBAOCAO.resx">
+      <DependentUpon>SOSANHBAOCAO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\DOICHIEU_TABMIS\DOICHIEUSOLIEU.resx">
+      <DependentUpon>DOICHIEUSOLIEU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\DTLCCVC68\DTLCCVC68.resx">
+      <DependentUpon>DTLCCVC68.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\DTLCCVC\DTLCCVC.resx">
+      <DependentUpon>DTLCCVC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\DTTX_01\DTTX_01.resx">
+      <DependentUpon>DTTX_01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\F01_01BCQT\F01_01BCQTTABMIT.resx">
+      <DependentUpon>F01_01BCQTTABMIT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PBDT_B151\PBDT_B151.resx">
+      <DependentUpon>PBDT_B151.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PBDT_B152\PBDT_B152.resx">
+      <DependentUpon>PBDT_B152.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PHB_BM35\PHB_BM35.resx">
+      <DependentUpon>PHB_BM35.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PHB_C_B02A_X\PHB_C_B02A_X.resx">
+      <DependentUpon>PHB_C_B02A_X.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU09TT344\BIEU09TT344.resx">
+      <DependentUpon>BIEU09TT344.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU10TT344\BIEU10TT344.resx">
+      <DependentUpon>BIEU10TT344.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU11TT344\BIEU11TT344.resx">
+      <DependentUpon>BIEU11TT344.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU12TT344\BIEU12TT344.resx">
+      <DependentUpon>BIEU12TT344.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU67NS\BIEU67NS.resx">
+      <DependentUpon>BIEU67NS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU68NS\BIEU68NS.resx">
+      <DependentUpon>BIEU68NS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BIEU69NS\BIEU69NS.resx">
+      <DependentUpon>BIEU69NS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\C_B03D_X\C_B03D_X.resx">
+      <DependentUpon>C_B03D_X.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\DOICHIEUSOLIEU\DOICHIEUSOLIEU.resx">
+      <DependentUpon>DOICHIEUSOLIEU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\F01_02BCQT_PII\F01_02_BCQT_PIISumReport.resx">
+      <DependentUpon>F01_02_BCQT_PIISumReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PHB_HCSN09\PHB_HCSN09.resx">
+      <DependentUpon>PHB_HCSN09.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PHB_HCSN08\PHB_HCSN08.resx">
+      <DependentUpon>PHB_HCSN08.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PL01\PL01.resx">
+      <DependentUpon>PL01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PL02\PL02.resx">
+      <DependentUpon>PL02.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PL03\PL03_H.resx">
+      <DependentUpon>PL03_H.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\B_C_B04X\B_C_B04X.resx">
+      <DependentUpon>B_C_B04X.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PL1_TT137\PL1_TT137R.resx">
+      <DependentUpon>PL1_TT137R.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PL32_P2_TT01\PL32_P2_TT01.resx">
+      <DependentUpon>PL32_P2_TT01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TCS\TCS_CHITIET.resx">
+      <DependentUpon>TCS_CHITIET.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TCS\TCS_TONGHOP.resx">
+      <DependentUpon>TCS_TONGHOP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Test\test.resx">
+      <DependentUpon>test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\THDT_02\THDT_02.resx">
+      <DependentUpon>THDT_02.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BTS.SP.API.ENTITY\BTS.SP.API.ENTITY.csproj">
+      <Project>{3d9aafe7-4555-415a-ab25-7b94c9d4fb0a}</Project>
+      <Name>BTS.SP.API.ENTITY</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BTS.SP.PHB.ENTITY\BTS.SP.PHB.ENTITY.csproj">
+      <Project>{067fee0a-ef25-4e4e-8c5c-b58c2d4aa2a1}</Project>
+      <Name>BTS.SP.PHB.ENTITY</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BTS.SP.PHB.SERVICE\BTS.SP.PHB.SERVICE.csproj">
+      <Project>{900a6b19-92ef-48ba-a027-d13e0faf7f18}</Project>
+      <Name>BTS.SP.PHB.SERVICE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Frameworks\BTS.SP.TOOLS\BTS.SP.TOOLS.csproj">
+      <Project>{c188887b-cb9e-4ea3-83ae-a99e935e9e65}</Project>
+      <Name>BTS.SP.TOOLS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53414</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:54321/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.3.4.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.3.4.0\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

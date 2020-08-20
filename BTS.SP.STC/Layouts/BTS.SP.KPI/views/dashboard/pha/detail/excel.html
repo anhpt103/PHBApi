@@ -1,0 +1,49 @@
+﻿<div >
+    <div>
+        <h3 style="text-align:center;padding-top: 10px;">BỘ CÁC KPI (CHỈ SỐ) CHỦ YẾU PHỤC VỤ CÔNG TÁC CHỈ ĐẠO, ĐIỀU HÀNH, BÁO CÁO (Lớp 1)</h3>
+    </div>
+    <div class="table-responsive" style="padding-top: 20px">
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+                <tr>
+                    <th rowspan="2" style="text-align:center;">STT</th>
+                    <th rowspan="2" style="text-align:center;">Tên Chỉ Tiêu</th>
+                    <th rowspan="2" style="text-align:center;">Dự Toán giao</th>
+                    <th rowspan="2" style="text-align:center;">Thực Hiện</th>
+                    <th colspan="2" style="text-align:center;">So Sánh với</th>
+                </tr>
+                <tr>
+
+                    <th style="text-align:center;">Thực hiện/Dự toán</th>
+                    <th style="text-align:center;">Thực hiện/ Cùng kỳ</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-show="data==NULL ||data.length<=0">
+                    <td colspan="6" style="background-color: #e2e2e2;">
+                        <p>Không có dữ liệu</p>
+                    </td>
+                </tr>
+                <tr ng-repeat="item in data">                  
+                    <td class="text-center" >
+                        {{item.stt}}
+                    </td>
+                    <td ng-click="Detail()" style="cursor: pointer;">
+                        {{item.teN_CHITIEU}}
+                    </td>
+                    <td style="text-align:right"></td>
+                    <td style="text-align:right">
+                        {{item.tongtien | currency : '' : 3}}
+                    </td>
+                    <td style="text-align:right"></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="modal-footer">
+    <button prevent-default class="btn btn-default" ng-click="cancel()">{{config.label.btnCancel}}</button>
+</div>

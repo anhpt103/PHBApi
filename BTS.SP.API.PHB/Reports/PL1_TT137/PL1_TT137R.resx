@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="htmlTextBox4.Value" xml:space="preserve">
+    <value>&lt;p&gt;&lt;strong&gt;&amp;nbsp;I. Thành phần xét duyệt/thẩm định:&lt;/strong&gt;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Đại diện đơn vị dự toán được xét duyệt/thẩm định :&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Ông, bà {Parameters.CanBoI.Value} Chức vụ {Parameters.ChucVuI.Value}&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Đại diện cơ quan, đơn vị xét duyệt/thẩm định:&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Ông, bà {Parameters.CanBoII.Value} Chức vụ {Parameters.ChucVuII.Value}&lt;br /&gt;&amp;nbsp;&lt;br /&gt;&lt;strong&gt;&amp;nbsp;II. Nội dung xét duyệt (hoặc thẩm định):&lt;/strong&gt;&lt;br /&gt;&lt;strong&gt;&amp;nbsp;1. Phạm vi xét duyệt (hoặc thẩm định):&lt;/strong&gt; &lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Quyết toán ngân sách năm {Parameters.QuyetToanNganSachNam.Value} (không bao gồm quyết toán vốn {Parameters.KhongBaoGomQuyetToanVon.Value}). &lt;br /&gt;&lt;strong&gt;&amp;nbsp;2. Số liệu quyết toán:&lt;/strong&gt;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; a) Thu phí, lệ phí &lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; - Tổng số thu trong năm: ......................... đồng&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; - Số phải nộp ngân sách nhà nước:&amp;nbsp; ......................... đồng&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; - Số phí được khấu trừ, để lại: …………….. đồng&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; (Số liệu chi tiết theo Mẫu biểu 3a ban hành kèm theo Thông tư này đối với xét duyệt/thẩm định quyết toán ngân sách năm 2017; theo Mẫu biểu 1a ban hành kèm theo Thông tư này đối với xét duyệt/thẩm định quyết toán từ năm ngân sách 2018).&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; b) Quyết toán chi ngân sách:&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; - Số dư kinh phí năm trước chuyển sang&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; - Dự toán được giao trong năm: .……..&amp;nbsp; đồng, trong đó:&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; + Dự toán giao đầu năm: {Parameters.DuToanGiaoDauNam.Value} đồng;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; + Dự toán bổ sung trong năm: {Parameters.DuToanBoSungTrongNam.Value} đồng;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; - Kinh phí thực nhận trong năm: ......... đồng;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; - Kinh phí quyết toán: ................ đồng;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; - Kinh phí giảm trong năm:……….. đồng&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; - Số dư kinh phí được chuyển sang năm sau sử dụng và quyết toán: ......... đồng, bao gồm:&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; + Kinh phí đã nhận:............................ đồng;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; + Dự toán còn dư ở Kho bạc: ...................... đồng;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; (Số liệu chi tiết theo Mẫu biểu 3b ban hành kèm theo Thông tư này đối với xét duyệt/thẩm định quyết toán ngân sách năm 2017; theo Mẫu biểu 1c ban hành kèm theo Thông tư này đối với xét duyệt/thẩm định quyết toán từ năm ngân sách 2018).&lt;/p&gt;&lt;p&gt;&lt;strong&gt;&amp;nbsp;3. Tình hình thực hiện kiến nghị của kiểm toán, thanh tra, cơ quan tài chính &lt;br /&gt;&lt;/strong&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; - Tổng số kinh phí phải nộp NSNN: {Parameters.TSKPPhaiNopNSNN.Value}&amp;nbsp;đồng&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; - Tổng số kinh phí đã nộp NSNN: {Parameters.TSKPDaNopNSNN.Value} đồng&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; - Tổng số kinh phí còn phải nộp NSNN: {Parameters.TSKPConPhaiNopNSNN.Value} đồng&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; (Số liệu chi tiết theo Mẫu biểu số 69 Phụ lục 1 ban hành kèm theo Thông tư số 342/2016/TT-BTC)&lt;/p&gt;&lt;p&gt;&lt;strong&gt;&amp;nbsp;4. Thuyết minh số liệu quyết toán: &lt;br /&gt;&lt;/strong&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Thuyết minh, đánh giá tình hình quyết toán ngân sách đối với các nhiệm vụ chi, chương trình, mục tiêu được giao quản lý; trong đó đánh giá cụ thể nguyên nhân tăng, giảm so với dự toán được giao trong năm, gắn với kết quả cụ thể về tình hình thực hiện các mục tiêu kinh tế - xã hội để đánh giá hiệu quả, kết quả chỉ tiêu của từng nhiệm vụ, chương trình, mục tiêu, lĩnh vực được giao quản lý; tthuyết minh chi tiết kinh phí chuyển sang năm sau, kinh phí hủy dự toán (nếu có), nộp ngân sách nhà nước; thuyết minh về số tăng, giảm biên chế, chi từ nguồn NSNN bằng ngoại tệ ... Nêu rõ nguyên nhân chênh lệch giữa số liệu xét duyệt/thẩm định với số liệu báo cáo của đơn vị được xét duyệt/thẩm định (nếu có). &lt;br /&gt;&amp;nbsp;&amp;nbsp; Đối với các Quỹ tài chính nhà nước ngoài ngân sách: thuyết minh đánh giá kết quả, hiệu quả thực hiện nhiệm vụ của Quỹ. &lt;/p&gt;&lt;p&gt;&lt;strong&gt;&amp;nbsp;III. Nội dung đối chiếu số liệu kết quả hoạt động sản xuất kinh doanh, dịch vụ:&lt;/strong&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; - Kết quả chênh lệch thu lớn hơn chi trong năm: ...... đồng, trong đó:&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; - Sử dụng kinh phí tiết kiệm của cơ quan hành chính: ..... đồng&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; - Trích lập các Quỹ:&amp;nbsp;&amp;nbsp; ...... đồng&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; - Kinh phí cải cách tiền lương: … đồng &lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; (Số liệu chi tiết theo Mẫu biểu 3a ban hành kèm theo Thông tư này đối với xét duyệt/thẩm định quyết toán ngân sách năm 2017; theo Mẫu biểu 1b ban hành kèm theo Thông tư này đối với xét duyệt/thẩm định quyết toán từ năm ngân sách 2018).&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;br /&gt;&lt;strong&gt;&amp;nbsp;IV. Nhận xét và kiến nghị:&lt;br /&gt;&amp;nbsp;1. Nhận xét: &lt;br /&gt;&lt;/strong&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; - Về chấp hành thời hạn nộp báo cáo quyết toán&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; - Về các mẫu biểu báo cáo quyết toán&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; - Về thực hiện xét duyệt quyết toán năm đối với đơn vị dự toán cấp dưới, đơn vị trực thuộc (đối với đơn vị dự toán cấp trên và đơn vị dự toán cấp I).&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; - Về chấp hành các quy định của Nhà nước như: về lập, phân bổ và giao dự toán; về mua sắm, sửa chữa tài sản; quản lý và sử dụng tài sản; chế độ thu, nộp ngân sách nhà nước; chế độ chi tiêu; hạch toán thu, chi, mục lục ngân sách nhà nước....&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; - Về thực hiện các kiến nghị của Kiểm toán Nhà nước, thanh tra và cơ quan tài chính. &lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; ……..&lt;/p&gt;&lt;p&gt;&lt;strong&gt;&amp;nbsp; 2. Kiến nghị:&lt;/strong&gt;&lt;br /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Nêu các nội dung cần kiến nghị của đơn vị được xét duyệt/thẩm định và đơn vị xét duyệt/thẩm định liên quan đến chấp hành các quy định của Nhà nước và thực hiện các kiến nghị của Kiểm toán Nhà nước, thanh tra và cơ quan tài chính của đơn vị được xét duyệt/thẩm định.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; Biên bản này được lập thành 04 bản (mỗi bên giữ hai bản) được thông qua và được mọi người nhất trí ký tên dưới đây./.&lt;/p&gt;</value>
+  </data>
+  <data name="htmlTextBox1.Value" xml:space="preserve">
+    <value>&lt;p style="text-align: right"&gt;&lt;strong&gt;Phụ lục 01&lt;/strong&gt;&lt;/p&gt;&lt;p style="text-align: center"&gt;(Ban hành kèm theo Thông tư&amp;nbsp; số 137/2017/TT-BTC ngày 25 tháng 12&amp;nbsp; năm 2017 của Bộ Tài chính)&lt;br /&gt;&lt;strong&gt;CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM&lt;br /&gt;Độc lập - Tự do - Hạnh phúc&lt;br /&gt;———————————&lt;br /&gt;&lt;/strong&gt;{Parameters.DiaChi.Value}, ngày {Parameters.NgayLap.Value.Day}&amp;nbsp; tháng {Parameters.NgayLap.Value.Month} năm {Parameters.NgayLap.Value.Year}&lt;/p&gt;&lt;p style="text-align: center"&gt;&lt;strong&gt;BIÊN BẢN&lt;br /&gt;Xét duyệt/Thẩm định quyết toán ngân sách năm ...&lt;/strong&gt;&lt;/p&gt;&lt;p style="text-align: center"&gt;&lt;strong&gt;Đơn vị được xét duyệt/thẩm định:&amp;nbsp; ...&lt;br /&gt;Mã chương:&amp;nbsp; ...&lt;/strong&gt;&lt;/p&gt;</value>
+  </data>
+  <data name="htmlTextBox2.Value" xml:space="preserve">
+    <value>&lt;span lang=""&gt;&lt;p style="text-align: center"&gt;&lt;span style="font-size: 10pt"&gt;&lt;strong&gt;Đ&lt;span style="font-size: 10pt"&gt;&lt;span style="font-size: 10pt"&gt;&lt;span lang="VI" style="font-size: 10pt"&gt;ại diện &lt;/span&gt;&lt;/span&gt;&lt;span lang="VI" style="font-size: 10pt"&gt;&lt;/span&gt;&lt;/span&gt;&lt;span lang="VI" style="font-size: 10pt"&gt;&lt;span style="font-size: 10pt"&gt;đơn v&lt;/span&gt;&lt;span style="font-size: 10pt"&gt;&lt;span style="font-size: 10pt"&gt;ị &lt;/span&gt;&lt;/span&gt;&lt;span style="font-size: 10pt"&gt;đư&lt;/span&gt;&lt;span style="font-size: 10pt"&gt;&lt;span style="font-size: 10pt"&gt;ợc x&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="font-size: 10pt"&gt;&lt;span style="font-size: 10pt"&gt;&lt;span lang="EN" style="font-size: 10pt"&gt;ét duy&lt;/span&gt;&lt;/span&gt;&lt;span lang="EN" style="font-size: 10pt"&gt;&lt;/span&gt;&lt;/span&gt;&lt;span lang="EN" style="font-size: 10pt"&gt;&lt;/span&gt;&lt;/strong&gt;&lt;span style="font-size: 10pt"&gt;&lt;strong&gt;&lt;span style="font-size: 10pt"&gt;&lt;span lang="VI" style="font-size: 10pt"&gt;ệt/ &lt;br /&gt;thẩm &lt;/span&gt;&lt;/span&gt;&lt;span lang="VI" style="font-size: 10pt"&gt;&lt;/span&gt;&lt;/strong&gt;&lt;/span&gt;&lt;/span&gt;&lt;span lang="VI"&gt;&lt;span style="font-size: 10pt"&gt;&lt;strong&gt;đ&lt;/strong&gt;&lt;/span&gt;&lt;span style="font-size: 18px"&gt;&lt;span style="font-size: 18px"&gt;&lt;span style="font-size: 10pt"&gt;&lt;strong&gt;ịnh&lt;br /&gt;&lt;/strong&gt;&lt;span style="font-size: 18px"&gt;&lt;span style="font-size: 18px"&gt;&lt;span lang=""&gt;&lt;span style="font-size: 10pt"&gt;&lt;strong&gt;Th&lt;/strong&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span lang=""&gt;&lt;span style="font-size: 18px"&gt;&lt;strong&gt;&lt;span style="font-size: 18px"&gt;&lt;span lang="VI" style="font-size: 10pt"&gt;ủ tr&lt;/span&gt;&lt;/span&gt;&lt;span lang="VI"&gt;&lt;/span&gt;&lt;/strong&gt;&lt;/span&gt;&lt;span lang="VI"&gt;&lt;span style="font-size: 10pt"&gt;&lt;strong&gt;&lt;span style="font-size: 10pt"&gt;ư&lt;/span&gt;&lt;span style="font-size: 10pt"&gt;&lt;span style="font-size: 10pt"&gt;ởng &lt;/span&gt;&lt;/span&gt;&lt;span style="font-size: 10pt"&gt;đơn v&lt;/span&gt;&lt;/strong&gt;&lt;/span&gt;&lt;span style="font-size: 18px"&gt;&lt;span style="font-size: 18px"&gt;&lt;span style="font-size: 10pt"&gt;&lt;strong&gt;ị&lt;/strong&gt; &lt;br /&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;i&gt;&lt;span style="font-size: 18px"&gt;&lt;span style="font-size: 18px"&gt;&lt;span lang=""&gt;&lt;span style="font-size: 10pt"&gt;(Ký, ghi rõ h&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span lang=""&gt;&lt;span style="font-size: 10pt"&gt;&lt;span style="font-size: 10pt"&gt;&lt;span style="font-size: 10pt"&gt;&lt;span lang="VI" style="font-size: 10pt"&gt;ọ t&lt;/span&gt;&lt;/span&gt;&lt;span lang="VI" style="font-size: 10pt"&gt;&lt;/span&gt;&lt;/span&gt;&lt;span lang="VI" style="font-size: 10pt"&gt;&lt;/span&gt;&lt;span style="font-size: 10pt"&gt;&lt;span style="font-size: 10pt"&gt;&lt;span lang="EN" style="font-size: 10pt"&gt;ên, &lt;/span&gt;&lt;/span&gt;&lt;span lang="EN" style="font-size: 10pt"&gt;&lt;/span&gt;&lt;/span&gt;&lt;span lang="EN" style="font-size: 10pt"&gt;&lt;span style="font-size: 10pt"&gt;đ&lt;/span&gt;&lt;span style="font-size: 10pt"&gt;&lt;span style="font-size: 10pt"&gt;óng d&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="font-size: 18px"&gt;&lt;span style="font-size: 18px"&gt;&lt;span lang="VI"&gt;&lt;span style="font-size: 10pt"&gt;ấu ) &lt;/span&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p style="text-align: center"&gt;&lt;/p&gt;&lt;/span&gt;&lt;/span&gt;&lt;span lang="VI"&gt;&lt;/span&gt;&lt;/span&gt;&lt;p style="text-align: center"&gt;&lt;span style="font-size: 10pt"&gt;&lt;/span&gt;&lt;/p&gt;&lt;span lang="VI"&gt;&lt;/span&gt;&lt;p style="text-align: center"&gt;&lt;span style="font-size: 10pt"&gt;&lt;/span&gt;&lt;/p&gt;&lt;/span&gt;&lt;p&gt;&lt;/p&gt;&lt;/i&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;/span&gt;&lt;span lang=""&gt;&lt;/span&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;</value>
+  </data>
+  <data name="htmlTextBox3.Value" xml:space="preserve">
+    <value>&lt;span lang=""&gt;&lt;p style="text-align: center"&gt;&lt;span style="font-size: 10pt"&gt;&lt;span style="font-size: 10pt"&gt;&lt;strong&gt;Đ&lt;/strong&gt;&lt;span style="font-size: 10pt"&gt;&lt;span style="font-size: 10pt"&gt;&lt;span lang="VI" style="font-size: 10pt"&gt;&lt;strong&gt;ại diện ....&lt;/strong&gt; &lt;em&gt;(t&lt;/em&gt;&lt;/span&gt;&lt;/span&gt;&lt;span lang="VI" style="font-size: 10pt"&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span lang="VI"&gt;&lt;span style="font-size: 10pt"&gt;&lt;span style="font-size: 10pt"&gt;&lt;em&gt;&lt;span style="font-size: 10pt"&gt;&lt;span style="font-size: 10pt"&gt;&lt;span lang="EN" style="font-size: 10pt"&gt;ên c&lt;/span&gt;&lt;/span&gt;&lt;span lang="EN" style="font-size: 10pt"&gt;&lt;/span&gt;&lt;/span&gt;&lt;span lang="EN" style="font-size: 10pt"&gt;&lt;span style="font-size: 10pt"&gt;ơ quan t&lt;/span&gt;&lt;span style="font-size: 10pt"&gt;&lt;span style="font-size: 10pt"&gt;ài chính, ho&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="font-size: 10pt"&gt;&lt;span style="font-size: 10pt"&gt;&lt;span lang="VI" style="font-size: 10pt"&gt;ặc &lt;/span&gt;&lt;/span&gt;&lt;span lang="VI" style="font-size: 10pt"&gt;&lt;/span&gt;&lt;/span&gt;&lt;span lang="VI" style="font-size: 10pt"&gt;&lt;span style="font-size: 10pt"&gt;đơn v&lt;/span&gt;&lt;span style="font-size: 10pt"&gt;&lt;span style="font-size: 10pt"&gt;ị dự to&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="font-size: 10pt"&gt;&lt;span style="font-size: 10pt"&gt;&lt;span lang="EN" style="font-size: 10pt"&gt;án c&lt;/span&gt;&lt;/span&gt;&lt;span lang="EN" style="font-size: 10pt"&gt;&lt;/span&gt;&lt;/span&gt;&lt;span lang="EN" style="font-size: 10pt"&gt;&lt;/span&gt;&lt;span style="font-size: 10pt"&gt;&lt;span style="font-size: 10pt"&gt;&lt;span lang="VI" style="font-size: 10pt"&gt;ấp tr&lt;/span&gt;&lt;/span&gt;&lt;span lang="VI" style="font-size: 10pt"&gt;&lt;/span&gt;&lt;/span&gt;&lt;span lang="VI" style="font-size: 10pt"&gt;&lt;/span&gt;&lt;/em&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="font-size: 18px"&gt;&lt;span style="font-size: 18px"&gt;&lt;span lang="EN"&gt;&lt;span style="font-size: 10pt"&gt;&lt;em&gt;ên)&lt;br /&gt;&lt;/em&gt;&lt;/span&gt;&lt;/span&gt;&lt;span lang=""&gt;&lt;span style="font-size: 10pt"&gt;&lt;span style="font-size: 10pt"&gt;&lt;em&gt;(Ký, ghi rõ họ &lt;/em&gt;&lt;em&gt;t&lt;span lang="VI"&gt;&lt;/span&gt;&lt;span lang="VI"&gt;&lt;/span&gt;&lt;span style="font-size: 18px"&gt;&lt;span style="font-size: 18px"&gt;&lt;span lang="EN"&gt;&lt;span style="font-size: 10pt"&gt;ên )&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/em&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;/span&gt;&lt;p style="text-align: center"&gt;&lt;span lang=""&gt;&lt;i&gt;&lt;span style="font-size: 18px"&gt;&lt;span style="font-size: 18px"&gt;&lt;span lang="EN"&gt;&lt;span style="font-size: 10pt"&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style="text-align: center"&gt;&lt;span lang=""&gt;&lt;i&gt;&lt;span style="font-size: 18px"&gt;&lt;span style="font-size: 18px"&gt;&lt;span lang="EN"&gt;&lt;p&gt;&lt;/p&gt;&lt;p style="text-align: center"&gt;&lt;/p&gt;&lt;p style="text-align: center"&gt;&lt;/p&gt;&lt;p style="text-align: center"&gt;&lt;/p&gt;&lt;p style="text-align: center"&gt;&lt;span style="font-size: 10pt"&gt;&lt;/span&gt;&lt;/p&gt;&lt;/span&gt;&lt;/span&gt;&lt;span lang="EN"&gt;&lt;/span&gt;&lt;/span&gt;&lt;span lang="EN"&gt;&lt;/span&gt;&lt;/i&gt;&lt;p style="text-align: center"&gt;&lt;span style="font-size: 10pt"&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style="text-align: center"&gt;&lt;span style="font-size: 10pt"&gt;&lt;/span&gt;&lt;/p&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p style="text-align: center"&gt;&lt;/p&gt;&lt;p style="text-align: center"&gt;&lt;/p&gt;&lt;p style="text-align: center"&gt;&lt;/p&gt;&lt;p style="text-align: center"&gt;&lt;/p&gt;&lt;p style="text-align: center"&gt;&lt;/p&gt;&lt;p style="text-align: center"&gt;&lt;/p&gt;&lt;p style="text-align: center"&gt;&lt;/p&gt;&lt;p style="text-align: center"&gt;&lt;/p&gt;&lt;p style="text-align: center"&gt;&lt;/p&gt;&lt;p style="text-align: center"&gt;&lt;/p&gt;&lt;p style="text-align: center"&gt;&lt;/p&gt;&lt;p style="text-align: center"&gt;&lt;/p&gt;&lt;p style="text-align: center"&gt;&lt;/p&gt;&lt;p style="text-align: center"&gt;&lt;/p&gt;&lt;p style="text-align: center"&gt;&lt;/p&gt;&lt;p style="text-align: center"&gt;&lt;/p&gt;&lt;p style="text-align: center"&gt;&lt;/p&gt;&lt;p style="text-align: center"&gt;&lt;/p&gt;&lt;p style="text-align: center"&gt;&lt;/p&gt;&lt;p style="text-align: center"&gt;&lt;/p&gt;</value>
+  </data>
+  <metadata name="$this.ShowSnapGrid" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+</root>

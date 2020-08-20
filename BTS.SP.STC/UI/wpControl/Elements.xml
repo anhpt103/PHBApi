@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/" >
+  <Module Name="wpControl" List="113" Url="_catalogs/wp">
+    <File Path="wpControl\wpControl.webpart" Url="BTS.SP.STC_wpControl.webpart" Type="GhostableInLibrary" >
+      <Property Name="Group" Value="BTS.SP.STC" />
+    </File>
+  </Module>
+</Elements>

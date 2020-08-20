@@ -1,0 +1,107 @@
+﻿USE [aspnetdb]
+GO
+
+/****** Object:  Table [dbo].[aspnet_Menus]    Script Date: 1/3/2020 2:33:01 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[aspnet_Menus](
+	[ApplicationName] [nvarchar](50) NOT NULL,
+	[MenuId] [nvarchar](50) NOT NULL,
+	[MenuIdParent] [nvarchar](50) NOT NULL,
+	[MenuName] [nvarchar](256) NOT NULL,
+	[Path] [nvarchar](256) NULL,
+	[Description] [nvarchar](256) NULL,
+	[Status] [int] NULL,
+ CONSTRAINT [PK_aspnet_Menus] PRIMARY KEY CLUSTERED 
+(
+	[ApplicationName] ASC,
+	[MenuId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+/****** Object:  Table [dbo].[aspnet_Unit]    Script Date: 1/3/2020 2:33:01 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[aspnet_Unit](
+	[ApplicationName] [nvarchar](50) NOT NULL,
+	[UnitId] [nvarchar](50) NOT NULL,
+	[UnitIdParent] [nvarchar](50) NOT NULL,
+	[UnitName] [nvarchar](256) NOT NULL,
+	[Phone] [nvarchar](50) NULL,
+	[Email] [nvarchar](50) NULL,
+	[Address] [nvarchar](256) NULL,
+	[Description] [nvarchar](256) NULL,
+ CONSTRAINT [PK_aspnet_Unit_1] PRIMARY KEY CLUSTERED 
+(
+	[ApplicationName] ASC,
+	[UnitId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+/****** Object:  Table [dbo].[aspnet_UsersInUnit]    Script Date: 1/3/2020 2:33:01 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[aspnet_UsersInUnit](
+	[ApplicationName] [nvarchar](50) NOT NULL,
+	[UnitId] [nvarchar](50) NOT NULL,
+	[UserId] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK__aspnet_U__53C7928752B41AC7] PRIMARY KEY CLUSTERED 
+(
+	[ApplicationName] ASC,
+	[UserId] ASC,
+	[UnitId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+/****** Object:  Table [dbo].[aspnet_UsersInMenu]    Script Date: 1/3/2020 2:33:01 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[aspnet_UsersInMenu](
+	[ApplicationName] [nvarchar](50) NOT NULL,
+	[UnitId] [nvarchar](50) NOT NULL,
+	[MenuId] [nvarchar](50) NOT NULL,
+	[UserName] [nvarchar](50) NOT NULL,
+	[IsAdd] [bit] NULL,
+	[IsEdit] [bit] NULL,
+	[IsDelete] [bit] NULL,
+	[IsApprove] [bit] NULL,
+ CONSTRAINT [PK_aspnet_UsersMenu] PRIMARY KEY CLUSTERED 
+(
+	[ApplicationName] ASC,
+	[UnitId] ASC,
+	[MenuId] ASC,
+	[UserName] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[aspnet_UsersInUnit] ADD  CONSTRAINT [DF_aspnet_UsersInUnit_ApplicationName]  DEFAULT (newid()) FOR [ApplicationName]
+GO
+
+ALTER TABLE [dbo].[aspnet_UsersInMenu] ADD  CONSTRAINT [DF_aspnet_UsersMenu_UserId]  DEFAULT (newid()) FOR [UserName]
+GO
+
+

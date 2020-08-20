@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.VisualWebPart" DefaultFile="wpControl_PHBUserControl.ascx" SupportedTrustLevels="FullTrust" SupportedDeploymentScopes="Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="wpControl_PHB\" Type="ElementManifest" />
+    <ProjectItemFile Source="wpControl_PHB.webpart" Target="wpControl_PHB\" Type="ElementFile" />
+    <ProjectItemFile Source="wpControl_PHBUserControl.ascx" Target="CONTROLTEMPLATES\BTS.SP.STC.UI\wpControl_PHB\" Type="TemplateFile" />
+  </Files>
+  <SafeControls>
+    <SafeControl Name="SafeControlEntry1" Assembly="$SharePoint.Project.AssemblyFullName$" Namespace="BTS.SP.STC.UI.wpControl_PHB" TypeName="*" IsSafe="true" IsSafeAgainstScript="false" />
+  </SafeControls>
+</ProjectItem>

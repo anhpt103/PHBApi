@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <CustomAction
+   Id="FBAUserManagement"
+   GroupId="UsersAndPermissions"
+   Location="Microsoft.SharePoint.SiteSettings"
+   Sequence="100"
+   RequireSiteAdministrator="TRUE"
+   Title="Unit Management"
+   Description="Unit Management">
+    <UrlAction Url="~sitecollection/_layouts/FBA/UnitDisp.aspx" />
+  </CustomAction>
+  
+  <CustomAction
+   Id="FBAUserManagement"
+   GroupId="UsersAndPermissions"
+   Location="Microsoft.SharePoint.SiteSettings"
+   Sequence="101"
+   RequireSiteAdministrator="TRUE"
+   Title="User Management"
+   Description="User Management">
+    <UrlAction Url="~sitecollection/_layouts/FBA/UsersDisp.aspx" />
+  </CustomAction>
+
+
+  <CustomAction
+  Id="FBARolesManagement"
+  GroupId="UsersAndPermissions"
+  Location="Microsoft.SharePoint.SiteSettings"
+  Sequence="102"
+  RequireSiteAdministrator="TRUE"
+  Title="Roles Management"
+  Description="Roles Management">
+    <UrlAction Url="~sitecollection/_layouts/FBA/RolesDisp.aspx" />
+  </CustomAction>
+
+  <CustomAction
+   Id="FBAMenus"
+   GroupId="UsersAndPermissions"
+   Location="Microsoft.SharePoint.SiteSettings"
+   Sequence="103"
+   RequireSiteAdministrator="TRUE"
+   Title="Menus Management"
+   Description="Menus Management">
+    <UrlAction Url="~sitecollection/_layouts/FBA/MenusDisp.aspx" />
+  </CustomAction>
+  
+</Elements>

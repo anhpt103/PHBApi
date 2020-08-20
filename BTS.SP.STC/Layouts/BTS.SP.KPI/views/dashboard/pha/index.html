@@ -1,0 +1,496 @@
+﻿<style>
+    .thuchi {
+        padding-top: 10px;
+        color: #fff;
+        text-align: center;
+    }
+
+        .thuchi .text-label {
+            font-size: 18px;
+        }
+
+    .big-number {
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .btn-synch-data {
+        font-weight: bolder;
+        margin-top: 21px;
+        background: #337ab7;
+        text-decoration: none;
+    }
+
+        .btn-synch-data:hover {
+            background: #286090;
+        }
+
+    .location {
+        position: absolute;
+        width: 37px;
+        height: 60px;
+        background: url("../../_layouts/15/stc/imgs/loca.png") no-repeat;
+        transform: translate(-50%,-160%);
+        opacity: 0;
+        transition: 0.3s;
+        pointer-events: none;
+    }
+
+        .location.active {
+            opacity: 1;
+            transform: translate(-50%,-100%);
+        }
+</style>
+
+
+<h2 style="font-weight:bolder;margin:25px 0 0 25px">
+    TÌNH HÌNH  <span style="color:#d13342">THU CHI</span> ĐỊA BÀN TOÀN TỈNH
+</h2>
+<!--<p>{{data
+    }}</p>-->
+<div class="row" style="margin: 10px 0px;">
+    <div class="col-md-1">
+        <div class="col-md-12">
+            <div class="text-label">
+                <label>Từ tháng</label>
+            </div>
+            <select class="form-control" ng-model="target.FROM_THANG" ng-options="opt as opt for opt in fromTHANG"></select>
+        </div>
+    </div>
+    <div class="col-md-1">
+        <div class="col-md-12">
+            <div class="text-label">
+                <label>Đến tháng</label>
+            </div>
+            <select class="form-control" ng-model="target.TO_THANG" ng-init="target.TO_THANG = 12" ng-change="changThang(target.TO_THANG)" ng-options="opt as opt for opt in toTHANG"></select>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="col-md-12">
+            <div class="text-label">
+                <label>Năm hạch toán</label>
+            </div>
+            <select class="form-control col-md-12" ng-model="target.NAM" ng-init="target.NAM = currentYear" ng-change="changNam(target.NAM)" ng-options="opt as opt for opt in listNAM"></select>
+            <a class="btn btn-primary col-md-12 btn-synch-data" ng-click="LoadExcel()"><i class="fa fa-refresh" aria-hidden="true" style="padding:5px 5px 0 0"></i>Dữ Liệu dạng lưới</a>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="col-md-12">
+            <div class="text-label">
+                <label>Địa Bàn</label>
+            </div>
+            <select class="form-control col-md-12" ng-model="target.DIA_BAN"  ng-options="opt.mA_DBHC as opt.teN_DBHC for opt in MA_DBHC" ng-change="getTenDiaBan(target.DIA_BAN)"></select>
+            <a class="btn btn-primary col-md-12 btn-synch-data" ng-click="Updatedata()"><i class="fa fa-refresh" aria-hidden="true" style="padding:5px 5px 0 0"></i>Cập nhật dữ liệu</a>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="text-label">
+                    <label></label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label style="float:right">Đơn vị tính: Triệu đồng</label>
+            </div>
+            <div class="col-md-4" ng-click="DetailTTNSNN()">
+                <div class="col-md-12 thuchi" style="background-color:#1c86e2 ">
+
+                    <div class="text-label">
+                        <label ng-click="DetailTTNSNN()">Tổng Thu NSNN</label>
+                    </div>
+                    <p class="big-number">{{tongThuNSNN | number:2}}</p>
+
+
+                </div>
+            </div>
+            <div class="col-md-4" ng-click="DetailTTNSDP()">
+                <div class="col-md-12 thuchi" style="background-color:#16a87b ">
+                    <div class="text-label">
+                        <label>Tổng Thu NSDP</label>
+                    </div>
+                    <p class="big-number">{{tongThuNSDP | number:2}}</p>
+
+                </div>
+            </div>
+            <div class="col-md-4" ng-click="DetailTC()">
+                <div class="col-md-12 thuchi" style="background-color:#d13342">
+                    <div class="text-label">
+                        <label>Tổng chi</label>
+                    </div>
+                    <p class="big-number">{{tongChi | number:2}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" style="margin-top: 25px;">
+    <p style="float:center; font-size:25px; font-weight:bold;margin-left:50px;margin-top:10px;text-align:center">
+        Biểu đồ thu - chi NS địa bàn {{target.TEN_DIABAN}}
+    </p>
+</div>
+<div class="row" style="margin-top: 25px;">
+    <div class="col-lg-4 col-sm-12 ng-scope">
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading" style="font-weight: bold">Biểu đồ tổng hợp thu NSNN trên địa bàn </div>
+                <uib-tabset style="margin-top:16px">
+                    <uib-tab index="0" heading="Biểu đồ">
+                        <div class="panel-body">
+                            <iframe class="chartjs-hidden-iframe" tabindex="-1" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+                            <canvas id="pie" class="chart chart-pie chart-xs ng-isolate-scope" chart-data="dataBieu2" chart-labels="labelBieu2" chart-options="optioneChart" width="523" height="274px" style="display: block; width: 523px; height: 261px;"></canvas>
+                        </div>
+                    </uib-tab>
+                    <uib-tab index="1" heading="Bảng dữ liệu">
+                        <div class="panel-body">
+                            <table class="table table-bordered table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Đơn vị
+                                        </th>
+                                        <th>
+                                            Số liệu
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="item in labelBieu2">
+                                        <td style="text-align: left">
+                                            {{
+item
+                                            }}
+                                        </td>
+                                        <td style="text-align: right">
+                                            {{dataBieu2[labelBieu2.indexOf(item)] | number : fractionSize }}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </uib-tab>
+                </uib-tabset>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-sm-12 ng-scope">
+        <div class="panel panel-default">
+            <div class="panel-heading" style="font-weight:bold">Biểu đồ tổng hợp số thu NSDP trên địa bàn tỉnh - huyện</div>
+            <uib-tabset style="margin-top:16px">
+                <uib-tab index="0" heading="Bản đồ">
+                    <div class="panel-body">
+                        <iframe class="chartjs-hidden-iframe" tabindex="-1" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+                        <canvas id="pie" class="chart chart-pie chart-xs ng-isolate-scope" chart-data="dataBieu3" chart-labels="labelBieu3" chart-options="optioneChart" width="523" height="274px" style="display: block; width: 523px; height: 261px;"></canvas>
+                    </div>
+                </uib-tab>
+                <uib-tab index="1" heading="Bảng dữ liệu">
+                    <div class="panel-body">
+                        <table class="table table-bordered table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Địa bàn
+                                    </th>
+                                    <th>
+                                        Số liệu
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in labelBieu3">
+                                    <td style="text-align: left">
+                                        {{item}}
+                                    </td>
+                                    <td style="text-align: right">
+                                        {{dataBieu3[labelBieu3.indexOf(item)] | number : fractionSize}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </uib-tab>
+
+            </uib-tabset>
+        </div>
+    </div>
+    <div class="col-lg-4 col-sm-12 ng-scope">
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading" style="font-weight: bold;">Biểu đồ tổng hợp chi trên địa bàn tỉnh - huyện</div>
+                <uib-tabset style="margin-top:16px">
+                    <uib-tab index="0" heading="Biểu đồ">
+                        <div class="panel-body">
+                            <iframe class="chartjs-hidden-iframe" tabindex="-1" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+                            <canvas id="doughnut-chart" class="chart chart-pie chart-xs ng-isolate-scope" chart-data="dataBieu4" chart-labels="labelBieu4" chart-options="optioneChart" width="523" height="261" style="display: block; width: 523px; height: 261px;"></canvas>
+                        </div>
+                    </uib-tab>
+                    <uib-tab index="1" heading="Bảng dữ liệu">
+                        <div class="panel-body">
+                            <table class="table table-bordered table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Đơn vị
+                                        </th>
+                                        <th>
+                                            Số liệu
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="item in labelBieu4">
+                                        <td style="text-align: left">
+                                            {{item}}
+                                        </td>
+                                        <td style="text-align: right">
+                                            {{dataBieu4[labelBieu4.indexOf(item)] | number : fractionSize}}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </uib-tab>
+                </uib-tabset>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12 col-sm-12 ng-scope" id="line-chart">
+        <div class="panel panel-default">
+            <div class="panel-heading" style="font-weight: bold">Biểu đồ tổng hợp <span style="color: #d13342">THU CHI</span> toàn tỉnh</div>
+            <uib-tabset style="margin-top: 16px">
+                <uib-tab index="0" heading="Biểu đồ">
+                    <div class="panel-body">
+                        <iframe class="chartjs-hidden-iframe" tabindex="-1" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+                        <canvas id="bar" class="chart chart-bar chart-xs ng-isolate-scope" chart-data="dataBieu1" chart-labels="labelBieu1" chart-series="seriesBieu1" chart-options="optionnonnumber" chart-colors="barColor4" style="display: block; "></canvas>
+                    </div>
+                </uib-tab>
+                <uib-tab index="1" heading="Bảng dữ liệu">
+                    <div class="panel-body">
+                        <table class="table table-bordered table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Đơn vị
+                                    </th>
+                                    <th>
+                                        Tổng Thu NSNN
+                                    </th>
+                                    <th>
+                                        Tổng Thu NSDP
+                                    </th>
+                                    <th>
+                                        Tổng Chi
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in labelBieu1">
+                                    <td style="text-align: left">
+                                        {{item}}
+                                    </td>
+                                    <td style="text-align: right">
+                                        {{dataBieu1cot1[labelBieu1.indexOf(item)] | number : fractionSize}}
+                                    </td>
+                                    <td style="text-align: right">
+                                        {{dataBieu1cot2[labelBieu1.indexOf(item)] | number : fractionSize}}
+                                    </td>
+                                    <td style="text-align: right">
+                                        {{dataBieu1cot3[labelBieu1.indexOf(item)] | number : fractionSize}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </uib-tab>
+            </uib-tabset>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6 col-sm-12 ng-scope" id="bar-chart">
+        <div class="panel panel-default">
+            <div class="panel-heading" style="font-weight: bold">BIỂU ĐỒ CHI TIẾT TỔNG CHI NGÂN SÁCH</div>
+            <uib-tabset style="margin-top:16px">
+                <uib-tab index="0" heading="Biểu đồ">
+                    <div class="panel-body">
+                        <iframe class="chartjs-hidden-iframe" tabindex="-1" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+                        <canvas id="bar" class="chart chart-bar chart-xs ng-isolate-scope" chart-data="dataBieu7" chart-labels="labelBieu7" chart-series="seriesBieu7" chart-options="options" chart-colors="barColor3" width="523" height="261" style="display: block; width: 523px; height: 261px;"></canvas>
+                    </div>
+                </uib-tab>
+                <uib-tab index="1" heading="Bảng dữ liệu">
+                    <div class="panel-body">
+                        <table class="table table-bordered table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Đơn vị
+                                    </th>
+                                    <th>
+                                        Tổng chi cân đối
+                                    </th>
+                                    <th>
+                                        Chi trả nợ gốc
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in labelBieu7">
+                                    <td style="text-align: left">
+                                        {{item}}
+                                    </td>
+                                    <td style="text-align: right">
+                                        {{dataBieu7cot1[labelBieu7.indexOf(item)] | number : fractionSize}}
+                                    </td>
+                                    <td style="text-align: right">
+                                        {{dataBieu7cot2[labelBieu7.indexOf(item)] | number : fractionSize}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </uib-tab>
+            </uib-tabset>
+
+        </div>
+    </div>
+    <div class="col-lg-6 col-sm-12 ng-scope" id="bar-chart">
+        <div class="panel panel-default">
+            <div class="panel-heading" style="font-weight: bold">BÁO CÁO TỔNG HỢP CHI TRÊN ĐỊA BÀN TỈNH NĂM</div>
+            <uib-tabset style="margin-top:16px">
+                <uib-tab index="0" heading="Biểu đồ">
+                    <div class="panel-body">
+                        <iframe class="chartjs-hidden-iframe" tabindex="-1" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+                        <canvas id="bar" class="chart chart-bar chart-xs ng-isolate-scope" chart-data="dataBieu5" chart-labels="labelBieu5" chart-series="seriesBieu20" chart-options="options" chart-colors="barColor3" width="523" height="261" style="display: block; width: 523px; height: 261px;"></canvas>
+                    </div>
+                </uib-tab>
+                <uib-tab index="1" heading="Bảng dữ liệu">
+                    <div class="panel-body">
+                        <table class="table table-bordered table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Đơn vị
+                                    </th>
+                                    <th>
+                                        Số Tiền
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in labelBieu5">
+                                    <td style="text-align: left">
+                                        {{item}}
+                                    </td>
+                                    <td style="text-align: right">
+                                        {{dataBieu5[labelBieu5.indexOf(item)] | number : fractionSize}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </uib-tab>
+            </uib-tabset>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6 col-sm-12 ng-scope" id="bar-chart">
+        <div class="panel panel-default">
+            <div class="panel-heading" style="font-weight: bold">TỔNG HỢP CÁC CƠ QUAN THU TRÊN ĐỊA BÀN TỈNH</div>
+            <uib-tabset style="margin-top:16px">
+                <uib-tab index="0" heading="Biểu đồ">
+                    <div class="panel-body">
+                        <iframe class="chartjs-hidden-iframe" tabindex="-1" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+                        <canvas id="bar" class="chart chart-bar chart-xs ng-isolate-scope" chart-data="dataBieu8" chart-labels="labelBieu8" chart-series="seriesBieu8" chart-options="options" chart-colors="barColor3" width="523" height="261" style="display: block; width: 523px; height: 261px;"></canvas>
+                    </div>
+                </uib-tab>
+                <uib-tab index="1" heading="Bảng dữ liệu">
+                    <div class="panel-body">
+                        <table class="table table-bordered table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Đơn vị
+                                    </th>
+                                    <th>
+                                        Cơ quan thuế
+                                    </th>
+                                    <th>
+                                        Cơ quan hải quan
+                                    </th>
+                                    <th>
+                                        Cơ quan khác
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in labelBieu8">
+                                    <td style="text-align: left">
+                                        {{item}}
+                                    </td>
+                                    <td style="text-align: right">
+                                        {{dataBieu8cot1[labelBieu8.indexOf(item)] | number : fractionSize}}
+                                    </td>
+                                    <td style="text-align: right">
+                                        {{dataBieu8cot2[labelBieu8.indexOf(item)] | number : fractionSize}}
+                                    </td>
+                                    <td style="text-align: right">
+                                        {{dataBieu8cot3[labelBieu8.indexOf(item)] | number : fractionSize}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </uib-tab>
+            </uib-tabset>
+        </div>
+    </div>
+    <div class="col-lg-6 col-sm-12 ng-scope" id="bar-chart">
+        <div class="panel panel-default">
+            <div class="panel-heading" style="font-weight: bold">BIỂU ĐỒ CHI TIẾT SỐ THU PHÂN CẤP TRÊN ĐỊA BÀN</div>
+            <uib-tabset style="margin-top:16px">
+                <uib-tab index="0" heading="Biểu đồ">
+                    <div class="panel-body">
+                        <iframe class="chartjs-hidden-iframe" tabindex="-1" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+                        <canvas id="bar" class="chart chart-bar chart-xs ng-isolate-scope" chart-data="dataBieu6" chart-labels="labelBieu6" chart-series="seriesBieu6" chart-options="options" chart-colors="barColor3" width="523" height="261" style="display: block; width: 523px; height: 261px;"></canvas>
+                    </div>
+                </uib-tab>
+                <uib-tab index="1" heading="Bảng dữ liệu">
+                    <div class="panel-body">
+                        <table class="table table-bordered table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Đơn vị
+                                    </th>
+                                    <th>
+                                        Thu hưởng 100%
+                                    </th>
+                                    <th>
+                                        Thu hưởng phân cấp
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in labelBieu6">
+                                    <td style="text-align: left">
+                                        {{item}}
+                                    </td>
+                                    <td style="text-align: right">
+                                        {{dataBieu6cot1[labelBieu6.indexOf(item)] | number : fractionSize}}
+                                    </td>
+                                    <td style="text-align: right">
+                                        {{dataBieu6cot2[labelBieu6.indexOf(item)] | number : fractionSize}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </uib-tab>
+            </uib-tabset>
+        </div>
+    </div>
+</div>

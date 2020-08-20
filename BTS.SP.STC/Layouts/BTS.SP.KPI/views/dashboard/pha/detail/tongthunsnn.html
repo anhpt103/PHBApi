@@ -1,0 +1,117 @@
+﻿<div class="row" style="margin-top: 30px">
+    <h1 style="text-align:center;color:#5151c7">Báo cáo chi tiết thu ngân sách nhà nước của {{target.TEN_DIABAN}}</h1>
+</div>
+
+<div class="row" style="height:650px;margin-top: 45px">
+    <div class="col-lg-6 col-sm-12 ng-scope" id="bar-chart" style=" margin-left 15px; width 48%;">
+        <div class="panel panel-default" style="height:575px">
+            <div class="panel-heading" style="font-weight: bold">Biểu đồ chi tiết tổng thu NSNN theo tháng</div>
+            <uib-tabset style="margin-top:16px">
+                <uib-tab index="0" heading="Biểu đồ">
+                    <div class="panel-body">
+                        <iframe class="chartjs-hidden-iframe" tabindex="-1" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+                        <canvas id="bar" class="chart chart-bar chart-xs ng-isolate-scope" chart-data="dataBieu2" chart-labels="labelBieu2" chart-series="seriesBieu2" chart-options="options" chart-colors="barColor4" width="523" height="261" style="display: block; width: 523px; height: 261px;"></canvas>
+                    </div>
+                </uib-tab>
+                <uib-tab index="1" heading="Bảng dữ liệu">
+                    <div class="panel-body">
+                        <table class="table table-bordered table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Đơn vị
+                                    </th>
+                                    <th>
+                                        Tổng Tiền {{target.NAM}}
+                                    </th>
+                                    <th>
+                                        Tổng Tiền {{target.NAM - 1}}
+                                    </th>
+                                    <th>
+                                        Tổng Tiền {{target.NAM - 2}}
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in labelBieu2">
+                                    <td style="text-align: left">
+                                        {{
+                                            item
+                                        }}
+                                        </td>
+                                    <td style="text-align: right">
+                                        {{dataBieu2cot1[labelBieu2.indexOf(item)] | number : fractionSize }}
+                                    </td>
+                                    <td style="text-align: right">
+                                        {{dataBieu2cot2[labelBieu2.indexOf(item)] | number : fractionSize }}
+                                    </td>
+                                    <td style="text-align: right">
+                                        {{dataBieu2cot3[labelBieu2.indexOf(item)] | number : fractionSize }}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </uib-tab>
+            </uib-tabset>
+
+        </div>
+    </div>
+    <div class="col-lg-6 col-sm-12 ng-scope" id="bar-chart">
+        <div class="panel panel-default" style="height:575px">
+            <div class="panel-heading" style="font-weight: bold">Biểu đồ chi tiết tổng thu NSNN theo huyện</div>
+            <uib-tabset style="margin-top:16px">
+                <uib-tab index="0" heading="Biểu đồ">
+                    <div class="panel-body">
+                        <iframe class="chartjs-hidden-iframe" tabindex="-1" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+                        <canvas id="bar" class="chart chart-bar chart-xs ng-isolate-scope" chart-data="dataBieu6" chart-labels="labelBieu6" chart-series="seriesBieu2" chart-options="options" chart-colors="barColor3" width="523" height="261" style="display: block; width: 523px; height: 261px;"></canvas>
+                    </div>
+                </uib-tab>
+                <uib-tab index="1" heading="Bảng dữ liệu">
+                    <div class="panel-body">
+                        <table class="table table-bordered table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Đơn vị
+                                    </th>
+                                    <th>
+                                        Tổng Tiền {{target.NAM}}
+                                    </th>
+                                    <th>
+                                        Tổng Tiền {{target.NAM - 1}}
+                                    </th>
+                                    <th>
+                                        Tổng Tiền {{target.NAM - 2}}
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in labelBieu6">
+                                    <td style="text-align: left">
+                                        {{
+                                            item
+                                        }}
+                                    </td>
+                                    <td style="text-align: right">
+                                        {{dataBieu6cot1[labelBieu6.indexOf(item)] | number : fractionSize }}
+                                    </td>
+                                    <td style="text-align: right">
+                                        {{dataBieu6cot2[labelBieu6.indexOf(item)] | number : fractionSize }}
+                                    </td>
+                                    <td style="text-align: right">
+                                        {{dataBieu6cot3[labelBieu6.indexOf(item)] | number : fractionSize }}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </uib-tab>
+            </uib-tabset>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+
+    <button prevent-default class="btn btn-default" ng-click="cancel()">{{config.label.btnCancel}}</button>
+</div>

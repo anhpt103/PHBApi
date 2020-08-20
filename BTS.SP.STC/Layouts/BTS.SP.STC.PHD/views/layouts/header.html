@@ -1,0 +1,124 @@
+﻿<style type="text/css">
+    .container-fluid.menu {
+        background-color: #af1515;
+    }
+    .dropdown-submenu > .dropdown-menu {
+        top: 0;
+        left: 100%;
+        margin-top: -6px;
+        margin-left: -1px;
+        -webkit-border-radius: 0 6px 6px 6px;
+        -moz-border-radius: 0 6px 6px;
+        border-radius: 0 6px 6px 6px;
+    }
+    .dropdown-submenu:hover > .dropdown-menu {
+        display: block;
+    }
+    .container-fluid.menu a:hover {
+        background-color: antiquewhite;
+    }
+    .dropdown-submenu > a:after {
+        display: block;
+        content: " ";
+        float: right;
+        width: 0;
+        height: 0;
+        border-color: transparent;
+        border-style: solid;
+        border-width: 5px 0 5px 5px;
+        border-left-color: #ccc;
+        margin-top: 5px;
+        margin-right: -10px;
+    }
+    .dropdown-submenu:hover > a:after {
+        border-left-color: #fff;
+    }
+    .dropdown-submenu.pull-left {
+        float: none;
+    }
+    .dropdown-submenu.pull-left > .dropdown-menu {
+            left: -100%;
+            margin-left: 10px;
+            -webkit-border-radius: 6px 0 6px 6px;
+            -moz-border-radius: 6px 0 6px 6px;
+            border-radius: 6px 0 6px 6px;
+        }
+    .navbar {
+        min-height: 38px !important;
+        border: 0px !important;
+    }
+    #loading-bar .bar {
+        position: fixed !important;
+        top: 5px !important;
+    }
+</style>
+<!--Navigation-->
+<div class="container-fluid top-hd" style="height: 53px; background-color: #fffaf0;">
+    <div class="container">
+        <div class="container">
+            <img src="/_layouts/15/BTS.SP.STC.PHD/styles/imgs/logo.png" style="height: 40px; margin: 7px 10px 7px 0px; float: left;"/>
+            <span class="brand" style="float: left; line-height: 40px; margin-top: 7px; font-size: 18px; font-weight: bold; color: brown;">PHẦN MỀM ĐẦU TƯ - SỞ TÀI CHÍNH BẮC NINH</span>
+        </div>
+    </div>
+</div>
+<!--End Nav-->
+<!-- MENU---->
+<div class="collapse navbar-collapse">
+    <nav class="navbar navbar-inverse">
+        <div class="container menu">
+            <div class="navbar-header" ng-if="currentUser" style="height: 38px;">
+                <ul class="nav navbar-nav">
+                    <li dropdown ng-repeat="data in treeMenu.Children">
+                        <a href="#" dropdown-toggle>{{data.Text}}<b ng-if="data.Children && data.Children.length>0" class='caret'></b></a>
+                        <tree ng-if="data.Children && data.Children.length>0" tree='data.Children'></tree>
+                    </li>
+                </ul>
+                <div class="navbar-custom-menu" style="position: fixed; right: 0px; margin: 5px 170px;">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown user user-menu">
+                            <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                                <div data-toggle="tooltip" data-placement="left" title="Thông tin tài khoản">
+                                    <span class="glyphicon glyphicon-user"></span>&nbsp;
+                                </div>
+                            </a>
+                            <ul class="dropdown-menu" style="margin: -7px -96px; font-size: 13px; padding: 13px 19px; color: #333;">
+                                <!-- User image -->
+                                <li class="user-header">
+                                    <p style="float: left;">
+                                        Tài khoản: {{currentUser.userName}}<br />
+                                    </p>
+                                    <p style="float: left;">
+                                        Tên đầy đủ: {{currentUser.fullName}}<br />
+                                    </p>
+                                    <p style="float: left;">
+                                        Hộp thư: {{currentUser.email}}<br />
+                                    </p>
+                                    <p style="float: left;">
+                                        Số điện thoại: {{currentUser.phone}}<br />
+                                    </p>
+                                    <p style="float: left;">
+                                        Chức vụ: {{currentUser.chucVu}}<br />
+                                    </p>
+                                    <p style="float: left;">
+                                        Tên tài khoản: {{currentUser.donViLap}}<br />
+                                    </p>
+                                    <p style="float: left;">
+                                        Tài khoản kho bạc: {{currentUser.maTaiKhoanKhoBac}}<br />
+                                    </p>
+                                </li>
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                    </div>
+
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pull-right" ng-if="currentUser">
+                <a class="btn btn-default" style="margin: 4px 44px; position: fixed; right: 0px;" ng-click="logOut()"><span class="glyphicon glyphicon-off"></span>&nbsp;Đăng xuất</a>
+            </div>
+        </div>
+    </nav>
+</div>>

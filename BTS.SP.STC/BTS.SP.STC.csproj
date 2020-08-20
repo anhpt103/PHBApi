@@ -1,0 +1,659 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{78372962-CE9E-4F9E-AE63-C6516F32E46A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BTS.SP.STC</RootNamespace>
+    <AssemblyName>BTS.SP.STC</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetOfficeVersion>19.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SandboxedSolution>False</SandboxedSolution>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <ActiveDeploymentConfiguration>Default</ActiveDeploymentConfiguration>
+    <TokenReplacementFileExtensions>aspx</TokenReplacementFileExtensions>
+    <AssemblyDeploymentTarget>GlobalAssemblyCache</AssemblyDeploymentTarget>
+    <TargetFrameworkProfile />
+    <ProjectMode>SharePointCustomization</ProjectMode>
+    <MinimumOfficeToolsVersion>14.1</MinimumOfficeToolsVersion>
+    <MinimumVisualStudioVersion>15.0</MinimumVisualStudioVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>14.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="microsoft.identitymodel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.7.0.0\lib\net35\microsoft.identitymodel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=69c3241e6f0468ca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\BTS19.QLG.APP\BTS19.QLG.APP\BTS19.QLG.APP\DLL\Microsoft.IdentityModel.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.5.6.0\lib\net451\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.5.6.0\lib\net451\Microsoft.IdentityModel.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.6.0\lib\net451\Microsoft.IdentityModel.Tokens.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.IdentityModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\BTS19\DLL\Microsoft.SharePoint.IdentityModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Security, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SharePoint.WorkflowActions, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.12.1.022\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
+    <Reference Include="Telerik.Reporting, Version=14.0.20.115, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Code\FBA\APIFunction.cs" />
+    <Compile Include="Code\FBA\Data\FBADataSource.cs" />
+    <Compile Include="Code\FBA\Data\FBAUnitView.cs" />
+    <Compile Include="Code\FBA\Data\FBAMenuView.cs" />
+    <Compile Include="Code\FBA\Data\FBARolesView.cs" />
+    <Compile Include="Code\FBA\Data\FBAUsersView.cs" />
+    <Compile Include="Code\FBA\MembershipSettings.cs" />
+    <Compile Include="Code\FBA\Provider\FbaMembers.cs" />
+    <Compile Include="Code\FBA\Provider\FBAUnit.cs" />
+    <Compile Include="Code\FBA\Provider\FbaMenus.cs" />
+    <Compile Include="Code\FBA\Provider\FbaRoles.cs" />
+    <Compile Include="Code\FBA\Provider\FbaSites.cs" />
+    <Compile Include="Layouts\FBA\MenusDisp.aspx.cs">
+      <DependentUpon>MenusDisp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\FBA\MenusDisp.aspx.designer.cs">
+      <DependentUpon>MenusDisp.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\FBA\MenusNewEdit.aspx.cs">
+      <DependentUpon>MenusNewEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\FBA\MenusNewEdit.aspx.designer.cs">
+      <DependentUpon>MenusNewEdit.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\FBA\RoleNew.aspx.cs">
+      <DependentUpon>RoleNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\FBA\RoleNew.aspx.designer.cs">
+      <DependentUpon>RoleNew.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\FBA\RolesDisp.aspx.cs">
+      <DependentUpon>RolesDisp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\FBA\RolesDisp.aspx.designer.cs">
+      <DependentUpon>RolesDisp.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\FBA\SPLOGIN\LOGIN.aspx.cs">
+      <DependentUpon>LOGIN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\FBA\SPLOGIN\LOGIN.aspx.designer.cs">
+      <DependentUpon>LOGIN.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\FBA\UnitDisp.aspx.cs">
+      <DependentUpon>UnitDisp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\FBA\UnitDisp.aspx.designer.cs">
+      <DependentUpon>UnitDisp.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\FBA\UnitNewEdit.aspx.cs">
+      <DependentUpon>UnitNewEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\FBA\UnitNewEdit.aspx.designer.cs">
+      <DependentUpon>UnitNewEdit.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\FBA\UserDelete.aspx.cs">
+      <DependentUpon>UserDelete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\FBA\UserDelete.aspx.designer.cs">
+      <DependentUpon>UserDelete.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\FBA\UserEdit.aspx.cs">
+      <DependentUpon>UserEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\FBA\UserEdit.aspx.designer.cs">
+      <DependentUpon>UserEdit.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\FBA\UserNew.aspx.cs">
+      <DependentUpon>UserNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\FBA\UserNew.aspx.designer.cs">
+      <DependentUpon>UserNew.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\FBA\UserResetPassword.aspx.cs">
+      <DependentUpon>UserResetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\FBA\UserResetPassword.aspx.designer.cs">
+      <DependentUpon>UserResetPassword.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\FBA\UsersDisp.aspx.cs">
+      <DependentUpon>UsersDisp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\FBA\UsersDisp.aspx.designer.cs">
+      <DependentUpon>UsersDisp.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StateInfoObj.cs" />
+    <Compile Include="UI\wpControl_PHKPI\wpControl_PHKPI.cs" />
+    <Compile Include="UI\wpControl_PHKPI\wpControl_PHKPIUserControl.ascx.cs">
+      <DependentUpon>wpControl_PHKPIUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\wpControl_PHKPI\wpControl_PHKPIUserControl.ascx.designer.cs">
+      <DependentUpon>wpControl_PHKPIUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\wpControl_PHTS\wpControl_PHTS.cs" />
+    <Compile Include="UI\wpControl_PHTS\wpControl_PHTSUserControl.ascx.cs">
+      <DependentUpon>wpControl_PHTSUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\wpControl_PHTS\wpControl_PHTSUserControl.ascx.designer.cs">
+      <DependentUpon>wpControl_PHTSUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Content Include="FBAMenus\Elements.xml" />
+    <Content Include="Features\Feature2\Feature2.Template.xml">
+      <DependentUpon>Feature2.feature</DependentUpon>
+    </Content>
+    <Content Include="Layouts\BTS.SP.KPI\app.js" />
+    <Content Include="Layouts\BTS.SP.KPI\controllers\auth\auth-controller.js" />
+    <Content Include="Layouts\BTS.SP.KPI\controllers\auth\loginController.js" />
+    <Content Include="Layouts\BTS.SP.KPI\controllers\dashboard\dashboard_ctrl.js" />
+    <Content Include="Layouts\BTS.SP.KPI\controllers\dashboard\dashboard_pha_ctrl.js" />
+    <Content Include="Layouts\BTS.SP.KPI\controllers\dashboard\dashboard_pha_list_ctrl.js" />
+    <Content Include="Layouts\BTS.SP.KPI\controllers\dashboard\dashboard_pht_ctrl.js" />
+    <Content Include="Layouts\BTS.SP.KPI\controllers\htdm\dmchucvu_ctrl.js" />
+    <Content Include="Layouts\BTS.SP.KPI\controllers\htdm\dmdbhc.js" />
+    <Content Include="Layouts\BTS.SP.KPI\controllers\layouts\header-controller.js" />
+    <Content Include="Layouts\BTS.SP.KPI\controllers\layouts\home-controller.js" />
+    <Content Include="Layouts\BTS.SP.KPI\controllers\layouts\layout-controller.js" />
+    <Content Include="Layouts\BTS.SP.KPI\lib\angular-chart.min.js" />
+    <Content Include="Layouts\BTS.SP.KPI\lib\angular-local-storage.min.js" />
+    <Content Include="Layouts\BTS.SP.KPI\lib\angular-ui-router.min.js" />
+    <Content Include="Layouts\BTS.SP.KPI\lib\angular.min.js" />
+    <Content Include="Layouts\BTS.SP.KPI\lib\Chart.min.js" />
+    <Content Include="Layouts\BTS.SP.KPI\lib\jquery.min.js" />
+    <Content Include="Layouts\BTS.SP.KPI\lib\ocLazyLoad.require.js" />
+    <Content Include="Layouts\BTS.SP.KPI\lib\ui-bootstrap-tpls-1.3.3.js" />
+    <Content Include="Layouts\BTS.SP.KPI\lib\ui-bootstrap-tpls-2.5.0.min.js" />
+    <Content Include="Layouts\BTS.SP.KPI\main.js" />
+    <Content Include="Layouts\BTS.SP.KPI\services\tempDataService .js" />
+    <Content Include="Layouts\BTS.SP.KPI\services\authService.js" />
+    <Content Include="Layouts\BTS.SP.KPI\services\configService.js" />
+    <Content Include="Layouts\BTS.SP.KPI\services\interceptorService.js" />
+    <Content Include="Layouts\BTS.SP.KPI\states\dashboard.js" />
+    <Content Include="Layouts\BTS.SP.KPI\states\htdm.js" />
+    <Content Include="Layouts\BTS.SP.KPI\styles\imgs\avatar_2x.png" />
+    <Content Include="Layouts\BTS.SP.KPI\styles\imgs\dautu.jpg" />
+    <Content Include="Layouts\BTS.SP.KPI\styles\imgs\KPI.jpg" />
+    <Content Include="Layouts\BTS.SP.KPI\styles\imgs\logo.png" />
+    <Content Include="Layouts\BTS.SP.KPI\styles\imgs\PHA.jpg" />
+    <Content Include="Layouts\BTS.SP.KPI\styles\imgs\PHB.jpg" />
+    <Content Include="Layouts\BTS.SP.KPI\styles\imgs\PHC.jpg" />
+    <Content Include="Layouts\BTS.SP.KPI\styles\imgs\PHD.jpg" />
+    <Content Include="Layouts\BTS.SP.KPI\styles\imgs\PHG.jpg" />
+    <Content Include="Layouts\BTS.SP.KPI\styles\imgs\PHT.jpg" />
+    <Content Include="Layouts\BTS.SP.KPI\styles\imgs\PH_CNTT.jpg" />
+    <Content Include="Layouts\BTS.SP.KPI\styles\imgs\thanhtra.jpg" />
+    <Content Include="Layouts\BTS.SP.KPI\styles\ng-table.min.css" />
+    <Content Include="Layouts\BTS.SP.KPI\styles\style.css" />
+    <Content Include="Layouts\BTS.SP.KPI\views\auth\login.html" />
+    <Content Include="Layouts\BTS.SP.KPI\views\dashboard\index.html" />
+    <Content Include="Layouts\BTS.SP.KPI\views\dashboard\pha\detail\excel.html" />
+    <Content Include="Layouts\BTS.SP.KPI\views\dashboard\pha\detail\tongchi.html" />
+    <Content Include="Layouts\BTS.SP.KPI\views\dashboard\pha\detail\tongthunsdp.html" />
+    <Content Include="Layouts\BTS.SP.KPI\views\dashboard\pha\detail\tongthunsnn.html" />
+    <Content Include="Layouts\BTS.SP.KPI\views\dashboard\pha\index.html" />
+    <Content Include="Layouts\BTS.SP.KPI\views\dashboard\pha\list.html" />
+    <Content Include="Layouts\BTS.SP.KPI\views\dashboard\phb\phb.html" />
+    <Content Include="Layouts\BTS.SP.KPI\views\dashboard\pht\index.html" />
+    <Content Include="Layouts\BTS.SP.KPI\views\htdm\dmchucvu\index.html" />
+    <Content Include="Layouts\BTS.SP.KPI\views\layouts\footer.html" />
+    <Content Include="Layouts\BTS.SP.KPI\views\layouts\header.html" />
+    <Content Include="Layouts\BTS.SP.KPI\views\layouts\home.html" />
+    <Content Include="Layouts\BTS.SP.KPI\views\layouts\root.html" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\controllers\htdm\dm_chitieu_baocao_controller.js" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\states\htdm.js" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\styles\css\font-awesome.min.css" />
+    <Compile Include="Layouts\Message.cs" />
+    <Compile Include="Layouts\UploadedFile.cs" />
+    <Compile Include="Layouts\UploadFile.ashx.cs">
+      <DependentUpon>UploadFile.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\wpControl\wpControl.cs" />
+    <Compile Include="UI\wpControl\wpControlUserControl.ascx.cs">
+      <DependentUpon>wpControlUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\wpControl\wpControlUserControl.ascx.designer.cs">
+      <DependentUpon>wpControlUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\wpControl_PHA\wpControl_PHA.cs" />
+    <Compile Include="UI\wpControl_PHA\wpControl_PHAUserControl.ascx.cs">
+      <DependentUpon>wpControl_PHAUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\wpControl_PHA\wpControl_PHAUserControl.ascx.designer.cs">
+      <DependentUpon>wpControl_PHAUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\wpControl_PHB\wpControl_PHB.cs" />
+    <Compile Include="UI\wpControl_PHB\wpControl_PHBUserControl.ascx.cs">
+      <DependentUpon>wpControl_PHBUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\wpControl_PHB\wpControl_PHBUserControl.ascx.designer.cs">
+      <DependentUpon>wpControl_PHBUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\wpControl_PHC\wpControl_PHC.cs" />
+    <Compile Include="UI\wpControl_PHC\wpControl_PHCUserControl.ascx.cs">
+      <DependentUpon>wpControl_PHCUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\wpControl_PHC\wpControl_PHCUserControl.ascx.designer.cs">
+      <DependentUpon>wpControl_PHCUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\wpControl_PHD\wpControl_PHD.cs" />
+    <Compile Include="UI\wpControl_PHD\wpControl_PHDUserControl.ascx.cs">
+      <DependentUpon>wpControl_PHDUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\wpControl_PHD\wpControl_PHDUserControl.ascx.designer.cs">
+      <DependentUpon>wpControl_PHDUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Content Include="Layouts\FBA\MenusNewEdit.aspx" />
+    <Content Include="Layouts\FBA\UnitDisp.aspx" />
+    <Content Include="Layouts\FBA\UnitNewEdit.aspx" />
+    <Content Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </Content>
+    <Content Include="UI\wpControl_PHKPI\Elements.xml" />
+    <Content Include="UI\wpControl_PHKPI\wpControl_PHKPIUserControl.ascx" />
+    <Content Include="UI\wpControl_PHTS\Elements.xml" />
+    <Content Include="UI\wpControl_PHTS\wpControl_PHTSUserControl.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Layouts\BTS.SP.STC.PHD\app.js" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\config\config.js" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\controllers\auth\auth-controller.js" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\controllers\layouts\header-controller.js" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\controllers\layouts\home-controller.js" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\controllers\layouts\layout-controller.js" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\lib\bootstrap.min.js" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\lib\ui-bootstrap-tpls-1.3.3.js" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\styles\css\bootstrap.min.css" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\styles\css\ng-table.min.css" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\filters\common.js" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\lib\angular-animate.min.js" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\lib\angular-cache.min.js" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\lib\angular-filter.min.js" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\lib\angular-local-storage.min.js" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\lib\angular-resource.min.js" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\lib\angular-ui-router.min.js" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\lib\angular.min.js" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\lib\jquery.min.js" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\lib\ocLazyLoad.require.js" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\lib\require.js" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\main.js" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\services\configService.js" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\services\interceptorService.js" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\services\tempDataService.js" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\styles\css\style.css" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\styles\imgs\logo.png" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\utils\loading-bar\loading-bar.min.css" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\utils\loading-bar\loading-bar.min.js" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\utils\ng-notify\ng-notify.min.css" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\utils\ng-notify\ng-notify.min.js" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\utils\ng-table.min.js" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\utils\smart-table.min.js" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\utils\tree\template-li.html" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\utils\tree\template-ul.html" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\views\auth\login.html" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\views\htdm\dm_chitieu_baocao\index.html" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\views\layouts\footer.html" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\views\layouts\header.html" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\views\layouts\home.html" />
+    <Content Include="Layouts\BTS.SP.STC.PHD\views\layouts\layout.html" />
+    <Content Include="Layouts\FBA\MenusDisp.aspx" />
+    <Content Include="Layouts\FBA\RoleNew.aspx" />
+    <Content Include="Layouts\FBA\RolesDisp.aspx" />
+    <Content Include="Layouts\FBA\Script.txt" />
+    <Content Include="Layouts\FBA\SPLOGIN\DesignFiles\QuocHuyLogo.png" />
+    <Content Include="Layouts\FBA\SPLOGIN\DesignFiles\signin.css" />
+    <Content Include="Layouts\FBA\SPLOGIN\LOGIN.aspx" />
+    <Content Include="Layouts\FBA\UserDelete.aspx" />
+    <Content Include="Layouts\FBA\UserEdit.aspx" />
+    <Content Include="Layouts\FBA\UserNew.aspx" />
+    <Content Include="Layouts\FBA\UserResetPassword.aspx" />
+    <Content Include="Layouts\FBA\UsersDisp.aspx" />
+    <Content Include="Layouts\stc\css\angular-multi-select-tree-0.1.0.css" />
+    <Content Include="Layouts\stc\css\angular-ui-tree.css" />
+    <Content Include="Layouts\stc\css\angular-ui-tree.min.css" />
+    <Content Include="Layouts\stc\css\blueopal\loading.gif" />
+    <Content Include="Layouts\stc\css\blueopal\sprite.png" />
+    <Content Include="Layouts\stc\css\bootstrap.css" />
+    <Content Include="Layouts\stc\css\dx.common.css" />
+    <Content Include="Layouts\stc\css\dx.light.css" />
+    <Content Include="Layouts\stc\css\ejthemes\bootstrap-theme\ej.theme.min.css" />
+    <Content Include="Layouts\stc\css\ejthemes\bootstrap-theme\ej.web.all.min.css" />
+    <Content Include="Layouts\stc\css\ejthemes\bootstrap-theme\images\ajax-loader.gif" />
+    <Content Include="Layouts\stc\css\ejthemes\bootstrap-theme\images\checkedtick.png" />
+    <Content Include="Layouts\stc\css\ejthemes\bootstrap-theme\images\drop-sibling.png" />
+    <Content Include="Layouts\stc\css\ejthemes\bootstrap-theme\images\rating-star.png" />
+    <Content Include="Layouts\stc\css\ejthemes\bootstrap-theme\images\rotator-icon.png" />
+    <Content Include="Layouts\stc\css\ejthemes\bootstrap-theme\images\slider-tick.png" />
+    <Content Include="Layouts\stc\css\ejthemes\bootstrap-theme\images\waitingpopup.gif" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\colorpicker_dark.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\colorpicker_light.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\colorpicker_light_material.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\diagram_context.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\diagram_context1.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\documenteditor\cellbottomalignment.svg" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\documenteditor\cellcenteralignment.svg" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\documenteditor\celltopalignment.svg" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\documenteditor\tablecenteralignment.svg" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\documenteditor\tableleftalignment.svg" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\documenteditor\tablerightalignment.svg" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\ejicons.svg" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\grid\dropPointer.cur" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\kanban\nouser.svg" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\maps\Arrow_Bootom.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\maps\Arrow_Bootom_hover.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\maps\Arrow_Left.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\maps\Arrow_Left_hover.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\maps\Arrow_Right.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\maps\Arrow_Right_hover.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\maps\Arrow_Top.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\maps\Arrow_Top_hover.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\maps\Bar.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\maps\Home.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\maps\Home_hover.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\maps\Home_hover_lime.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\maps\Home_hover_saffron.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\maps\Home_lime.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\maps\Home_saffron.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\maps\Navicatior.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\maps\Zoom-In.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\maps\Zoom-In_hover.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\maps\Zoom-out.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\maps\Zoom-out_hover.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\olapkpi\circle.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\olapkpi\diamond.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\olapkpi\down-arrow.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\olapkpi\green.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\olapkpi\red.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\olapkpi\right-arrow.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\olapkpi\three-color.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\olapkpi\triangle.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\olapkpi\up-arrow.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\pdfviewer\preloader-pdfviewer.gif" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\radialmenu\back.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\radialmenu\radial.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\reports\down.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\reports\minus.gif" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\reports\minus.jpg" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\reports\minus.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\reports\plus.gif" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\reports\plus.jpg" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\reports\plus.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\reports\up.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\reports\updown.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\ribbon\Blank.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\ribbon\Browser.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\ribbon\Check.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\ribbon\Diet.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\ribbon\ejrbnicons.svg" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\ribbon\gallery.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\ribbon\Gantt.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\ribbon\homegallery.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\ribbon\paste.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\ribbon\Project.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\ribbon\Protect.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\ribbon\Sales.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\ribbon\style.gallery.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\ribbon\User.jpg" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\ribbon\Version.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\Rotate.cur" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\spellcheck\highlight.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\spreadsheet\blank.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\spreadsheet\chart-sprites.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\spreadsheet\charttab-sprites.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\spreadsheet\charttype-sprites.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\spreadsheet\down_arrow_dark.cur" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\spreadsheet\down_arrow_light.cur" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\spreadsheet\draw_border_dark.cur" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\spreadsheet\draw_border_grid_dark.cur" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\spreadsheet\draw_border_grid_light.cur" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\spreadsheet\draw_border_light.cur" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\spreadsheet\ejxlicons.svg" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\spreadsheet\format_painter_dark.cur" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\spreadsheet\format_painter_light.cur" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\spreadsheet\right_arrow_dark.cur" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\spreadsheet\right_arrow_light.cur" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\spreadsheet\sprites.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\tools\drop-sibling-rtl.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\tools\file_icons.png" />
+    <Content Include="Layouts\stc\css\ejthemes\common-images\tools\icons.svg" />
+    <Content Include="Layouts\stc\css\ejthemes\default-theme\images\waitingpopup.gif" />
+    <Content Include="Layouts\stc\css\ejthemes\ej.widgets.core.bootstrap.min.css" />
+    <Content Include="Layouts\stc\css\ejthemes\ej.widgets.core.office-365.min.css" />
+    <Content Include="Layouts\stc\css\ejthemes\office-365\ej.theme.min.css" />
+    <Content Include="Layouts\stc\css\ejthemes\office-365\ej.web.all.min.css" />
+    <Content Include="Layouts\stc\css\ejthemes\office-365\icons\ejicons.svg" />
+    <Content Include="Layouts\stc\css\ejthemes\office-365\images\ajax-loader.gif" />
+    <Content Include="Layouts\stc\css\ejthemes\office-365\images\checkedtick.png" />
+    <Content Include="Layouts\stc\css\ejthemes\office-365\images\drop-sibling.png" />
+    <Content Include="Layouts\stc\css\ejthemes\office-365\images\Rating_Active.png" />
+    <Content Include="Layouts\stc\css\ejthemes\office-365\images\Rating_Clear.png" />
+    <Content Include="Layouts\stc\css\ejthemes\office-365\images\Rating_Default.png" />
+    <Content Include="Layouts\stc\css\ejthemes\office-365\images\rotator-icon.png" />
+    <Content Include="Layouts\stc\css\ejthemes\office-365\images\slider-tick.png" />
+    <Content Include="Layouts\stc\css\ejthemes\office-365\images\waitingpopup.gif" />
+    <Content Include="Layouts\stc\css\ejthemes\responsive-css\ej.responsive.css" />
+    <Content Include="Layouts\stc\css\ejthemes\responsive-css\ejgrid.responsive.css" />
+    <Content Include="Layouts\stc\css\ejthemes\ribbon-css\ej.icons.css" />
+    <Content Include="Layouts\stc\css\kendo.blueopal.min.css" />
+    <Content Include="Layouts\stc\css\kendo.common.min.css" />
+    <Content Include="Layouts\stc\css\kendo.common.min_excelviewe.css" />
+    <Content Include="Layouts\stc\css\kendo.mobile.all.min.css" />
+    <Content Include="Layouts\stc\css\kendo.rtl.min.css" />
+    <Content Include="Layouts\stc\css\kendo.silver.min.css" />
+    <Content Include="Layouts\stc\css\loadingw.css" />
+    <Content Include="Layouts\stc\css\ng-tags-input.bootstrap.min.css" />
+    <Content Include="Layouts\stc\css\ng-tags-input.min.css" />
+    <Content Include="Layouts\stc\css\signin.css" />
+    <Content Include="Layouts\stc\css\Silver\loading.gif" />
+    <Content Include="Layouts\stc\css\Silver\sprite.png" />
+    <Content Include="Layouts\stc\css\style.css" />
+    <Content Include="Layouts\stc\imgs\bACnINHMAP-01.jpg" />
+    <Content Include="Layouts\stc\imgs\loca.png" />
+    <Content Include="Layouts\stc\imgs\logo.png" />
+    <Content Include="Layouts\stc\imgs\LOGOBT.png" />
+    <Content Include="UI\wpControl_PHA\Elements.xml" />
+    <Content Include="UI\wpControl_PHA\wpControl_PHAUserControl.ascx" />
+    <Content Include="UI\wpControl_PHB\Elements.xml" />
+    <Content Include="UI\wpControl_PHB\wpControl_PHBUserControl.ascx" />
+    <Content Include="UI\wpControl_PHC\Elements.xml" />
+    <Content Include="UI\wpControl_PHC\wpControl_PHCUserControl.ascx" />
+    <Content Include="UI\wpControl_PHD\Elements.xml" />
+    <Content Include="UI\wpControl_PHD\wpControl_PHDUserControl.ascx" />
+    <None Include="App.config" />
+    <None Include="Database\WSS_Contents_8787_V9_15052018.bak" />
+    <None Include="Database\STC_Content_05112017.rar" />
+    <None Include="Database\WSS_Contents_8787_V8_12012018.bak" />
+    <None Include="Database\WSS_Content_8787_v6.rar" />
+    <None Include="Database\WSS_Content_8787_V7.bak" />
+    <None Include="FBAMenus\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{cbdf03bd-5445-42a5-a8b1-0000c0066cfd}</SharePointProjectItemId>
+    </None>
+    <None Include="Features\Feature1\Feature1.feature">
+      <FeatureId>{aacd47b0-4815-44bf-b97e-0033048bd9f5}</FeatureId>
+    </None>
+    <None Include="Features\Feature2\Feature2.feature">
+      <FeatureId>{7140a902-eb42-4d19-a0ce-b2643ba3ecbd}</FeatureId>
+    </None>
+    <None Include="key.snk" />
+    <None Include="Layouts\BTS.SP.STC.PHD\styles\bank_standard.master" />
+    <None Include="Layouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{27c3bdc3-1b82-4dd6-8807-a2e806f89fa4}</SharePointProjectItemId>
+    </None>
+    <Content Include="Database\Package\PackageBody.sql" />
+    <Content Include="Database\Package\PackageSTC_PA_SYS.sql" />
+    <Content Include="Layouts\UploadFile.ashx" />
+    <None Include="Layouts\stc\css\ejthemes\bootstrap-theme\ej.theme.less" />
+    <None Include="Layouts\stc\css\ejthemes\common-images\ejicons.eot" />
+    <None Include="Layouts\stc\css\ejthemes\common-images\ejicons.ttf" />
+    <None Include="Layouts\stc\css\ejthemes\common-images\ejicons.woff" />
+    <None Include="Layouts\stc\css\ejthemes\common-images\ribbon\ejrbnicons.eot" />
+    <None Include="Layouts\stc\css\ejthemes\common-images\ribbon\ejrbnicons.ttf" />
+    <None Include="Layouts\stc\css\ejthemes\common-images\ribbon\ejrbnicons.woff" />
+    <None Include="Layouts\stc\css\ejthemes\common-images\spreadsheet\ejxlicons.eot" />
+    <None Include="Layouts\stc\css\ejthemes\common-images\spreadsheet\ejxlicons.ttf" />
+    <None Include="Layouts\stc\css\ejthemes\common-images\spreadsheet\ejxlicons.woff" />
+    <None Include="Layouts\stc\css\ejthemes\common-images\tools\icons.eot" />
+    <None Include="Layouts\stc\css\ejthemes\common-images\tools\icons.ttf" />
+    <None Include="Layouts\stc\css\ejthemes\common-images\tools\icons.woff" />
+    <None Include="Layouts\stc\css\ejthemes\office-365\ej.theme.less" />
+    <None Include="Layouts\stc\css\ejthemes\office-365\icons\ejicons.eot" />
+    <None Include="Layouts\stc\css\ejthemes\office-365\icons\ejicons.ttf" />
+    <None Include="Layouts\stc\css\ejthemes\office-365\icons\ejicons.woff" />
+    <None Include="Layouts\stc\css\fonts\glyphs\KendoUIGlyphs.ttf" />
+    <None Include="Layouts\stc\css\icons\dxicons.ttf" />
+    <None Include="Layouts\stc\css\icons\dxicons.woff" />
+    <None Include="Layouts\stc\css\icons\dxiconsios.ttf" />
+    <None Include="Layouts\stc\css\icons\dxiconsios.woff" />
+    <None Include="Layouts\stc\css\images\kendoui.woff" />
+    <None Include="packages.config" />
+    <None Include="Package\Package.package">
+      <PackageId>{b86e2c5b-9c2f-4ac1-8de9-6c0016c56d09}</PackageId>
+    </None>
+    <None Include="UI\wpControl\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{96795884-9b76-4a8d-85db-b42970f1f36f}</SharePointProjectItemId>
+    </None>
+    <None Include="UI\wpControl\wpControl.webpart" />
+    <None Include="UI\wpControl_PHA\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{15d5cd36-da0c-43ac-9d95-af16fc065dd0}</SharePointProjectItemId>
+    </None>
+    <None Include="UI\wpControl_PHA\wpControl_PHA.webpart" />
+    <None Include="UI\wpControl_PHB\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{7454d757-0050-4049-8d78-374754f0345a}</SharePointProjectItemId>
+    </None>
+    <None Include="UI\wpControl_PHB\wpControl_PHB.webpart" />
+    <None Include="UI\wpControl_PHC\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e24be7b6-47f3-4f7c-8296-defba711fe23}</SharePointProjectItemId>
+    </None>
+    <None Include="UI\wpControl_PHC\wpControl_PHC.webpart" />
+    <None Include="UI\wpControl_PHD\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{45de9e58-65ba-49a3-955b-b41368416981}</SharePointProjectItemId>
+    </None>
+    <None Include="UI\wpControl_PHD\wpControl_PHD.webpart" />
+    <None Include="UI\wpControl_PHKPI\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e4890313-769c-4d30-9afd-89cc5978f6a7}</SharePointProjectItemId>
+    </None>
+    <None Include="UI\wpControl_PHKPI\wpControl_PHKPI.webpart" />
+    <None Include="UI\wpControl_PHTS\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{19a62b80-3ad6-4eb6-ac91-704621a216ba}</SharePointProjectItemId>
+    </None>
+    <None Include="UI\wpControl_PHTS\wpControl_PHTS.webpart" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Layouts\BTS.SP.KPI\views\dashboard\phc\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Features\Feature1\Feature1.Template.xml">
+      <DependentUpon>Feature1.feature</DependentUpon>
+    </Content>
+    <Content Include="Layouts\Upload.html" />
+    <Content Include="UI\wpControl\Elements.xml" />
+    <Content Include="UI\wpControl\wpControlUserControl.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <TokenReplacementFileExtensions>ashx</TokenReplacementFileExtensions>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+  <ProjectExtensions />
+</Project>

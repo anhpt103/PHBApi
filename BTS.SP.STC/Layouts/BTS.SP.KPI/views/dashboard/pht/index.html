@@ -1,0 +1,126 @@
+﻿<style>
+    .thuchi {
+        padding-top: 10px;
+        color: #fff;
+        text-align: center;
+    }
+
+        .thuchi .text-label {
+            font-size: 18px;
+        }
+
+    .big-number {
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .btn-synch-data {
+        font-weight: bolder;
+        margin-top: 21px;
+        background: #337ab7;
+        text-decoration: none;
+    }
+
+        .btn-synch-data:hover {
+            background: #286090;
+        }
+
+    .location {
+        position: absolute;
+        width: 37px;
+        height: 60px;
+        background: url("../../_layouts/15/stc/imgs/loca.png") no-repeat;
+        transform: translate(-50%,-160%);
+        opacity: 0;
+        transition: 0.3s;
+        pointer-events: none;
+    }
+
+        .location.active {
+            opacity: 1;
+            transform: translate(-50%,-100%);
+        }
+</style>
+
+
+<h2 style="font-weight:bolder;margin:25px 0 0 25px">TÌNH HÌNH  <span style="color:#d13342">THU CHI</span> TOÀN TỈNH</h2>
+
+
+
+<!--<p>{{data}}</p>-->
+<div class="row" style="margin: 10px 0px;">
+    <div class="col-md-1">
+        <div class="col-md-12">
+            <div class="text-label">
+                <label>Từ tháng</label>
+            </div>
+            <select class="form-control" ng-model="target.FROM_THANG" ng-options="opt as opt for opt in fromTHANG"></select>
+        </div>
+    </div>
+    <div class="col-md-1">
+        <div class="col-md-12">
+            <div class="text-label">
+                <label>Đến tháng</label>
+            </div>
+            <select class="form-control" ng-model="target.TO_THANG" ng-init="target.TO_THANG = 12" ng-change="changThang(target.TO_THANG)" ng-options="opt as opt for opt in toTHANG"></select>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="col-md-12">
+            <div class="text-label">
+                <label>Năm hạch toán</label>
+            </div>
+            <select class="form-control col-md-12" ng-model="target.NAM" ng-init="target.NAM = currentYear" ng-change="changNam(target.NAM)" ng-options="opt as opt for opt in listNAM"></select>
+
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="col-md-12">
+            <div class="text-label">
+                <label>Địa Bàn</label>
+            </div>
+            <select class="form-control col-md-12" ng-model="target.DIA_BAN" ng-init="target.DIA_BAN = '15'" ng-options="opt.mA_DBHC as opt.teN_DBHC for opt in MA_DBHC"></select>
+            <a class="btn btn-primary col-md-12 btn-synch-data" ng-click="Updatedata()"><i class="fa fa-refresh" aria-hidden="true" style="padding:5px 5px 0 0"></i>Cập nhật dữ liệu</a>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="text-label">
+                    <label></label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label style="float:right">Đơn vị tính: Triệu đồng</label>
+            </div>
+            <div class="col-md-4" ng-click="DetailTTNSNN()">
+                <div class="col-md-12 thuchi" style="background-color:#1c86e2 ">
+
+                    <div class="text-label">
+                        <label ng-click="DetailTTNSNN()">Tổng Thu NSNN</label>
+                    </div>
+                    <p class="big-number">{{tongThuNSNN | number:2}}</p>
+
+
+                </div>
+            </div>
+            <div class="col-md-4" ng-click="DetailTTNSDP()">
+                <div class="col-md-12 thuchi" style="background-color:#16a87b ">
+                    <div class="text-label">
+                        <label>Tổng Thu NSDD</label>
+                    </div>
+                    <p class="big-number">{{tongThuNSDP | number:2}}</p>
+
+                </div>
+            </div>
+            <div class="col-md-4" ng-click="DetailTC()">
+                <div class="col-md-12 thuchi" style="background-color:#d13342">
+                    <div class="text-label">
+                        <label>Tổng chi</label>
+                    </div>
+                    <p class="big-number">{{tongChi | number:2}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -6,7 +6,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 using BTS.SP.API.ENTITY;
-using Oracle.ManagedDataAccess.Types;
 
 namespace BTS.SP.API.ENTITY.Models.Dm.PHA
 {
